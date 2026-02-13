@@ -1,0 +1,387 @@
+---
+// Carousel – shows 5 images at a time on desktop, scrolls to reveal the rest
+---
+
+<div class="carousel-root" id="art-carousel">
+	<div class="carousel-frame">
+		<!-- Prev arrow (← on RIGHT side in RTL) -->
+		<button class="carousel-btn carousel-btn--prev" id="btn-prev" aria-label="תמונות קודמות">
+			<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M15 19l-7-7 7-7"/></svg>
+		</button>
+
+		<!-- Viewport: shows exactly 5 images -->
+		<div class="carousel-viewport" id="carousel-viewport">
+			<div class="carousel-track" id="carousel-track">
+				<!-- slides injected by JS -->
+			</div>
+		</div>
+
+		<!-- Next arrow (→ on LEFT side in RTL) -->
+		<button class="carousel-btn carousel-btn--next" id="btn-next" aria-label="תמונות הבאות">
+			<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"/></svg>
+		</button>
+	</div>
+
+	<!-- Dots -->
+	<div class="carousel-dots" id="carousel-dots"></div>
+
+	<!-- Lightbox -->
+	<div class="carousel-lightbox" id="carousel-lightbox">
+		<button class="lb-close" id="lb-close" aria-label="סגור">
+			<svg fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/></svg>
+		</button>
+		<img class="lb-img" id="lb-img" src="" alt="" />
+	</div>
+</div>
+
+<style>
+	/* ─── Root ─── */
+	.carousel-root { width: 100%; }
+
+	/* ─── Frame ─── */
+	.carousel-frame {
+		position: relative;
+		width: 100%;
+	}
+
+	/* ─── Viewport ─── */
+	.carousel-viewport {
+		width: 100%;
+		overflow: hidden;
+		border-radius: 0.75rem;
+		direction: ltr;
+	}
+
+	/* ─── Track ─── */
+	.carousel-track {
+		display: flex;
+		gap: 0.75rem;
+		transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+		will-change: transform;
+		width: fit-content;
+	}
+
+	/* ─── Slide: 5 per row on desktop ─── */
+	.carousel-slide {
+		/* Width set dynamically by JavaScript */
+		flex: 0 0 auto;
+		aspect-ratio: 1;
+		overflow: hidden;
+		border-radius: 0.5rem;
+	}
+
+	.carousel-slide img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		display: block;
+		cursor: pointer;
+		transition: transform 0.3s ease, box-shadow 0.3s ease;
+	}
+	.carousel-slide img:hover {
+		transform: scale(1.05);
+	}
+
+	/* ─── Arrows ─── */
+	.carousel-btn {
+		position: absolute;
+		top: 50%;
+		transform: translateY(-50%);
+		z-index: 10;
+		width: 3rem;
+		height: 3rem;
+		border-radius: 50%;
+		border: 2px solid rgba(255, 255, 255, 0.45);
+		background: rgba(109, 46, 70, 0.85);
+		color: #fff;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		box-shadow: 0 4px 14px rgba(0, 0, 0, 0.28);
+		backdrop-filter: blur(6px);
+		transition: all 0.25s ease;
+	}
+	.carousel-btn svg { width: 1.25rem; height: 1.25rem; }
+	.carousel-btn:hover {
+		background: rgba(109, 46, 70, 1);
+		transform: translateY(-50%) scale(1.12);
+		box-shadow: 0 6px 20px rgba(109, 46, 70, 0.55);
+	}
+
+	/* RTL: ← on LEFT, → on RIGHT */
+	.carousel-btn--prev { left: 0.75rem; }
+	.carousel-btn--next { right: 0.75rem; }
+
+	@media (min-width: 768px) {
+		.carousel-btn { width: 3.5rem; height: 3.5rem; }
+		.carousel-btn svg { width: 1.5rem; height: 1.5rem; }
+	}
+
+	/* ─── Dots ─── */
+	.carousel-dots {
+		display: flex;
+		justify-content: center;
+		gap: 0.5rem;
+		margin-top: 1.25rem;
+		direction: ltr;
+	}
+	.c-dot {
+		width: 10px; height: 10px;
+		border-radius: 50%;
+		background: rgba(109, 46, 70, 0.25);
+		border: none; padding: 0;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+	.c-dot:hover { background: rgba(109, 46, 70, 0.5); }
+	.c-dot.active {
+		background: var(--burgundy);
+		width: 28px;
+		border-radius: 5px;
+	}
+
+	/* ─── Lightbox ─── */
+	.carousel-lightbox {
+		display: none;
+		position: fixed;
+		inset: 0;
+		z-index: 1000;
+		background: rgba(0, 0, 0, 0.92);
+		align-items: center;
+		justify-content: center;
+		padding: 2rem;
+	}
+	.carousel-lightbox.open { display: flex; }
+	.lb-img {
+		max-width: 92vw;
+		max-height: 90vh;
+		object-fit: contain;
+		border-radius: 0.5rem;
+		box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+		animation: lbZoom 0.3s ease;
+	}
+	@keyframes lbZoom {
+		from { opacity: 0; transform: scale(0.92); }
+		to   { opacity: 1; transform: scale(1); }
+	}
+	.lb-close {
+		position: absolute;
+		top: 1.5rem; left: 1.5rem;
+		width: 3rem; height: 3rem;
+		border-radius: 50%;
+		border: 2px solid rgba(255, 255, 255, 0.3);
+		background: rgba(255, 255, 255, 0.1);
+		color: #fff;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		backdrop-filter: blur(8px);
+		transition: all 0.3s ease;
+		z-index: 1001;
+	}
+	.lb-close svg { width: 1.5rem; height: 1.5rem; }
+	.lb-close:hover {
+		background: rgba(255, 255, 255, 0.25);
+		transform: rotate(90deg) scale(1.1);
+	}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', async () => {
+	const track    = document.getElementById('carousel-track') as HTMLElement | null;
+	const viewport = document.getElementById('carousel-viewport') as HTMLElement | null;
+	const dotsWrap = document.getElementById('carousel-dots') as HTMLElement | null;
+	const btnPrev  = document.getElementById('btn-prev') as HTMLButtonElement | null;
+	const btnNext  = document.getElementById('btn-next') as HTMLButtonElement | null;
+	const lightbox = document.getElementById('carousel-lightbox') as HTMLElement | null;
+	const lbImg    = document.getElementById('lb-img') as HTMLImageElement | null;
+	const lbClose  = document.getElementById('lb-close') as HTMLElement | null;
+
+	if (!track || !viewport || !dotsWrap) return;
+
+	/* ── Load images ── */
+	let images: string[] = [];
+	try {
+		const res = await fetch('/api/gallery-images.json');
+		images = await res.json();
+	} catch { /* empty */ }
+
+	if (!images.length) {
+		track.innerHTML = '<p style="padding:2rem;text-align:center;color:var(--charcoal)">אין תמונות להצגה</p>';
+		return;
+	}
+
+	/* ── Build slides ── */
+	track.innerHTML = '';
+	images.forEach((src, i) => {
+		const slide = document.createElement('div');
+		slide.className = 'carousel-slide';
+
+		const img = document.createElement('img');
+		img.src = src;
+		img.alt = `עבודה מטיפול באמנות ${i + 1}`;
+		img.loading = i < 5 ? 'eager' : 'lazy';
+		img.draggable = false;
+		img.addEventListener('click', () => openLightbox(src, img.alt));
+
+		slide.appendChild(img);
+		track.appendChild(slide);
+	});
+
+	/* ── Responsive: how many visible ── */
+	function getPerView(): number {
+		const w = window.innerWidth;
+		if (w >= 1024) return 5;
+		if (w >= 640)  return 3;
+		return 2;
+	}
+
+	/* ── State ── */
+	let perView = getPerView();
+	let currentIndex = 0;  // Index of first visible image (not page!)
+	let scrollStep = 2;     // How many images to scroll each click
+	let busy = false;
+
+	/* ── Dots - calculate based on scroll steps ── */
+	function buildDots() {
+		// Calculate how many dot positions we need based on scroll steps
+		const maxScrolls = Math.ceil((images.length - perView) / scrollStep) + 1;
+		dotsWrap.innerHTML = '';
+		for (let i = 0; i < maxScrolls; i++) {
+			const d = document.createElement('button');
+			const currentDot = Math.floor(currentIndex / scrollStep);
+			d.className = 'c-dot' + (i === currentDot ? ' active' : '');
+			d.setAttribute('aria-label', `מיקום ${i + 1}`);
+			d.addEventListener('click', () => goTo(i * scrollStep));
+			dotsWrap.appendChild(d);
+		}
+	}
+
+	function refreshDots() {
+		const currentDot = Math.floor(currentIndex / scrollStep);
+		dotsWrap.querySelectorAll('.c-dot').forEach((d, i) => {
+			d.classList.toggle('active', i === currentDot);
+		});
+	}
+
+	/* ── Compute pixel offset for a given index ── */
+	function getOffset(idx: number): number {
+		// Each slide is: (viewportWidth - totalGaps) / perView
+		// We shift by: imageIndex * (slideWidth + gap)
+		const vw = viewport!.offsetWidth;
+		const gap = 12; // 0.75rem ≈ 12px
+		const slideW = (vw - gap * (perView - 1)) / perView;
+		return idx * (slideW + gap);
+	}
+
+	/* ── Navigate ── */
+	function goTo(newIndex: number) {
+		if (busy) return;
+		busy = true;
+
+		// Update index
+		currentIndex = newIndex;
+		
+		// Wrap around - infinite loop
+		if (currentIndex < 0) {
+			currentIndex = images.length - perView;
+		}
+		if (currentIndex > images.length - perView) {
+			currentIndex = 0;
+		}
+
+		track.style.transform = `translateX(-${getOffset(currentIndex)}px)`;
+		refreshDots();
+
+		setTimeout(() => { busy = false; }, 550);
+	}
+
+	/* ── Arrows ── */
+	btnPrev?.addEventListener('click', () => goTo(currentIndex - scrollStep));
+	btnNext?.addEventListener('click', () => goTo(currentIndex + scrollStep));
+
+	/* ── Swipe ── */
+	let tx0 = 0;
+	viewport.addEventListener('touchstart', e => { tx0 = e.changedTouches[0].clientX; }, { passive: true });
+	viewport.addEventListener('touchend', e => {
+		const dx = e.changedTouches[0].clientX - tx0;
+		if (Math.abs(dx) > 40) {
+			dx < 0 ? goTo(currentIndex + scrollStep) : goTo(currentIndex - scrollStep);
+		}
+	}, { passive: true });
+
+	/* ── Keyboard ── */
+	document.addEventListener('keydown', e => {
+		if (lightbox?.classList.contains('open')) return;
+		if (e.key === 'ArrowLeft')  goTo(currentIndex + scrollStep);
+		if (e.key === 'ArrowRight') goTo(currentIndex - scrollStep);
+	});
+
+	/* ── Lightbox ── */
+	function openLightbox(src: string, alt: string) {
+		if (!lightbox || !lbImg) return;
+		lbImg.src = src;
+		lbImg.alt = alt;
+		lightbox.classList.add('open');
+		document.body.style.overflow = 'hidden';
+	}
+	function closeLb() {
+		lightbox?.classList.remove('open');
+		document.body.style.overflow = '';
+	}
+	lbClose?.addEventListener('click', closeLb);
+	lightbox?.addEventListener('click', e => { if (e.target === lightbox) closeLb(); });
+	document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLb(); });
+
+	/* ── Match height of target card ── */
+	function applyHeight() {
+		const ref = document.getElementById('target-height-card');
+		if (!ref || !viewport) return;
+		viewport.style.height = ref.offsetHeight + 'px';
+	}
+
+	/* ── Set slide widths dynamically ── */
+	function setSlideSizes() {
+		if (!viewport) return;
+		const vw = viewport.offsetWidth;
+		const gap = 12; // 0.75rem
+		const slideWidth = (vw - gap * (perView - 1)) / perView;
+		
+		// Apply width to all slides
+		const slides = track.querySelectorAll('.carousel-slide');
+		slides.forEach(slide => {
+			(slide as HTMLElement).style.width = `${slideWidth}px`;
+			(slide as HTMLElement).style.minWidth = `${slideWidth}px`;
+			(slide as HTMLElement).style.maxWidth = `${slideWidth}px`;
+		});
+	}
+
+	/* ── Init ── */
+	// Use requestAnimationFrame to ensure DOM is fully rendered
+	requestAnimationFrame(() => {
+		setSlideSizes();
+		applyHeight();
+		buildDots();
+		goTo(0);
+	});
+
+	/* ── Resize ── */
+	let rt: ReturnType<typeof setTimeout>;
+	window.addEventListener('resize', () => {
+		clearTimeout(rt);
+		rt = setTimeout(() => {
+			const newPv = getPerView();
+			if (newPv !== perView) {
+				perView = newPv;
+				currentIndex = 0;
+				buildDots();
+			}
+			setSlideSizes();
+			applyHeight();
+			goTo(currentIndex);
+		}, 120);
+	});
+});
+</script>

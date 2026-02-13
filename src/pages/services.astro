@@ -1,0 +1,57 @@
+---
+import Layout from '../components/Layout.astro';
+import { siteData } from '../content/site-data';
+---
+
+<Layout title="תחומי טיפול" description="תחומי טיפול באמנות ו-EMDR למבוגרים">
+	<section class="py-6 md:py-8 bg-cream-warm min-h-[85vh] md:min-h-[90vh] flex items-center">
+		<div class="container-custom w-full">
+			<div class="max-w-5xl mx-auto">
+				<div class="text-center mb-6 md:mb-8">
+					<h1 class="text-3xl md:text-4xl font-display text-burgundy mb-3 md:mb-4">
+						{siteData.services.title}
+					</h1>
+					<p class="text-base md:text-lg text-charcoal">
+						{siteData.services.audience}
+					</p>
+				</div>
+				
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-6 md:mb-8">
+					{siteData.services.treatments.map((treatment) => (
+						<div class="card-sage p-4 md:p-5">
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								{treatment}
+							</p>
+						</div>
+					))}
+				</div>
+				
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+					<a href="/emdr" class="card p-4 md:p-5 hover:shadow-lg transition-shadow">
+						<h2 class="text-xl md:text-2xl font-display text-charcoal mb-3 font-bold">
+							{siteData.services.emdr.title}
+						</h2>
+						<p class="text-sm md:text-base text-charcoal leading-relaxed mb-3">
+							{siteData.services.emdr.description}
+						</p>
+						<span class="text-burgundy font-medium text-sm md:text-base inline-flex items-center gap-1">
+							קרא עוד →
+						</span>
+					</a>
+					
+					<a href="/art-therapy" class="card p-4 md:p-5 hover:shadow-lg transition-shadow">
+						<h2 class="text-xl md:text-2xl font-display text-charcoal mb-3 font-bold">
+							{siteData.services.artTherapy.title}
+						</h2>
+						<p class="text-sm md:text-base text-charcoal leading-relaxed mb-3">
+							{siteData.services.artTherapy.description}
+						</p>
+						<span class="text-burgundy font-medium text-sm md:text-base inline-flex items-center gap-1">
+							קרא עוד →
+						</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

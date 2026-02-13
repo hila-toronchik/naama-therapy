@@ -1,0 +1,155 @@
+---
+import Layout from '../components/Layout.astro';
+import { siteData } from '../content/site-data';
+---
+
+<Layout title="EMDR" description="מהו טיפול EMDR - שיטת טיפול מבוססת מחקר לריפוי מטראומה ומצוקה נפשית">
+	<section class="py-6 md:py-8 bg-cream-warm min-h-[85vh]">
+		<div class="container-custom w-full">
+			<div class="max-w-5xl mx-auto">
+				<!-- Header -->
+				<div class="text-center mb-8 md:mb-12">
+					<h1 class="text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-3 md:mb-4">
+						מהו טיפול EMDR?
+					</h1>
+					<div class="w-16 md:w-24 h-1 bg-burgundy mx-auto rounded-full"></div>
+				</div>
+
+			<!-- מהו EMDR + למי זה מתאים + תמונה - פריסה זה לצד זה -->
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8 items-stretch">
+				<!-- שני ריבועים - משמאל -->
+				<div class="flex flex-col gap-6 md:gap-8">
+					<!-- מהו EMDR - ריבוע ראשון -->
+					<div class="card-sage p-5 md:p-6">
+						<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
+							מהי שיטת EMDR?
+						</h2>
+						<p class="text-base md:text-lg text-charcoal leading-relaxed">
+							שיטת EMDR היא גישה פסיכותרפויטית מבוססת מחקר, המאפשרת ריפוי מהיר ואפקטיבי ממצוקה נפשית ומטראומה. הטיפול מוכר על ידי ארגון הבריאות העולמי (WHO) כאחת הדרכים היעילות ביותר לעיבוד חוויות חיים מטלטלות והשבת האיזון הנפשי.
+						</p>
+					</div>
+
+					<!-- למי זה מתאים - ריבוע שני -->
+					<div class="card-sage p-5 md:p-6">
+						<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
+							למי זה מתאים?
+						</h2>
+						<p class="text-base md:text-lg text-charcoal leading-relaxed">
+							מעבר לטיפול בפוסט-טראומה (PTSD), השיטה הוכחה כמענה עוצמתי לחרדות, פוביות, אבל מורכב, פגיעות בערך העצמי ומשברי חיים. היא מתאימה לכל מי שמרגיש שאירועי העבר ממשיכים להשפיע על תפקודו, רגשותיו או מערכות היחסים שלו בהווה.
+						</p>
+					</div>
+				</div>
+
+				<!-- תמונה - מימין (בגובה של שני הריבועים) -->
+				<div class="flex items-stretch h-full">
+					<div class="w-full h-full">
+						<img
+							src="/images/emdr-healing.jpg"
+							alt="עיבוד טראומה וריפוי - תהליך של איחוי זיכרונות מפוצלים דרך טיפול EMDR"
+							class="w-full h-full rounded-xl shadow-lg object-cover"
+						/>
+					</div>
+				</div>
+			</div>
+
+			<!-- איך זה עובד - על כל רוחב הדף -->
+			<div class="card-sage p-5 md:p-6 mb-6 md:mb-8">
+				<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
+					איך זה עובד?
+				</h2>
+		
+				<div class="space-y-4 md:space-y-5">
+					<div>
+						<p class="text-base md:text-lg text-charcoal leading-relaxed mb-4">
+							ההנחה בבסיס השיטה היא שלמוח שלנו יש יכולת טבעית לרפא את עצמו. בדיוק כפי שהגוף יודע לאחות פצע פיזי, המוח יודע לעבד חוויות רגשיות.
+						</p>
+					</div>
+					
+					<div class="bg-[#d5d3d0] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+						<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
+							אז למה לפעמים אנחנו נתקעים?
+						</h3>
+						<p class="text-base md:text-lg text-charcoal leading-relaxed">
+							כשאנו עוברים אירוע מטלטל או טראומטי, המוח לעיתים "קורס" תחת העומס. במקום שהאירוע יעובד ויהפוך לזיכרון רגיל מהעבר, הוא נשאר "קפוא" וחי במערכת העצבים שלנו. זו הסיבה שגם שנים אחרי, ריח מסוים או צליל יכולים לגרום לנו להרגיש כאילו אנחנו שוב בתוך אותה סיטואציה, עם כל הפחד והלחץ הגופני.
+						</p>
+					</div>
+					
+					<div class="bg-[#d5d3d0] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+						<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
+							איך הטיפול משחרר את ה"תקיעות"?
+						</h3>
+						<p class="text-base md:text-lg text-charcoal leading-relaxed">
+							במהלך הטיפול, אנו משתמשים בגירוי דו-צדדי (למשל, מעקב של העיניים מצד לצד). פעולה זו מגרה לסירוגין את אונה ימין ואונה שמאל של המוח, ומפעילה מחדש את "מנגנון עיבוד המידע" שנתקע.
+						</p>
+						<p class="text-base md:text-lg text-charcoal leading-relaxed mt-3">
+							זה מאפשר לכם להתבונן באירוע המטריד מהצד, בלי להישאב למצוקה המקורית. המוח מתחיל "לעכל" את הזיכרון מחדש, עד שהוא מאוחסן בזיכרון כסיפור מהעבר שכבר לא מנהל אתכם בהווה.
+						</p>
+					</div>
+				</div>
+			</div>
+
+				<!-- מה קורה בתוך חדר הטיפול -->
+				<div class="card p-5 md:p-6 mb-6 md:mb-8">
+					<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
+						מה קורה בתוך חדר הטיפול?
+					</h2>
+					<p class="text-base md:text-lg text-charcoal leading-relaxed mb-6">
+						בניגוד לשיטות טיפול מסורתיות, ב-EMDR אתם לא נדרשים לדבר שוב ושוב על כל פרט כואב. הטיפול מובנה מאוד ומאפשר לנו לעבד את המצוקה בלי "לטבוע" בה מחדש.
+					</p>
+					
+					<p class="text-base md:text-lg text-charcoal leading-relaxed mb-6 font-semibold">
+						התהליך מורכב מארבעה שלבים עיקריים:
+					</p>
+					
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+						<div class="bg-[#d5d3d0] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
+								1. זיהוי והכנה
+							</h3>
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								יחד נבחר זיכרון, תמונה או תחושה גופנית מטרידה שתרצו לעבוד עליה. נוודא שיש לכם את הכלים להישאר בוויסות ובמרחב בטוח לאורך כל התהליך.
+							</p>
+						</div>
+						
+						<div class="bg-[#d5d3d0] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
+								2. גירוי דו-צדדי
+							</h3>
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								בזמן שאתם מתמקדים בזיכרון, אני אנחה אתכם לבצע תנועות עיניים (או גירוי אחר כמו טפיחות קלות). פעולה זו מפעילה את שני חצאי המוח ומסייעת לשחרר את ה"תקיעות" של הזיכרון.
+							</p>
+						</div>
+						
+						<div class="bg-[#d5d3d0] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
+								3. עיבוד אקטיבי
+							</h3>
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								המוח שלכם יתחיל להעלות מחשבות, תמונות או תחושות. אנחנו נאפשר להם לעבור, כמו נוף שחולף מחלון של רכבת. עוצמת הכאב והדריכות הגופנית תלך ותפחת, והזיכרון יאבד מהכוח המציף שלו.
+							</p>
+						</div>
+						
+						<div class="bg-[#d5d3d0] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
+								4. הטמעה וחיזוק
+							</h3>
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								נסיים בחיבור המחשבה החיובית שתרצו לאמץ לגבי עצמכם (למשל: "אני מסוגלת להתמודד", "זה נגמר ואני בטוחה עכשיו"), כדי לבנות חוסן ותחושת שליטה מחודשת.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- חזרה לתחומי טיפול -->
+				<div class="text-center">
+					<a
+						href="/services"
+						class="text-burgundy hover:text-burgundy/80 transition-colors font-medium inline-flex items-center gap-2"
+					>
+						← חזרה לתחומי טיפול
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>

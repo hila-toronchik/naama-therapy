@@ -1,0 +1,63 @@
+---
+interface Props {
+	items: Array<{ question: string; answer: string }>;
+}
+
+const { items } = Astro.props;
+---
+
+<div class="space-y-3 md:space-y-4">
+	{items.map((item, index) => (
+		<div class="faq-item card-sage p-4 md:p-5">
+			<input
+				type="checkbox"
+				id={`faq-${index}`}
+				class="faq-checkbox"
+			/>
+			<label
+				for={`faq-${index}`}
+				class="faq-label flex items-center justify-between cursor-pointer"
+			>
+				<h3 class="text-base md:text-lg font-display text-charcoal pr-3 md:pr-4">
+					{item.question}
+				</h3>
+				<svg
+					class="faq-icon w-4 h-4 md:w-5 md:h-5 text-burgundy transition-transform flex-shrink-0"
+					fill="none"
+					stroke="currentColor"
+					viewBox="0 0 24 24"
+				>
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+				</svg>
+			</label>
+			<div class="faq-content">
+				<p class="text-sm md:text-base text-charcoal leading-relaxed pt-3 md:pt-4">
+					{item.answer}
+				</p>
+			</div>
+		</div>
+	))}
+</div>
+
+<style>
+	.faq-checkbox {
+		position: absolute;
+		opacity: 0;
+		pointer-events: none;
+	}
+	
+	.faq-content {
+		max-height: 0;
+		overflow: hidden;
+		transition: max-height 0.3s ease-out, padding-top 0.3s ease-out;
+	}
+	
+	.faq-checkbox:checked ~ .faq-content {
+		max-height: 500px;
+		padding-top: 1rem;
+	}
+	
+	.faq-checkbox:checked ~ .faq-label .faq-icon {
+		transform: rotate(180deg);
+	}
+</style>

@@ -1,0 +1,117 @@
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+@import './gradients.css';
+
+@import url('https://fonts.googleapis.com/css2?family=Heebo:wght@300;400;500;600;700&family=Secular+One&display=swap');
+
+@layer base {
+	:root {
+		--cream-warm: #F0D7B8;
+		--sage: #aaa6a0;
+		--burgundy: #6D2E46;
+		--charcoal: #2D3436;
+	}
+
+	html {
+		background-color: var(--cream-warm);
+		@apply text-charcoal;
+		font-family: 'Heebo', sans-serif;
+		direction: rtl;
+	}
+
+	body {
+		@apply antialiased;
+	}
+
+	h1, h2, h3, h4, h5, h6 {
+		font-family: 'Secular One', sans-serif;
+	}
+}
+
+@layer components {
+	.container-custom {
+		@apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+	}
+
+	.btn-primary {
+		background-color: var(--burgundy);
+		@apply text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg;
+	}
+
+	.btn-secondary {
+		background-color: var(--sage);
+		@apply text-charcoal px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg;
+	}
+
+	.section-padding {
+		@apply py-8 md:py-12;
+	}
+
+	.card {
+		background-color: var(--sage);
+		border: 1px solid rgba(45, 52, 54, 0.1);
+		@apply rounded-xl shadow-md p-4 md:p-6 transition-all duration-300 hover:shadow-xl;
+	}
+
+	.card-warm {
+		background-color: var(--cream-warm);
+		border: 1px solid rgba(170, 166, 160, 0.2);
+		@apply rounded-xl shadow-md p-4 md:p-6 transition-all duration-300 hover:shadow-xl;
+	}
+
+	.card-sage {
+		background-color: var(--sage);
+		@apply rounded-xl shadow-md p-4 md:p-6 transition-all duration-300 hover:shadow-xl;
+	}
+}
+
+@layer utilities {
+	.text-balance {
+		text-wrap: balance;
+	}
+
+	.animate-fade-in {
+		animation: fadeIn 0.6s ease-in-out;
+	}
+
+	.animate-slide-up {
+		animation: slideUp 0.6s ease-out;
+	}
+
+	.animate-stagger-1 {
+		animation: slideUp 0.6s ease-out 0.1s both;
+	}
+
+	.animate-stagger-2 {
+		animation: slideUp 0.6s ease-out 0.2s both;
+	}
+
+	.animate-stagger-3 {
+		animation: slideUp 0.6s ease-out 0.3s both;
+	}
+
+	@keyframes fadeIn {
+		from {
+			opacity: 0;
+		}
+		to {
+			opacity: 1;
+		}
+	}
+
+	@keyframes slideUp {
+		from {
+			opacity: 0;
+			transform: translateY(20px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+
+	.pulse-slow {
+		animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+	}
+}

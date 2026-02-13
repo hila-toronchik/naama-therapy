@@ -1,0 +1,57 @@
+---
+import '../styles/global.css';
+import Navigation from './Navigation.astro';
+import Footer from './Footer.astro';
+import WhatsAppButton from './WhatsAppButton.astro';
+
+interface Props {
+	title: string;
+	description?: string;
+	ogImage?: string;
+}
+
+const { title, description = 'טיפול מקצועי באמנות ו-EMDR למבוגרים', ogImage } = Astro.props;
+const siteName = 'נעמה טירן - טיפול באמנות ו-EMDR';
+const fullTitle = title === 'בית' ? siteName : `${title} | ${siteName}`;
+const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
+const ogImageURL = ogImage || (Astro.site ? new URL('/og-image.jpg', Astro.site).href : '/og-image.jpg');
+---
+
+<!doctype html>
+<html lang="he" dir="rtl">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" type="image/png" href="/favicon.ico" />
+		<link rel="canonical" href={canonicalURL} />
+		<meta name="generator" content={Astro.generator} />
+		<meta name="description" content={description} />
+		<meta name="keywords" content="טיפול באמנות, EMDR, טיפול נפשי, טיפול למבוגרים, טיפול בטראומה, טיפול בחרדה" />
+		
+		<!-- Open Graph / Facebook -->
+		<meta property="og:type" content="website" />
+		<meta property="og:url" content={canonicalURL} />
+		<meta property="og:title" content={fullTitle} />
+		<meta property="og:description" content={description} />
+		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:locale" content="he_IL" />
+		
+		<!-- Twitter -->
+		<meta property="twitter:card" content="summary_large_image" />
+		<meta property="twitter:url" content={canonicalURL} />
+		<meta property="twitter:title" content={fullTitle} />
+		<meta property="twitter:description" content={description} />
+		<meta property="twitter:image" content={ogImageURL} />
+		
+		<title>{fullTitle}</title>
+	</head>
+	<body>
+		<Navigation />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+		<WhatsAppButton />
+	</body>
+</html>

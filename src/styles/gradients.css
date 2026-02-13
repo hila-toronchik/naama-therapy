@@ -1,0 +1,20 @@
+/* Background utilities - solid colors only, no gradients */
+.bg-gradient-warm {
+	background-color: var(--cream-warm);
+}
+
+.bg-gradient-soft {
+	background-color: var(--cream-warm);
+}
+
+.bg-gradient-cream-terracotta {
+	background-color: var(--cream-warm);
+}
+
+.bg-gradient-teal-cream {
+	background-color: var(--cream-warm);
+}
+
+.bg-gradient-terracotta-ochre {
+	background-color: var(--cream-warm);
+}

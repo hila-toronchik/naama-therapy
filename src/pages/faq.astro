@@ -1,0 +1,32 @@
+---
+import Layout from '../components/Layout.astro';
+import FAQAccordion from '../components/FAQAccordion.astro';
+import { siteData } from '../content/site-data';
+---
+
+<Layout title="שאלות נפוצות" description="שאלות נפוצות על טיפול באמנות ו-EMDR">
+	<section class="py-6 md:py-8 bg-cream-warm min-h-[85vh] md:min-h-[90vh] flex items-center">
+		<div class="container-custom w-full">
+			<div class="max-w-3xl mx-auto">
+				<h1 class="text-3xl md:text-4xl font-display text-burgundy mb-6 md:mb-8 text-center">
+					{siteData.faq.title}
+				</h1>
+				
+				<FAQAccordion items={siteData.faq.items} />
+			</div>
+		</div>
+	</section>
+
+	<script type="application/ld+json" set:html={JSON.stringify({
+		"@context": "https://schema.org",
+		"@type": "FAQPage",
+		"mainEntity": siteData.faq.items.map(item => ({
+			"@type": "Question",
+			"name": item.question,
+			"acceptedAnswer": {
+				"@type": "Answer",
+				"text": item.answer
+			}
+		}))
+	})} />
+</Layout>

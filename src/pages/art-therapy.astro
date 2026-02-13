@@ -1,0 +1,134 @@
+---
+import Layout from '../components/Layout.astro';
+import { siteData } from '../content/site-data';
+import ArtTherapyGallery from '../components/ArtTherapyGallery.astro';
+---
+
+<Layout title="טיפול באמנות" description="מהו טיפול באמנות - ענף בפסיכותרפיה המשתמש ביצירה ככלי לביטוי ועיבוד רגשי">
+	<section class="py-6 md:py-8 bg-cream-warm min-h-[85vh]">
+		<div class="container-custom w-full">
+			<div class="max-w-5xl mx-auto">
+				<!-- Header -->
+				<div class="text-center mb-8 md:mb-12">
+					<h1 class="text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-3 md:mb-4">
+						מהו טיפול באמנות?
+					</h1>
+					<div class="w-16 md:w-24 h-1 bg-burgundy mx-auto rounded-full"></div>
+				</div>
+
+				<!-- מהו טיפול באמנות - ריבוע ראשי -->
+				<div class="card-sage p-5 md:p-6 mb-6 md:mb-8">
+					<p class="text-base md:text-lg text-charcoal leading-relaxed">
+						טיפול באמנות הוא ענף בפסיכותרפיה המשתמש ביצירה ובחומרי אמנות ככלי לביטוי ועיבוד רגשי. זוהי שיטה המאפשרת לנפש לבטא את עצמה גם כשקשה למצוא את המילים המדויקות, והיא יעילה במיוחד לגישה לתחושות עמוקות ולחוויות שנצרבו בנו בצורה חושית ולא מילולית.
+					</p>
+				</div>
+
+				<!-- איך זה עובד -->
+				<div class="card p-5 md:p-6 mb-6 md:mb-8">
+					<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
+						איך זה עובד?
+					</h2>
+					
+					<div class="space-y-4 md:space-y-5">
+						<div>
+							<p class="text-base md:text-lg text-charcoal leading-relaxed mb-4">
+								הטיפול מבוסס על הידיעה שהתהליך היצירתי עוזר לשחרר חסמים פנימיים. בניגוד לשיחה רגילה, כאן נוצרת "צלע שלישית" – היצירה עצמה – שמאפשרת לנו לתקשר דרכה.
+							</p>
+						</div>
+						
+						<div class="bg-[#d5d3d0] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
+								מתן ביטוי מוחשי לרגש
+							</h3>
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								לעיתים קרובות המוח שלנו מנסה להגן עלינו באמצעות הסברים הגיוניים, אבל האמנות מאפשרת לעקוף את המנגנונים האלו. דרך הצבע, הקו או הצורה, הרגשות מקבלים ביטוי מוחשי מחוץ לגוף.
+							</p>
+						</div>
+						
+						<div class="bg-[#d5d3d0] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
+								התבוננות מהצד
+							</h3>
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								ברגע שהרגש מקבל צורה חומרית במרחב, קל יותר להתבונן בו ולהבין אותו בלי להיבהל ממנו. הכאב או המצוקה הופכים למשהו שניתן לראות ולגעת בו, מה שמאפשר לנו לבחון את החוויות שלנו מזווית חדשה, לעבד אותן ולשנות את מערכת היחסים שלנו איתן.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- גלריית דוגמאות עבודה -->
+				<div class="mb-6 md:mb-8">
+					<ArtTherapyGallery />
+				</div>
+
+				<!-- למי הטיפול מיועד -->
+				<div id="target-height-card" class="card-sage p-5 md:p-6 mb-6 md:mb-8">
+					<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
+						למי הטיפול מיועד?
+					</h2>
+					<p class="text-base md:text-lg text-charcoal leading-relaxed">
+						הטיפול מיועד למבוגרים מגיל 18 ומעלה ואינו דורש שום ידע קודם או כישרון אמנותי, שכן הדגש הוא על התהליך הרגשי ולא על התוצאה האסתטית. הוא מתאים במיוחד לאנשים המרגישים שהמילים אינן מספיקות כדי לתאר את עולמם הפנימי, לכאלו המתמודדים עם השלכות של טראומה או פוסט-טראומה שבהן הדיבור הישיר מעורר הצפה גדולה מדי, ולמטופלים הנמצאים בעיצומם של משברי חיים, חרדה או קשיים בוויסות רגשי. הטיפול מהווה מרחב בטוח גם עבור מי שמתמודד עם התמכרויות ומחפש דרך חדשה לבטא דחפים ותחושות, וכן עבור כל אדם השואף לצמיחה, גילוי עצמי וחיבור מחודש לכוחות הריפוי הפנימיים שלו.
+					</p>
+				</div>
+
+				<!-- מה קורה בתוך חדר הטיפול -->
+				<div class="card p-5 md:p-6 mb-6 md:mb-8">
+					<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
+						מה קורה בתוך חדר הטיפול?
+					</h2>
+					<p class="text-base md:text-lg text-charcoal leading-relaxed mb-6">
+						החדר הוא מרחב של חופש שבו אין שיפוטיות, "נכון" או "לא נכון". כאן לא יוצרים אמנות כדי שתהיה יפה, אלא כדי שתהיה כנה.
+					</p>
+					
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
+						<div class="bg-[#d5d3d0] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
+								1. הזמנה ליצירה
+							</h3>
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								נתחיל בשיחה קצרה ולאחריה נבחר בחומרים שמרגישים נכונים באותו רגע – מצבעים רכים ועד חומרים בעלי נוכחות פיזית חזקה יותר.
+							</p>
+						</div>
+						
+						<div class="bg-[#d5d3d0] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
+								2. תהליך היצירה
+							</h3>
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								אתם יוצרים בקצב שלכם, לפעמים בשקט מוחלט ולפעמים תוך כדי שיחה. אני נמצאת שם איתכם, עדה לתהליך ושומרת על המרחב הבטוח עבורכם.
+							</p>
+						</div>
+						
+						<div class="bg-[#d5d3d0] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
+								3. שיח והתבוננות
+							</h3>
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								לאחר היצירה נתבונן יחד במה שנוצר. לא ננסה "לפענח" את התוצאה, אלא ננסה להבין אילו רגשות ותובנות היא מעוררת בכם ואיך היא מתקשרת לחיים שלכם.
+							</p>
+						</div>
+						
+						<div class="bg-[#d5d3d0] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
+								4. צידה לדרך
+							</h3>
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								המטרה היא שתצאו מהחדר עם הבנה חדשה או כלי מעשי לוויסות עצמי, שיעזרו לכם להתמודד עם אתגרי היומיום בצורה עצמאית וחזקה יותר.
+							</p>
+						</div>
+					</div>
+				</div>
+
+				<!-- חזרה לתחומי טיפול -->
+				<div class="text-center">
+					<a
+						href="/services"
+						class="text-burgundy hover:text-burgundy/80 transition-colors font-medium inline-flex items-center gap-2"
+					>
+						← חזרה לתחומי טיפול
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+</Layout>
