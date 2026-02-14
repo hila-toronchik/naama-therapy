@@ -100,29 +100,41 @@ import { siteData } from '../content/site-data';
 					</div>
 				</div>
 
-				<!-- מיקום הטיפול -->
-				<div class="card-sage p-5 md:p-6 mb-6 md:mb-8">
-					<h2 class="text-xl md:text-2xl font-display text-charcoal mb-4">
-						מיקום הטיפול
-					</h2>
-					<p class="text-base md:text-lg text-charcoal leading-relaxed mb-3">
-						{siteData.location.name}
-						<br />
-						{siteData.location.description}
-					</p>
-					<a
-						href={siteData.location.googleMapsUrl}
-						target="_blank"
-						rel="noopener noreferrer"
-						class="text-burgundy hover:underline text-base md:text-lg transition-colors inline-flex items-center gap-2"
-					>
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-						</svg>
-						פתח ב-Google Maps
-					</a>
+			<!-- מיקום הטיפול -->
+			<div class="card-sage p-5 md:p-6 mb-6 md:mb-8">
+				<h2 class="text-xl md:text-2xl font-display text-charcoal mb-4">
+					מיקום הטיפול
+				</h2>
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 items-center">
+					<!-- תמונת חדר הטיפול -->
+					<div class="order-2 md:order-1">
+						<img
+							src="/images/therapy-room.jpg"
+							alt="חדר הטיפול של נעמה טירן - מושב רמות השבים"
+							class="w-full h-auto rounded-lg shadow-md object-cover"
+						/>
+					</div>
+					
+					<!-- מידע ולינק -->
+					<div class="order-1 md:order-2">
+						<p class="text-base md:text-lg text-charcoal leading-relaxed mb-3">
+							{siteData.location.name}
+						</p>
+						<a
+							href={siteData.location.googleMapsUrl}
+							target="_blank"
+							rel="noopener noreferrer"
+							class="text-burgundy hover:underline text-base md:text-lg transition-colors inline-flex items-center gap-2"
+						>
+							<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+							</svg>
+							פתח ב-Google Maps
+						</a>
+					</div>
 				</div>
+			</div>
 
 				<!-- Call to Action Section -->
 				<div class="card-sage text-center p-5 md:p-6">
