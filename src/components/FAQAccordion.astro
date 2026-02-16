@@ -13,6 +13,7 @@ const { items } = Astro.props;
 				type="checkbox"
 				id={`faq-${index}`}
 				class="faq-checkbox"
+				checked={index === 0}
 			/>
 			<label
 				for={`faq-${index}`}
@@ -55,6 +56,10 @@ const { items } = Astro.props;
 	.faq-checkbox:checked ~ .faq-content {
 		max-height: 500px;
 		padding-top: 1rem;
+	}
+	
+	.faq-icon {
+		transition: transform 0.3s ease-out;
 	}
 	
 	.faq-checkbox:checked ~ .faq-label .faq-icon {
