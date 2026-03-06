@@ -7,7 +7,7 @@ export default {
 				'cream-warm': '#F0D7B8',
 				'sage': '#aaa6a0',
 				'burgundy': '#6D2E46',
-				'charcoal': '#2D3436',
+				'charcoal': '#493000',
 			},
 			fontFamily: {
 				display: ['"Secular One"', 'sans-serif'],

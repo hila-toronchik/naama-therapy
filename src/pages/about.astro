@@ -120,18 +120,31 @@ import { siteData } from '../content/site-data';
 						<p class="text-base md:text-lg text-charcoal leading-relaxed mb-3">
 							{siteData.location.name}
 						</p>
-						<a
-							href={siteData.location.googleMapsUrl}
-							target="_blank"
-							rel="noopener noreferrer"
-							class="text-burgundy hover:underline text-base md:text-lg transition-colors inline-flex items-center gap-2"
-						>
-							<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
-							</svg>
-							פתח ב-Google Maps
-						</a>
+						<div class="flex flex-col gap-2">
+							<a
+								href={siteData.location.googleMapsUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-burgundy hover:underline text-base md:text-lg transition-colors inline-flex items-center gap-2"
+							>
+								<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z" />
+									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
+								</svg>
+								פתח ב-Google Maps
+							</a>
+							<a
+								href={siteData.location.wazeUrl}
+								target="_blank"
+								rel="noopener noreferrer"
+								class="text-burgundy hover:underline text-base md:text-lg transition-colors inline-flex items-center gap-2"
+							>
+								<svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24">
+									<path d="M11.436 2.127C6.27 2.127 2.073 6.324 2.073 11.49c0 2.485.973 4.745 2.558 6.426l-.717 2.25a.476.476 0 00.707.544l2.265-1.408c1.638.877 3.507 1.376 5.5 1.376 5.166 0 9.363-4.197 9.363-9.363 0-5.166-4.197-9.363-9.363-9.363m3.145 6.37c.39 0 .705.316.705.705 0 .39-.316.706-.705.706s-.706-.316-.706-.706.316-.705.706-.705m-6.29 0c.39 0 .706.316.706.705 0 .39-.316.706-.706.706s-.705-.316-.705-.706.316-.705.705-.705m8.583 5.07c-.744 1.807-2.558 3.07-4.67 3.07-2.112 0-3.926-1.263-4.67-3.07a.476.476 0 01.88-.364c.602 1.459 2.067 2.485 3.79 2.485s3.188-1.026 3.79-2.485a.476.476 0 01.88.364"/>
+								</svg>
+								נווט בווייז
+							</a>
+						</div>
 					</div>
 				</div>
 			</div>

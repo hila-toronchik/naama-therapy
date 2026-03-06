@@ -10,7 +10,7 @@
 		--cream-warm: #F0D7B8;
 		--sage: #f6e7d4;
 		--burgundy: #6D2E46;
-		--charcoal: #2D3436;
+		--charcoal: #493000;
 	}
 
 	html {
@@ -22,6 +22,20 @@
 
 	body {
 		@apply antialiased;
+		position: relative;
+	}
+	
+	body::before {
+		content: '';
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+		background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
+		opacity: 0.3;
+		pointer-events: none;
+		z-index: -1;
 	}
 
 	h1, h2, h3, h4, h5, h6 {
@@ -50,7 +64,7 @@
 
 	.card {
 		background-color: var(--sage);
-		border: 1px solid rgba(45, 52, 54, 0.1);
+		border: 1px solid rgba(73, 48, 0, 0.1);
 		@apply rounded-xl shadow-md p-4 md:p-6 transition-all duration-300 hover:shadow-xl;
 	}
 
