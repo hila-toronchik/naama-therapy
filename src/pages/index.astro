@@ -7,47 +7,6 @@ import { siteData } from '../content/site-data';
 <Layout title="בית" description={siteData.description}>
 	<Hero />
 
-	<!-- נעים להכיר -->
-	<section class="py-6 md:py-8 bg-gradient-warm">
-		<div class="container-custom w-full">
-			<div class="max-w-4xl mx-auto">
-				<div class="card-sage p-6 md:p-8">
-					<div class="flex flex-col md:flex-row items-center gap-6 md:gap-8">
-						<!-- תמונה -->
-						<div class="flex-shrink-0">
-							<div class="relative">
-								<div class="absolute -inset-2 bg-burgundy bg-opacity-10 rounded-full"></div>
-								<img
-									src="/images/naama.jpg"
-									alt="נעמה טירן - מטפלת באמנות ו-EMDR"
-									class="relative w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-lg"
-								/>
-							</div>
-						</div>
-						
-						<!-- תוכן -->
-						<div class="flex-1 text-center md:text-right">
-							<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-3 md:mb-4">
-								{siteData.meetMe.title}
-							</h2>
-							<p class="text-base md:text-lg text-charcoal leading-relaxed mb-4" set:html={siteData.meetMe.text}>
-							</p>
-							<a
-								href="/about"
-								class="inline-flex items-center gap-2 text-burgundy hover:text-burgundy/80 font-medium text-base md:text-lg transition-colors"
-							>
-								קרא עוד אודותיי
-								<svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-									<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-								</svg>
-							</a>
-						</div>
-					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
 	<!-- מיקום הטיפול -->
 	<section class="py-4 md:py-6 bg-cream-warm">
 		<div class="container-custom w-full">
