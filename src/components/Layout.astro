@@ -15,6 +15,7 @@ const siteName = 'נעמה טירן - טיפול באמנות ו-EMDR';
 const fullTitle = title === 'בית' ? siteName : `${title} | ${siteName}`;
 const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
 const ogImageURL = ogImage || (Astro.site ? new URL('/og-image.jpg', Astro.site).href : '/og-image.jpg');
+const logoURL = Astro.site ? new URL('/logo.png', Astro.site).href : '/logo.png';
 ---
 
 <!doctype html>
@@ -24,6 +25,10 @@ const ogImageURL = ogImage || (Astro.site ? new URL('/og-image.jpg', Astro.site)
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" type="image/png" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+		<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
+		<link rel="manifest" href="/site.webmanifest" />
 		<link rel="canonical" href={canonicalURL} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
@@ -35,7 +40,11 @@ const ogImageURL = ogImage || (Astro.site ? new URL('/og-image.jpg', Astro.site)
 		<meta property="og:title" content={fullTitle} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={ogImageURL} />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
+		<meta property="og:image:alt" content={siteName} />
 		<meta property="og:locale" content="he_IL" />
+		<meta property="og:site_name" content={siteName} />
 		
 		<!-- Twitter -->
 		<meta property="twitter:card" content="summary_large_image" />
@@ -43,8 +52,99 @@ const ogImageURL = ogImage || (Astro.site ? new URL('/og-image.jpg', Astro.site)
 		<meta property="twitter:title" content={fullTitle} />
 		<meta property="twitter:description" content={description} />
 		<meta property="twitter:image" content={ogImageURL} />
+		<meta property="twitter:image:alt" content={siteName} />
+		
+		<!-- Additional SEO -->
+		<meta name="author" content="נעמה טירן" />
+		<meta name="robots" content="index, follow" />
+		<meta name="googlebot" content="index, follow" />
 		
 		<title>{fullTitle}</title>
+		
+		<!-- JSON-LD Structured Data - Organization (for Google Search Logo) -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Organization",
+			"name": siteName,
+			"alternateName": "נעמה טירן - מטפלת באמנות ו-EMDR",
+			"url": Astro.site,
+			"logo": {
+				"@type": "ImageObject",
+				"url": logoURL,
+				"width": "500",
+				"height": "500"
+			},
+			"image": ogImageURL,
+			"description": description,
+			"contactPoint": {
+				"@type": "ContactPoint",
+				"telephone": "+972-54-730-0780",
+				"contactType": "customer service",
+				"availableLanguage": ["Hebrew"]
+			},
+			"sameAs": [
+				"https://www.instagram.com/naama_tiran"
+			]
+		})} />
+		
+		<!-- JSON-LD Structured Data - Professional Service -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "ProfessionalService",
+			"name": siteName,
+			"description": description,
+			"url": Astro.site,
+			"logo": logoURL,
+			"image": ogImageURL,
+			"telephone": "+972-54-730-0780",
+			"email": "naatiran@gmail.com",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "רמות השבים",
+				"addressRegion": "המרכז",
+				"addressCountry": "IL"
+			},
+			"geo": {
+				"@type": "GeoCoordinates",
+				"latitude": "32.2614",
+				"longitude": "34.9046"
+			},
+			"priceRange": "$$",
+			"areaServed": {
+				"@type": "GeoCircle",
+				"geoMidpoint": {
+					"@type": "GeoCoordinates",
+					"latitude": "32.2614",
+					"longitude": "34.9046"
+				},
+				"geoRadius": "50000"
+			},
+			"hasOfferCatalog": {
+				"@type": "OfferCatalog",
+				"name": "שירותי טיפול",
+				"itemListElement": [
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "טיפול באמנות",
+							"description": "טיפול פסיכותרפויטי באמצעות אמנות למבוגרים"
+						}
+					},
+					{
+						"@type": "Offer",
+						"itemOffered": {
+							"@type": "Service",
+							"name": "EMDR",
+							"description": "טיפול בטראומה באמצעות שיטת EMDR"
+						}
+					}
+				]
+			},
+			"sameAs": [
+				"https://www.instagram.com/naama_tiran"
+			]
+		})} />
 	</head>
 	<body>
 		<Navigation />

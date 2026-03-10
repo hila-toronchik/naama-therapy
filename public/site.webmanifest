@@ -1,6 +1,7 @@
 {
-  "name": "נעמה טירן - מטפלת רגשית",
+  "name": "נעמה טירן - טיפול באמנות ו-EMDR",
   "short_name": "נעמה טירן",
+  "description": "טיפול מקצועי באמנות ו-EMDR למבוגרים",
   "icons": [
     {
       "src": "/android-chrome-192x192.png",
@@ -11,9 +12,19 @@
       "src": "/android-chrome-512x512.png",
       "sizes": "512x512",
       "type": "image/png"
+    },
+    {
+      "src": "/logo.png",
+      "sizes": "1024x1024",
+      "type": "image/png",
+      "purpose": "any maskable"
     }
   ],
   "theme_color": "#6D2E46",
   "background_color": "#F0D7B8",
-  "display": "standalone"
+  "display": "standalone",
+  "start_url": "/",
+  "scope": "/",
+  "lang": "he",
+  "dir": "rtl"
 }

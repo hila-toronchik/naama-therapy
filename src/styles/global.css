@@ -13,6 +13,10 @@
 		--charcoal: #493000;
 	}
 
+	* {
+		box-sizing: border-box;
+	}
+
 	html {
 		background-color: var(--cream-warm);
 		@apply text-charcoal;
@@ -23,6 +27,7 @@
 	body {
 		@apply antialiased;
 		position: relative;
+		overflow-x: hidden;
 	}
 	
 	body::before {
@@ -41,11 +46,18 @@
 	h1, h2, h3, h4, h5, h6 {
 		font-family: 'Secular One', sans-serif;
 	}
+
+	p, div, span, li {
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+	}
 }
 
 @layer components {
 	.container-custom {
-		@apply mx-auto max-w-7xl px-4 sm:px-6 lg:px-8;
+		@apply mx-auto max-w-7xl px-5 sm:px-8 lg:px-12;
+		width: 100%;
+		box-sizing: border-box;
 	}
 
 	.btn-primary {
@@ -65,24 +77,39 @@
 	.card {
 		background-color: var(--sage);
 		border: 1px solid rgba(73, 48, 0, 0.1);
-		@apply rounded-xl shadow-md p-4 md:p-6 transition-all duration-300 hover:shadow-xl;
+		@apply rounded-xl shadow-md p-5 md:p-7 transition-all duration-300 hover:shadow-xl;
 	}
 
 	.card-warm {
 		background-color: var(--cream-warm);
 		border: 1px solid rgba(170, 166, 160, 0.2);
-		@apply rounded-xl shadow-md p-4 md:p-6 transition-all duration-300 hover:shadow-xl;
+		@apply rounded-xl shadow-md p-5 md:p-7 transition-all duration-300 hover:shadow-xl;
 	}
 
 	.card-sage {
 		background-color: var(--sage);
-		@apply rounded-xl shadow-md p-4 md:p-6 transition-all duration-300 hover:shadow-xl;
+		@apply rounded-xl shadow-md p-5 md:p-7 transition-all duration-300 hover:shadow-xl;
+	}
+
+	.grid {
+		min-width: 0;
+	}
+
+	.grid > * {
+		min-width: 0;
 	}
 }
 
 @layer utilities {
 	.text-balance {
 		text-wrap: balance;
+	}
+
+	.text-wrap-proper {
+		overflow-wrap: break-word;
+		word-wrap: break-word;
+		word-break: break-word;
+		hyphens: auto;
 	}
 
 	.animate-fade-in {
