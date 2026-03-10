@@ -54,9 +54,9 @@ import { siteData } from '../content/site-data';
 			</div>
 			
 			<!-- עמודה שמאלית: תמונה + נעים להכיר (בדסקטופ) -->
-			<div class="animate-slide-up order-2 md:order-1 space-y-6">
+			<div class="animate-slide-up order-2 md:order-1 flex flex-col gap-6 h-full">
 				<!-- תמונה -->
-				<div class="bg-cream-warm rounded-2xl p-1 md:p-2 shadow-xl overflow-hidden w-full">
+				<div class="bg-cream-warm rounded-2xl p-1 md:p-2 shadow-xl overflow-hidden w-full flex-shrink-0">
 					<img
 						src="/images/emdr-illustration.jpg"
 						alt="EMDR - מעבר מחשבות שליליות לחיוביות, טיפול ב-EMDR"
@@ -65,8 +65,8 @@ import { siteData } from '../content/site-data';
 				</div>
 				
 				<!-- נעים להכיר - בדסקטופ בלבד (מתחת לתמונה) -->
-				<div class="hidden md:block">
-					<div class="card-sage p-5 md:p-6 text-center">
+				<div class="hidden md:flex flex-col flex-1">
+					<div class="card-sage p-5 md:p-6 text-center flex-1 flex flex-col justify-center">
 						<div class="flex flex-col items-center gap-4 mb-4">
 							<!-- תמונה עגולה -->
 							<div class="flex-shrink-0">
