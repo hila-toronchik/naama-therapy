@@ -66,8 +66,8 @@ import { siteData } from '../content/site-data';
 				
 				<!-- נעים להכיר - בדסקטופ בלבד (מתחת לתמונה) -->
 				<div class="hidden md:block">
-					<div class="card-sage p-5 md:p-6">
-						<div class="flex items-center gap-4 mb-4">
+					<div class="card-sage p-5 md:p-6 text-center">
+						<div class="flex flex-col items-center gap-4 mb-4">
 							<!-- תמונה עגולה -->
 							<div class="flex-shrink-0">
 								<div class="relative">
@@ -84,7 +84,7 @@ import { siteData } from '../content/site-data';
 								{siteData.meetMe.title}
 							</h2>
 						</div>
-						<p class="text-base md:text-lg text-charcoal leading-relaxed mb-4 text-justify" set:html={siteData.meetMe.text}>
+						<p class="text-base md:text-lg text-charcoal leading-relaxed mb-4" set:html={siteData.meetMe.text}>
 						</p>
 						<a
 							href="/about"
@@ -110,8 +110,8 @@ import { siteData } from '../content/site-data';
 			
 			<!-- נעים להכיר - במובייל בלבד (מופיע רביעי, אחרי אני מאמינה) -->
 			<div class="animate-fade-in order-4 md:hidden pt-6 px-1">
-				<div class="card-sage p-5">
-					<div class="flex items-center gap-3 mb-3">
+				<div class="card-sage p-5 text-center">
+					<div class="flex flex-col items-center gap-3 mb-3">
 						<!-- תמונה עגולה -->
 						<div class="flex-shrink-0">
 							<div class="relative">
@@ -128,7 +128,7 @@ import { siteData } from '../content/site-data';
 							{siteData.meetMe.title}
 						</h2>
 					</div>
-					<p class="text-base text-charcoal leading-relaxed mb-4 text-justify" set:html={siteData.meetMe.text}>
+					<p class="text-base text-charcoal leading-relaxed mb-4" set:html={siteData.meetMe.text}>
 					</p>
 					<a
 						href="/about"
