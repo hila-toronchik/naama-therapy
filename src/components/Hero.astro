@@ -84,14 +84,28 @@ import { siteData } from '../content/site-data';
 		</h2>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
 			{siteData.features.map((feature, index) => (
-				<div class={`card animate-stagger-${index + 1} pt-1.5 pb-2.5 px-3 md:pt-2 md:pb-3 md:px-3.5`}>
-			<h3 class="text-lg md:text-xl font-display text-charcoal mb-0.5">
-				{feature.title}
-			</h3>
-					<p class="text-sm md:text-base text-charcoal leading-relaxed">
-						{feature.description}
-					</p>
-				</div>
+				feature.link ? (
+					<a href={feature.link} class={`card animate-stagger-${index + 1} pt-1.5 pb-2.5 px-3 md:pt-2 md:pb-3 md:px-3.5 block hover:shadow-2xl transition-all`}>
+						<h3 class="text-lg md:text-xl font-display text-charcoal mb-0.5">
+							{feature.title}
+						</h3>
+						<p class="text-sm md:text-base text-charcoal leading-relaxed mb-2">
+							{feature.description}
+						</p>
+						<span class="text-burgundy font-medium text-sm md:text-base inline-flex items-center gap-1">
+							קרא עוד →
+						</span>
+					</a>
+				) : (
+					<div class={`card animate-stagger-${index + 1} pt-1.5 pb-2.5 px-3 md:pt-2 md:pb-3 md:px-3.5`}>
+						<h3 class="text-lg md:text-xl font-display text-charcoal mb-0.5">
+							{feature.title}
+						</h3>
+						<p class="text-sm md:text-base text-charcoal leading-relaxed">
+							{feature.description}
+						</p>
+					</div>
+				)
 			))}
 		</div>
 	</div>
