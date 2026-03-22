@@ -7,27 +7,27 @@ import { siteData } from '../content/site-data';
 	<div class="container-custom w-full">
 		<div class="grid grid-cols-1 md:grid-cols-[45%_55%] gap-6 md:gap-8">
 			<!-- ברוכים הבאים - במובייל מופיע ראשון -->
-			<div class="animate-fade-in order-1 md:order-2 md:row-span-2">
+			<div class="order-1 md:order-2 md:row-span-2">
 				<div class="space-y-6 md:space-y-8 flex flex-col justify-center h-full px-2 md:px-4">
 					<!-- חלק ברוכים הבאים -->
 					<div class="space-y-5 md:space-y-6">
 						<!-- כותרת ראשית -->
-						<h1 class="text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-4 md:mb-5 text-right">
+						<h1 class="scroll-reveal fade-up text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-4 md:mb-5 text-right">
 							{siteData.hero.title}
 						</h1>
 						
 						<!-- כותרת משנה - מופרדת לפסקאות עם מרווח קטן -->
-						<div class="space-y-2 text-base md:text-lg text-charcoal leading-relaxed text-right">
+						<div class="scroll-reveal fade-up delay-100 space-y-2 text-base md:text-lg text-charcoal leading-relaxed text-right">
 							<p set:html={siteData.hero.description}></p>
 						</div>
 						
 						<!-- שורת מיקום -->
-						<p class="text-base md:text-lg text-charcoal text-right">
+						<p class="scroll-reveal fade-up delay-200 text-base md:text-lg text-charcoal text-right">
 							{siteData.hero.location}
 						</p>
 						
 						<!-- כפתור הנעה לפעולה -->
-						<div class="text-right">
+						<div class="scroll-reveal fade-up delay-300 text-right">
 							<a
 								href={`https://wa.me/${siteData.whatsapp}`}
 								target="_blank"
@@ -43,7 +43,7 @@ import { siteData } from '../content/site-data';
 					</div>
 					
 					<!-- אני מאמינה - בדסקטופ יופיע כאן, במובייל יופיע אחרי התמונה -->
-					<div class="hidden md:block border-t border-sage/20 pt-6 md:pt-8 px-1 md:px-2">
+					<div class="scroll-reveal fade-up delay-400 hidden md:block border-t border-sage/20 pt-6 md:pt-8 px-1 md:px-2">
 						<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-3 md:mb-4">
 							{siteData.intro.title}
 						</h2>
@@ -54,9 +54,9 @@ import { siteData } from '../content/site-data';
 			</div>
 			
 			<!-- עמודה שמאלית: תמונה + נעים להכיר (בדסקטופ) -->
-			<div class="animate-slide-up order-2 md:order-1 flex flex-col gap-6">
+			<div class="order-2 md:order-1 flex flex-col gap-6">
 				<!-- תמונה -->
-				<div class="bg-cream-warm rounded-2xl p-1 md:p-2 shadow-xl overflow-hidden w-full">
+				<div class="scroll-reveal scale-in bg-cream-warm rounded-2xl p-1 md:p-2 shadow-xl overflow-hidden w-full">
 					<img
 						src="/images/emdr-illustration.jpg"
 						alt="EMDR - מעבר מחשבות שליליות לחיוביות, טיפול ב-EMDR"
@@ -65,7 +65,7 @@ import { siteData } from '../content/site-data';
 				</div>
 				
 				<!-- נעים להכיר - בדסקטופ בלבד (מתחת לתמונה) -->
-				<div class="hidden md:block">
+				<div class="scroll-reveal fade-up delay-200 hidden md:block">
 					<div class="card-sage p-5 md:p-5 text-center">
 						<div class="flex flex-col items-center gap-3 mb-3">
 							<!-- תמונה עגולה -->
@@ -100,7 +100,7 @@ import { siteData } from '../content/site-data';
 			</div>
 			
 			<!-- אני מאמינה - במובייל בלבד (מופיע שלישי) -->
-			<div class="animate-fade-in order-3 md:hidden border-t border-sage/20 pt-6 px-1">
+			<div class="scroll-reveal fade-up order-3 md:hidden border-t border-sage/20 pt-6 px-1">
 				<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-3 md:mb-4">
 					{siteData.intro.title}
 				</h2>
@@ -109,7 +109,7 @@ import { siteData } from '../content/site-data';
 			</div>
 			
 			<!-- נעים להכיר - במובייל בלבד (מופיע רביעי, אחרי אני מאמינה) -->
-			<div class="animate-fade-in order-4 md:hidden pt-6 px-1">
+			<div class="scroll-reveal fade-up delay-100 order-4 md:hidden pt-6 px-1">
 				<div class="card-sage p-4 text-center">
 					<div class="flex flex-col items-center gap-3 mb-3">
 						<!-- תמונה עגולה -->
@@ -148,13 +148,13 @@ import { siteData } from '../content/site-data';
 <!-- חלק תחתון - מה אני מציעה -->
 <section class="bg-gradient-warm py-6 md:py-8">
 	<div class="container-custom w-full">
-		<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4 md:mb-6 text-center">
+		<h2 class="scroll-reveal fade-up text-2xl md:text-3xl font-display text-burgundy mb-4 md:mb-6 text-center">
 			מה אני מציעה
 		</h2>
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
 			{siteData.features.map((feature, index) => (
 				feature.link ? (
-					<a href={feature.link} class={`card animate-stagger-${index + 1} pt-1.5 pb-2.5 px-3 md:pt-2 md:pb-3 md:px-3.5 block hover:shadow-2xl transition-all`}>
+					<a href={feature.link} class={`scroll-reveal fade-up delay-${(index + 1) * 100} card pt-1.5 pb-2.5 px-3 md:pt-2 md:pb-3 md:px-3.5 block hover:shadow-2xl transition-all`}>
 						<h3 class="text-lg md:text-xl font-display text-charcoal mb-0.5">
 							{feature.title}
 						</h3>
@@ -166,7 +166,7 @@ import { siteData } from '../content/site-data';
 						</span>
 					</a>
 				) : (
-					<div class={`card animate-stagger-${index + 1} pt-1.5 pb-2.5 px-3 md:pt-2 md:pb-3 md:px-3.5`}>
+					<div class={`scroll-reveal fade-up delay-${(index + 1) * 100} card pt-1.5 pb-2.5 px-3 md:pt-2 md:pb-3 md:px-3.5`}>
 						<h3 class="text-lg md:text-xl font-display text-charcoal mb-0.5">
 							{feature.title}
 						</h3>

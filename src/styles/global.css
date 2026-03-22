@@ -155,4 +155,65 @@
 	.pulse-slow {
 		animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 	}
+
+	/* ===== Scroll Reveal Animations ===== */
+	
+	/* הסתרה התחלתית - אלמנטים לא נראים עד שנכנסים לתצוגה */
+	.scroll-reveal {
+		opacity: 0;
+		transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+		            transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+		will-change: opacity, transform;
+	}
+	
+	/* כשהאלמנט נכנס לתצוגה - הופעה עם fade */
+	.scroll-reveal.is-visible {
+		opacity: 1;
+	}
+	
+	/* Fade Up - עולה ודוהה פנימה */
+	.fade-up {
+		transform: translateY(30px);
+	}
+	
+	.fade-up.is-visible {
+		transform: translateY(0);
+	}
+	
+	/* Fade In - רק דוהה פנימה, ללא תנועה */
+	.fade-in {
+		transform: none;
+	}
+	
+	/* Scale In - גדל מעט */
+	.scale-in {
+		transform: scale(0.95);
+	}
+	
+	.scale-in.is-visible {
+		transform: scale(1);
+	}
+	
+	/* Stagger delays - עיכובים קטנים בין אלמנטים */
+	.delay-100 { transition-delay: 100ms; }
+	.delay-200 { transition-delay: 200ms; }
+	.delay-300 { transition-delay: 300ms; }
+	.delay-400 { transition-delay: 400ms; }
+	.delay-500 { transition-delay: 500ms; }
+	
+	/* כיבוד prefers-reduced-motion */
+	@media (prefers-reduced-motion: reduce) {
+		.scroll-reveal {
+			opacity: 1 !important;
+			transform: none !important;
+			transition: none !important;
+		}
+	}
+	
+	/* אופטימיזציה למובייל - אנימציות קצרות יותר */
+	@media (max-width: 768px) {
+		.scroll-reveal {
+			transition-duration: 0.6s;
+		}
+	}
 }
