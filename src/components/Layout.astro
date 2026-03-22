@@ -71,8 +71,8 @@ const logoURL = Astro.site ? new URL('/logo.png', Astro.site).href : '/logo.png'
 			"logo": {
 				"@type": "ImageObject",
 				"url": logoURL,
-				"width": "500",
-				"height": "500"
+				"width": "1024",
+				"height": "1024"
 			},
 			"image": ogImageURL,
 			"description": description,
@@ -81,6 +81,29 @@ const logoURL = Astro.site ? new URL('/logo.png', Astro.site).href : '/logo.png'
 				"telephone": "+972-54-730-0780",
 				"contactType": "customer service",
 				"availableLanguage": ["Hebrew"]
+			},
+			"sameAs": [
+				"https://www.instagram.com/naama_tiran"
+			]
+		})} />
+		
+		<!-- JSON-LD Structured Data - Person (for Personal Practice) -->
+		<script type="application/ld+json" set:html={JSON.stringify({
+			"@context": "https://schema.org",
+			"@type": "Person",
+			"name": "נעמה טירן",
+			"jobTitle": "מטפלת באמנות ו-EMDR",
+			"url": Astro.site,
+			"logo": logoURL,
+			"image": logoURL,
+			"description": "מטפלת באמנות בעלת תואר שני והכשרה בגישת EMDR. טיפול למבוגרים ברמות השבים, רעננה והשרון",
+			"telephone": "+972-54-730-0780",
+			"email": "naatiran@gmail.com",
+			"address": {
+				"@type": "PostalAddress",
+				"addressLocality": "רמות השבים",
+				"addressRegion": "המרכז",
+				"addressCountry": "IL"
 			},
 			"sameAs": [
 				"https://www.instagram.com/naama_tiran"
