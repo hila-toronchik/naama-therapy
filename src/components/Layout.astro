@@ -14,7 +14,7 @@ const { title, description = 'טיפול מקצועי באמנות ו-EMDR למ�
 const siteName = 'נעמה טירן - טיפול באמנות ו-EMDR';
 const fullTitle = title === 'בית' ? siteName : `${title} | ${siteName}`;
 const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
-const ogImageURL = ogImage || (Astro.site ? new URL('/og-image.jpg', Astro.site).href : '/og-image.jpg');
+const ogImageURL = ogImage || (Astro.site ? new URL('/og-image-naama.jpg', Astro.site).href : '/og-image-naama.jpg');
 const logoURL = Astro.site ? new URL('/logo.png', Astro.site).href : '/logo.png';
 ---
 
@@ -40,9 +40,9 @@ const logoURL = Astro.site ? new URL('/logo.png', Astro.site).href : '/logo.png'
 		<meta property="og:title" content={fullTitle} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={ogImageURL} />
-		<meta property="og:image:width" content="1200" />
-		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content={siteName} />
+		<meta property="og:image:width" content="1066" />
+		<meta property="og:image:height" content="1600" />
+		<meta property="og:image:alt" content="נעמה טירן - מטפלת באמנות ו-EMDR" />
 		<meta property="og:locale" content="he_IL" />
 		<meta property="og:site_name" content={siteName} />
 		
