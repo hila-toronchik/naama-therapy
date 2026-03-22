@@ -7,7 +7,7 @@ export const siteData = {
 	instagram: 'https://www.instagram.com/naama_tiran?igsh=MWw1ZWZtN2VsZTAwNw%3D%3D&utm_source=qr',
 	address: 'מושב רמות השבים, ליד רעננה',
 	location: {
-		name: 'מושב רמות השבים (ליד רעננה)',
+		name: 'טיפול באמנות ו-EMDR במושב רמות השבים (ליד רעננה)',
 		description: '',
 		googleMapsUrl: 'https://maps.google.com/?q=רמות+השבים',
 		wazeUrl: 'https://www.waze.com/ul?q=רמות+השבים',
