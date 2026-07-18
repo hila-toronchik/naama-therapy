@@ -3,7 +3,7 @@ import Layout from '../components/Layout.astro';
 import { siteData } from '../content/site-data';
 ---
 
-<Layout title="EMDR" description="מהו טיפול EMDR - שיטת טיפול מבוססת מחקר לריפוי מטראומה ומצוקה נפשית">
+<Layout title="EMDR" description="שיטת טיפול מבוססת מחקר לעיבוד חוויות וזיכרונות משמעותיים, להפחתת מצוקה וליצירת שינוי בדפוסים רגשיים ובהתנהגות">
 	<section class="py-6 md:py-8 bg-cream-warm min-h-[85vh]">
 		<div class="container-custom w-full">
 			<div class="max-w-5xl mx-auto">
@@ -24,9 +24,14 @@ import { siteData } from '../content/site-data';
 						<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
 							מהי שיטת EMDR?
 						</h2>
-						<p class="text-base md:text-lg text-charcoal leading-relaxed">
-							שיטת EMDR היא גישה פסיכותרפויטית מבוססת מחקר, המאפשרת ריפוי מהיר ואפקטיבי ממצוקה נפשית ומטראומה. הטיפול מוכר על ידי ארגון הבריאות העולמי (WHO) כאחת הדרכים היעילות ביותר לעיבוד חוויות חיים מטלטלות והשבת האיזון הנפשי.
-						</p>
+						<div class="space-y-3">
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								EMDR היא גישה פסיכותרפויטית המסייעת לעבד חוויות, זיכרונות ואמונות שממשיכים לעורר מצוקה ולהשפיע על ההווה. ניתן לשלב אותה בטיפול בקשיים שונים, ובהם טראומה ופוסט טראומה, חרדה ופחדים, אבל, דפוסים רגשיים חוזרים, פגיעות בערך העצמי ומשברי חיים.
+							</p>
+							<p class="text-base md:text-lg text-charcoal leading-relaxed">
+								השיטה נחקרה בהיקף הרחב ביותר בטיפול בפוסט טראומה, ונכללת בהמלצות של ארגון הבריאות העולמי וגופים מקצועיים נוספים לטיפול ב־PTSD. לצד זאת, נעשה בה שימוש גם במצבים נוספים שבהם חוויות עבר ממשיכות להשפיע על הרגש, הגוף, האמונות וההתנהגות בהווה.
+							</p>
+						</div>
 					</div>
 
 					<!-- למי זה מתאים - ריבוע שני -->
@@ -35,7 +40,7 @@ import { siteData } from '../content/site-data';
 							למי זה מתאים?
 						</h2>
 						<p class="text-base md:text-lg text-charcoal leading-relaxed">
-							מעבר לטיפול בפוסט-טראומה (PTSD), השיטה הוכחה כמענה עוצמתי לחרדות, פוביות, אבל מורכב, פגיעות בערך העצמי ומשברי חיים. היא מתאימה לכל מי שמרגיש שאירועי העבר ממשיכים להשפיע על תפקודו, רגשותיו או מערכות היחסים שלו בהווה.
+							ההתאמה לטיפול ב־EMDR נבחנת באופן אישי ותלויה במצבו של האדם, במטרות הטיפול, בקצב המתאים לו ובאפשרות לקיים תהליך יציב ובטוח.
 						</p>
 					</div>
 				</div>
@@ -45,6 +50,10 @@ import { siteData } from '../content/site-data';
 					<div class="w-full h-full">
 						<img
 							src="/images/emdr-healing.jpg"
+							width="607"
+							height="607"
+							loading="lazy"
+							decoding="async"
 							alt="עיבוד טראומה וריפוי - תהליך של איחוי זיכרונות מפוצלים דרך טיפול EMDR"
 							class="w-full h-full rounded-xl shadow-lg object-cover"
 						/>
@@ -61,7 +70,7 @@ import { siteData } from '../content/site-data';
 				<div class="space-y-4 md:space-y-5">
 					<div>
 						<p class="text-base md:text-lg text-charcoal leading-relaxed mb-4">
-							ההנחה בבסיס השיטה היא שלמוח שלנו יש יכולת טבעית לרפא את עצמו. בדיוק כפי שהגוף יודע לאחות פצע פיזי, המוח יודע לעבד חוויות רגשיות.
+							למוח ולמערכת העצבים יש יכולת טבעית לעבד חוויות ולהתאושש מהן. לעיתים חוויה קשה ממשיכה לעורר מצוקה ותגובות בהווה, ו־EMDR נועד לסייע בהנעת תהליך העיבוד.
 						</p>
 					</div>
 					
@@ -70,19 +79,19 @@ import { siteData } from '../content/site-data';
 							אז למה לפעמים אנחנו נתקעים?
 						</h3>
 						<p class="text-base md:text-lg text-charcoal leading-relaxed">
-							כשאנו עוברים אירוע מטלטל או טראומטי, המוח לעיתים "קורס" תחת העומס. במקום שהאירוע יעובד ויהפוך לזיכרון רגיל מהעבר, הוא נשאר "קפוא" וחי במערכת העצבים שלנו. זו הסיבה שגם שנים אחרי, ריח מסוים או צליל יכולים לגרום לנו להרגיש כאילו אנחנו שוב בתוך אותה סיטואציה, עם כל הפחד והלחץ הגופני.
+							בזמן אירוע קשה או מאיים, החוויה יכולה להיחרט באופן שממשיך לעורר תגובות רגשיות וגופניות גם לאחר שהסכנה חלפה. לכן תזכורות כמו ריח, צליל או מצב דומה עשויות לעורר תחושה שהאירוע עדיין קרוב או נוכח.
 						</p>
 					</div>
 					
 					<div class="bg-[#fbf3ea] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
 						<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
-							איך הטיפול משחרר את ה"תקיעות"?
+							מה קורה במהלך עיבוד ב־EMDR?
 						</h3>
 						<p class="text-base md:text-lg text-charcoal leading-relaxed">
-							במהלך הטיפול, אנו משתמשים בגירוי דו-צדדי (למשל, מעקב של העיניים מצד לצד). פעולה זו מגרה לסירוגין את אונה ימין ואונה שמאל של המוח, ומפעילה מחדש את "מנגנון עיבוד המידע" שנתקע.
+							במהלך חלקים מהטיפול נעשה שימוש בגירוי דו צדדי, בדרך כלל בתנועות עיניים ולעיתים בטפיחות או בצלילים. במקביל נשמרת תשומת לב לזיכרון, למחשבות, לרגשות ולתחושות הגוף שעולות. המנגנונים המדויקים שבאמצעותם EMDR פועל עדיין נחקרים. אחת ההשערות היא שהשילוב בין העלאת הזיכרון לבין משימה נוספת, כמו תנועות עיניים, מפחית בהדרגה את עוצמתו ואת המטען הרגשי הנלווה אליו.
 						</p>
 						<p class="text-base md:text-lg text-charcoal leading-relaxed mt-3">
-							זה מאפשר לכם להתבונן באירוע המטריד מהצד, בלי להישאב למצוקה המקורית. המוח מתחיל "לעכל" את הזיכרון מחדש, עד שהוא מאוחסן בזיכרון כסיפור מהעבר שכבר לא מנהל אתכם בהווה.
+							עם התקדמות העיבוד, הזיכרון עשוי להרגיש רחוק יותר ולעורר פחות מצוקה, גם אם הוא עדיין נשאר חלק מסיפור החיים.
 						</p>
 					</div>
 				</div>
@@ -94,35 +103,35 @@ import { siteData } from '../content/site-data';
 						מה קורה בתוך חדר הטיפול?
 					</h2>
 					<p class="text-base md:text-lg text-charcoal leading-relaxed mb-6">
-						בניגוד לשיטות טיפול מסורתיות, ב-EMDR אתם לא נדרשים לדבר שוב ושוב על כל פרט כואב. הטיפול מובנה מאוד ומאפשר לנו לעבד את המצוקה בלי "לטבוע" בה מחדש.
+						ב־EMDR אין צורך לתאר בקול כל פרט של החוויה. העבודה נעשית באופן מובנה, תוך תשומת לב למה שעולה והתאמת הקצב ליכולת לשאת את התהליך.
 					</p>
 					
 					<p class="text-base md:text-lg text-charcoal leading-relaxed mb-6 font-semibold">
-						התהליך מורכב מארבעה שלבים עיקריים:
+						התהליך כולל הערכה, הכנה ועיבוד. כך עשויים להיראות כמה מהחלקים בעבודה:
 					</p>
 					
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
 						<div class="bg-[#fbf3ea] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
 							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
-								1. זיהוי והכנה
+								1. היכרות, הערכה והכנה
 							</h3>
 							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								יחד נבחר זיכרון, תמונה או תחושה גופנית מטרידה שתרצו לעבוד עליה. נוודא שיש לכם את הכלים להישאר בוויסות ובמרחב בטוח לאורך כל התהליך.
+								יחד נבחר זיכרון, תמונה או תחושה גופנית שתרצו לעבוד עליה. לפני תחילת העיבוד נקדיש זמן להיכרות, להכנה ולבניית דרכים שיכולות לסייע בוויסות. נבדוק יחד אם נכון להתחיל, ובמהלך העבודה נתאים את הקצב ונוכל לעצור כאשר יהיה בכך צורך.
 							</p>
 						</div>
 						
 						<div class="bg-[#fbf3ea] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
 							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
-								2. גירוי דו-צדדי
+								2. עבודה עם גירוי דו־צדדי
 							</h3>
 							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								בזמן שאתם מתמקדים בזיכרון, אני אנחה אתכם לבצע תנועות עיניים (או גירוי אחר כמו טפיחות קלות). פעולה זו מפעילה את שני חצאי המוח ומסייעת לשחרר את ה"תקיעות" של הזיכרון.
+								בזמן ההתמקדות בזיכרון נעשה שימוש בתנועות עיניים או בגירוי דו צדדי אחר. נעקוב יחד אחר המחשבות, הרגשות ותחושות הגוף שעולות, בקצב שניתן לשאת.
 							</p>
 						</div>
 						
 						<div class="bg-[#fbf3ea] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
 							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
-								3. עיבוד אקטיבי
+								3. מעקב אחר מה שעולה
 							</h3>
 							<p class="text-base md:text-lg text-charcoal leading-relaxed">
 								המוח שלכם יתחיל להעלות מחשבות, תמונות או תחושות. אנחנו נאפשר להם לעבור, כמו נוף שחולף מחלון של רכבת. עוצמת הכאב והדריכות הגופנית תלך ותפחת, והזיכרון יאבד מהכוח המציף שלו.
@@ -131,10 +140,10 @@ import { siteData } from '../content/site-data';
 						
 						<div class="bg-[#fbf3ea] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
 							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
-								4. הטמעה וחיזוק
+								4. חיזוק אמונה מיטיבה וסיום
 							</h3>
 							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								נסיים בחיבור המחשבה החיובית שתרצו לאמץ לגבי עצמכם (למשל: "אני מסוגלת להתמודד", "זה נגמר ואני בטוחה עכשיו"), כדי לבנות חוסן ותחושת שליטה מחודשת.
+								בשלב מתאים נבחן איזו אמונה מיטיבה ומציאותית הייתם רוצים לחזק ביחס לעצמכם ולחוויה, למשל: "אני מסוגלת להתמודד" או "זה נגמר ואני בטוחה עכשיו". הניסוח נבחר יחד ובהתאם למה שמרגיש אמין ונכון.
 							</p>
 						</div>
 					</div>

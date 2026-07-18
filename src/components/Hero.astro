@@ -57,11 +57,18 @@ import { siteData } from '../content/site-data';
 			<div class="order-2 md:order-1 flex flex-col gap-6">
 				<!-- תמונה -->
 				<div class="scroll-reveal scale-in bg-cream-warm rounded-2xl p-1 md:p-2 shadow-xl overflow-hidden w-full">
-					<img
-						src="/images/emdr-illustration.jpg"
-						alt="EMDR - מעבר מחשבות שליליות לחיוביות, טיפול ב-EMDR"
-						class="w-full h-auto rounded-xl shadow-lg object-contain mx-auto"
-					/>
+					<picture>
+						<source media="(max-width: 767px)" srcset="/images/emdr-illustration-720.webp" />
+						<img
+							src="/images/emdr-illustration-1200.webp"
+							alt="EMDR - מעבר מחשבות שליליות לחיוביות, טיפול ב-EMDR"
+							width="1200"
+							height="1200"
+							fetchpriority="high"
+							decoding="async"
+							class="w-full h-auto rounded-xl shadow-lg object-contain mx-auto"
+						/>
+					</picture>
 				</div>
 				
 				<!-- נעים להכיר - בדסקטופ בלבד (מתחת לתמונה) -->
@@ -75,6 +82,10 @@ import { siteData } from '../content/site-data';
 									<img
 										src="/images/naama.jpg"
 										alt="נעמה טירן"
+										width="96"
+										height="96"
+										loading="lazy"
+										decoding="async"
 										class="relative w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-lg"
 									/>
 								</div>
@@ -119,6 +130,10 @@ import { siteData } from '../content/site-data';
 								<img
 									src="/images/naama.jpg"
 									alt="נעמה טירן"
+									width="64"
+									height="64"
+									loading="lazy"
+									decoding="async"
 									class="relative w-16 h-16 rounded-full object-cover shadow-lg"
 								/>
 							</div>

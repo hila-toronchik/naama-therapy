@@ -8,9 +8,9 @@ export const GET: APIRoute = async () => {
 		const galleryPath = join(process.cwd(), 'public', 'images', 'art-therapy-gallery');
 		const files = await readdir(galleryPath);
 		
-		// Filter for image files
+		// Serve the optimized gallery assets only.
 		const imageFiles = files.filter((file) => 
-			/\.(jpg|jpeg|png|webp|gif)$/i.test(file)
+			/\.webp$/i.test(file)
 		);
 		
 		// Sort files for consistent ordering

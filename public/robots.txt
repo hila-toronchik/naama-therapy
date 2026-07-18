@@ -3,4 +3,4 @@ User-agent: *
 Allow: /
 
 # Sitemap location
-Sitemap: https://naamatiran.com/sitemap.xml
+Sitemap: https://naamatiran.com/sitemap-index.xml
