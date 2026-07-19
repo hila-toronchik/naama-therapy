@@ -1,6 +1,6 @@
 ---
 interface Props {
-	items: Array<{ question: string; answer: string }>;
+	items: Array<{ question: string; answer: string; link?: string; linkText?: string }>;
 }
 
 const { items } = Astro.props;
@@ -27,6 +27,11 @@ const { items } = Astro.props;
 				<p class="text-sm md:text-base text-charcoal leading-relaxed pt-3 md:pt-4">
 					{item.answer}
 				</p>
+				{item.link && item.linkText && (
+					<a href={item.link} class="inline-flex mt-3 text-burgundy hover:underline font-medium">
+						{item.linkText} ←
+					</a>
+				)}
 			</div>
 		</details>
 	))}

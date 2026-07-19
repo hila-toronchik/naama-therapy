@@ -3,7 +3,7 @@ import Layout from '../components/Layout.astro';
 import { siteData } from '../content/site-data';
 ---
 
-<Layout title="צור קשר" description="צור קשר עם נעמה טירן - טיפול באמנות ו-EMDR">
+<Layout title="יצירת קשר | נעמה טירן, רמות השבים" description="פרטי יצירת קשר עם נעמה טירן לפנייה בנוגע לטיפול רגשי למבוגרים בקליניקה ברמות השבים, ליד רעננה, או לטיפול מקוון לאחר בדיקת התאמה.">
 	<section class="py-6 md:py-8 bg-cream-warm min-h-[85vh] md:min-h-[90vh] flex items-center">
 		<div class="container-custom w-full">
 			<div class="max-w-5xl mx-auto">
@@ -124,21 +124,11 @@ import { siteData } from '../content/site-data';
 					</div>
 					</div>
 				</div>
+				<div class="text-center mt-6">
+					<a href="/faq" class="inline-flex text-burgundy hover:underline font-medium">לשאלות נפוצות על תחילת הטיפול ←</a>
+				</div>
 			</div>
 		</div>
 	</section>
 
-	<script type="application/ld+json" set:html={JSON.stringify({
-		"@context": "https://schema.org",
-		"@type": "LocalBusiness",
-		"name": siteData.siteName,
-		"description": siteData.description,
-		"telephone": siteData.phone,
-		"email": siteData.email,
-		"address": {
-			"@type": "PostalAddress",
-			"addressCountry": "IL",
-			"addressLocality": siteData.address
-		}
-	})} />
 </Layout>

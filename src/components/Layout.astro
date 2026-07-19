@@ -9,14 +9,49 @@ interface Props {
 	title: string;
 	description?: string;
 	ogImage?: string;
+	noindex?: boolean;
 }
 
-const { title, description = 'טיפול מקצועי באמנות ו-EMDR למבוגרים', ogImage } = Astro.props;
-const siteName = 'נעמה טירן - טיפול באמנות ו-EMDR';
-const fullTitle = title === 'בית' ? siteName : `${title} | ${siteName}`;
+const { title, description = 'טיפול רגשי למבוגרים אצל נעמה טירן', ogImage, noindex = false } = Astro.props;
+const siteName = 'נעמה טירן';
+const fullTitle = title;
 const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
-const ogImageURL = ogImage || (Astro.site ? new URL('/og-image-naama.jpg', Astro.site).href : '/og-image-naama.jpg');
+const siteURL = Astro.site?.href || 'https://naamatiran.com/';
+const ogImageURL = ogImage || new URL('/og-image-naama-horizontal.png', siteURL).href;
 const logoURL = Astro.site ? new URL('/logo.png', Astro.site).href : '/logo.png';
+const portraitURL = new URL('/og-image-naama.jpg', siteURL).href;
+const websiteId = new URL('/#website', siteURL).href;
+const personId = new URL('/#naama-tiran', siteURL).href;
+const practiceId = new URL('/#practice', siteURL).href;
+const structuredData = {
+	'@context': 'https://schema.org',
+	'@graph': [
+		{
+			'@type': 'WebSite', '@id': websiteId, url: siteURL, name: siteName,
+			alternateName: 'נעמה טירן – טיפול רגשי למבוגרים', inLanguage: 'he-IL',
+			publisher: { '@id': practiceId }
+		},
+		{
+			'@type': 'Person', '@id': personId, name: 'נעמה טירן',
+			jobTitle: 'מטפלת באמנות וב־EMDR', url: siteURL, image: portraitURL,
+			worksFor: { '@id': practiceId }, sameAs: ['https://www.instagram.com/naama_tiran']
+		},
+		{
+			'@type': 'ProfessionalService', '@id': practiceId,
+			name: 'נעמה טירן – טיפול רגשי למבוגרים', url: siteURL,
+			description: 'טיפול רגשי למבוגרים בגישה אינטגרטיבית בקליניקה ברמות השבים, ליד רעננה.',
+			logo: logoURL, image: ogImageURL, telephone: '+972-54-730-0780', email: 'naatiran@gmail.com',
+			founder: { '@id': personId },
+			address: { '@type': 'PostalAddress', addressLocality: 'רמות השבים', addressRegion: 'השרון', addressCountry: 'IL' },
+			areaServed: ['רמות השבים', 'רעננה', 'כפר סבא', 'הוד השרון', 'הרצליה', 'נתניה', 'השרון'].map(name => ({ '@type': 'Place', name })),
+			hasOfferCatalog: {
+				'@type': 'OfferCatalog', name: 'שירותי טיפול רגשי למבוגרים',
+				itemListElement: ['טיפול רגשי למבוגרים', 'טיפול EMDR', 'טיפול באמנות'].map(name => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } }))
+			},
+			sameAs: ['https://www.instagram.com/naama_tiran']
+		}
+	]
+};
 ---
 
 <!doctype html>
@@ -33,7 +68,6 @@ const logoURL = Astro.site ? new URL('/logo.png', Astro.site).href : '/logo.png'
 		<link rel="canonical" href={canonicalURL} />
 		<meta name="generator" content={Astro.generator} />
 		<meta name="description" content={description} />
-		<meta name="keywords" content="טיפול באמנות, EMDR, טיפול נפשי, טיפול למבוגרים, טיפול בטראומה, טיפול בחרדה" />
 		
 		<!-- Open Graph / Facebook -->
 		<meta property="og:type" content="website" />
@@ -41,8 +75,8 @@ const logoURL = Astro.site ? new URL('/logo.png', Astro.site).href : '/logo.png'
 		<meta property="og:title" content={fullTitle} />
 		<meta property="og:description" content={description} />
 		<meta property="og:image" content={ogImageURL} />
-		<meta property="og:image:width" content="1066" />
-		<meta property="og:image:height" content="1600" />
+		<meta property="og:image:width" content="1200" />
+		<meta property="og:image:height" content="630" />
 		<meta property="og:image:alt" content="נעמה טירן - מטפלת באמנות ו-EMDR" />
 		<meta property="og:locale" content="he_IL" />
 		<meta property="og:site_name" content={siteName} />
@@ -57,118 +91,12 @@ const logoURL = Astro.site ? new URL('/logo.png', Astro.site).href : '/logo.png'
 		
 		<!-- Additional SEO -->
 		<meta name="author" content="נעמה טירן" />
-		<meta name="robots" content="index, follow" />
-		<meta name="googlebot" content="index, follow" />
+		<meta name="robots" content={noindex ? 'noindex, follow' : 'index, follow'} />
+		<meta name="googlebot" content={noindex ? 'noindex, follow' : 'index, follow'} />
 		
 		<title>{fullTitle}</title>
 		
-		<!-- JSON-LD Structured Data - Organization (for Google Search Logo) -->
-		<script type="application/ld+json" set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "Organization",
-			"name": siteName,
-			"alternateName": "נעמה טירן - מטפלת באמנות ו-EMDR",
-			"url": Astro.site,
-			"logo": {
-				"@type": "ImageObject",
-				"url": logoURL,
-				"width": "1024",
-				"height": "1024"
-			},
-			"image": ogImageURL,
-			"description": description,
-			"contactPoint": {
-				"@type": "ContactPoint",
-				"telephone": "+972-54-730-0780",
-				"contactType": "customer service",
-				"availableLanguage": ["Hebrew"]
-			},
-			"sameAs": [
-				"https://www.instagram.com/naama_tiran"
-			]
-		})} />
-		
-		<!-- JSON-LD Structured Data - Person (for Personal Practice) -->
-		<script type="application/ld+json" set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "Person",
-			"name": "נעמה טירן",
-			"jobTitle": "מטפלת באמנות ו-EMDR",
-			"url": Astro.site,
-			"logo": logoURL,
-			"image": logoURL,
-			"description": "מטפלת באמנות בעלת תואר שני והכשרה בגישת EMDR. טיפול למבוגרים ברמות השבים, רעננה והשרון",
-			"telephone": "+972-54-730-0780",
-			"email": "naatiran@gmail.com",
-			"address": {
-				"@type": "PostalAddress",
-				"addressLocality": "רמות השבים",
-				"addressRegion": "המרכז",
-				"addressCountry": "IL"
-			},
-			"sameAs": [
-				"https://www.instagram.com/naama_tiran"
-			]
-		})} />
-		
-		<!-- JSON-LD Structured Data - Professional Service -->
-		<script type="application/ld+json" set:html={JSON.stringify({
-			"@context": "https://schema.org",
-			"@type": "ProfessionalService",
-			"name": siteName,
-			"description": description,
-			"url": Astro.site,
-			"logo": logoURL,
-			"image": ogImageURL,
-			"telephone": "+972-54-730-0780",
-			"email": "naatiran@gmail.com",
-			"address": {
-				"@type": "PostalAddress",
-				"addressLocality": "רמות השבים",
-				"addressRegion": "המרכז",
-				"addressCountry": "IL"
-			},
-			"geo": {
-				"@type": "GeoCoordinates",
-				"latitude": "32.2614",
-				"longitude": "34.9046"
-			},
-			"priceRange": "$$",
-			"areaServed": {
-				"@type": "GeoCircle",
-				"geoMidpoint": {
-					"@type": "GeoCoordinates",
-					"latitude": "32.2614",
-					"longitude": "34.9046"
-				},
-				"geoRadius": "50000"
-			},
-			"hasOfferCatalog": {
-				"@type": "OfferCatalog",
-				"name": "שירותי טיפול",
-				"itemListElement": [
-					{
-						"@type": "Offer",
-						"itemOffered": {
-							"@type": "Service",
-							"name": "טיפול באמנות",
-							"description": "טיפול פסיכותרפויטי באמצעות אמנות למבוגרים"
-						}
-					},
-					{
-						"@type": "Offer",
-						"itemOffered": {
-							"@type": "Service",
-							"name": "EMDR",
-							"description": "טיפול בטראומה באמצעות שיטת EMDR"
-						}
-					}
-				]
-			},
-			"sameAs": [
-				"https://www.instagram.com/naama_tiran"
-			]
-		})} />
+		<script type="application/ld+json" set:html={JSON.stringify(structuredData)} />
 	</head>
 	<body>
 		<Navigation />
