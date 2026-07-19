@@ -2,195 +2,84 @@
 import { siteData } from '../content/site-data';
 ---
 
-<!-- חלק עליון - תמונה, ברוכים הבאים, אני מאמינה -->
-<section class="bg-gradient-warm py-6 md:py-8 min-h-[85vh] flex items-center">
+<section class="relative bg-gradient-warm py-8 md:pt-12 md:pb-20">
 	<div class="container-custom w-full">
-		<div class="grid grid-cols-1 md:grid-cols-[45%_55%] gap-6 md:gap-8">
-			<!-- ברוכים הבאים - במובייל מופיע ראשון -->
-			<div class="order-1 md:order-2 md:row-span-2">
-				<div class="space-y-6 md:space-y-8 flex flex-col justify-center h-full px-2 md:px-4">
-					<!-- חלק ברוכים הבאים -->
-					<div class="space-y-5 md:space-y-6">
-						<!-- כותרת ראשית -->
-						<h1 class="scroll-reveal fade-up text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-4 md:mb-5 text-right">
-							{siteData.hero.title}
-						</h1>
-						
-						<!-- כותרת משנה - מופרדת לפסקאות עם מרווח קטן -->
-						<div class="scroll-reveal fade-up delay-100 space-y-2 text-base md:text-lg text-charcoal leading-relaxed text-right">
-							<p set:html={siteData.hero.description}></p>
-						</div>
-						
-						<!-- שורת מיקום -->
-						<p class="scroll-reveal fade-up delay-200 text-base md:text-lg text-charcoal text-right">
-							{siteData.hero.location}
-						</p>
-						
-						<!-- כפתור הנעה לפעולה -->
-						<div class="scroll-reveal fade-up delay-300 text-right">
-							<a
-								href={`https://wa.me/${siteData.whatsapp}`}
-								target="_blank"
-								rel="noopener noreferrer"
-								class="btn-primary inline-flex items-center gap-2 text-base md:text-lg shadow-lg hover:shadow-xl transition-shadow"
-							>
-								<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
-									<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
-								</svg>
-								{siteData.hero.cta}
-							</a>
-						</div>
-					</div>
-					
-					<!-- אני מאמינה - בדסקטופ יופיע כאן, במובייל יופיע אחרי התמונה -->
-					<div class="scroll-reveal fade-up delay-400 hidden md:block border-t border-sage/20 pt-6 md:pt-8 px-1 md:px-2">
-						<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-3 md:mb-4">
-							{siteData.intro.title}
-						</h2>
-						<p class="text-base md:text-lg text-charcoal leading-relaxed max-w-4xl text-justify" set:html={siteData.intro.text}>
-						</p>
-					</div>
-				</div>
-			</div>
-			
-			<!-- עמודה שמאלית: תמונה + נעים להכיר (בדסקטופ) -->
-			<div class="order-2 md:order-1 flex flex-col gap-6">
-				<!-- תמונה -->
-				<div class="scroll-reveal scale-in bg-cream-warm rounded-2xl p-1 md:p-2 shadow-xl overflow-hidden w-full">
-					<picture>
-						<source media="(max-width: 767px)" srcset="/images/emdr-illustration-720.webp" />
-						<img
-							src="/images/emdr-illustration-1200.webp"
-							alt="EMDR - מעבר מחשבות שליליות לחיוביות, טיפול ב-EMDR"
-							width="1200"
-							height="1200"
-							fetchpriority="high"
-							decoding="async"
-							class="w-full h-auto rounded-xl shadow-lg object-contain mx-auto"
-						/>
-					</picture>
-				</div>
-				
-				<!-- נעים להכיר - בדסקטופ בלבד (מתחת לתמונה) -->
-				<div class="scroll-reveal fade-up delay-200 hidden md:block">
-					<div class="card-sage p-5 md:p-5 text-center">
-						<div class="flex flex-col items-center gap-3 mb-3">
-							<!-- תמונה עגולה -->
-							<div class="flex-shrink-0">
-								<div class="relative">
-									<div class="absolute -inset-1 bg-burgundy bg-opacity-10 rounded-full"></div>
-									<img
-										src="/images/naama.jpg"
-										alt="נעמה טירן"
-										width="96"
-										height="96"
-										loading="lazy"
-										decoding="async"
-										class="relative w-20 h-20 md:w-24 md:h-24 rounded-full object-cover shadow-lg"
-									/>
-								</div>
-							</div>
-							<!-- כותרת -->
-							<h2 class="text-2xl md:text-3xl font-display text-burgundy">
-								{siteData.meetMe.title}
-							</h2>
-						</div>
-						<p class="text-base md:text-lg text-charcoal leading-relaxed mb-3" set:html={siteData.meetMe.text}>
-						</p>
-						<a
-							href="/about"
-							class="inline-flex items-center gap-2 text-burgundy hover:text-burgundy/80 font-medium text-base md:text-lg transition-colors"
-						>
-							קרא עוד אודותיי
-							<svg class="w-4 h-4 md:w-5 md:h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-								<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
-							</svg>
-						</a>
-					</div>
-				</div>
-			</div>
-			
-			<!-- אני מאמינה - במובייל בלבד (מופיע שלישי) -->
-			<div class="scroll-reveal fade-up order-3 md:hidden border-t border-sage/20 pt-6 px-1">
-				<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-3 md:mb-4">
-					{siteData.intro.title}
-				</h2>
-				<p class="text-base md:text-lg text-charcoal leading-relaxed max-w-full text-justify" set:html={siteData.intro.text}>
-				</p>
-			</div>
-			
-			<!-- נעים להכיר - במובייל בלבד (מופיע רביעי, אחרי אני מאמינה) -->
-			<div class="scroll-reveal fade-up delay-100 order-4 md:hidden pt-6 px-1">
-				<div class="card-sage p-4 text-center">
-					<div class="flex flex-col items-center gap-3 mb-3">
-						<!-- תמונה עגולה -->
-						<div class="flex-shrink-0">
-							<div class="relative">
-								<div class="absolute -inset-1 bg-burgundy bg-opacity-10 rounded-full"></div>
-								<img
-									src="/images/naama.jpg"
-									alt="נעמה טירן"
-									width="64"
-									height="64"
-									loading="lazy"
-									decoding="async"
-									class="relative w-16 h-16 rounded-full object-cover shadow-lg"
-								/>
-							</div>
-						</div>
-						<!-- כותרת -->
-						<h2 class="text-2xl font-display text-burgundy">
-							{siteData.meetMe.title}
-						</h2>
-					</div>
-					<p class="text-base text-charcoal leading-relaxed mb-3" set:html={siteData.meetMe.text}>
+		<div class="grid grid-cols-1 md:grid-cols-[46%_54%] items-center gap-7 md:gap-10">
+			<div class="px-2 md:px-4">
+				<h1 class="scroll-reveal fade-up text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-5 text-right">
+					{siteData.hero.title}
+				</h1>
+
+				<div class="scroll-reveal fade-up delay-100 text-base md:text-lg text-charcoal leading-relaxed text-right">
+					<p>
+						טיפול רגשי למבוגרים,<br />
+						<strong>המותאם לאדם</strong><br />
+						ומשלב לפי הצורך שיחה, <a href="/emdr" class="text-burgundy underline decoration-burgundy/40 underline-offset-4 hover:decoration-burgundy">EMDR</a>,<br />
+						התייחסות לגוף וביטוי יצירתי.
 					</p>
+					<p class="mt-5">
+						מענה מקצועי ל<strong>מצבי מצוקה, חוסר ביטחון<br />
+						ודפוסי התנהגות לא יעילים</strong>.
+					</p>
+				</div>
+
+				<p class="scroll-reveal fade-up delay-200 mt-5 text-base md:text-lg text-charcoal text-right">
+					טיפול במושב <strong>רמות השבים</strong> (ליד רעננה)
+				</p>
+
+				<div class="scroll-reveal fade-up delay-300 mt-6 text-right">
 					<a
-						href="/about"
-						class="inline-flex items-center gap-2 text-burgundy hover:text-burgundy/80 font-medium text-base transition-colors"
+						href={`https://wa.me/${siteData.whatsapp}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn-primary inline-flex items-center gap-2 text-base md:text-lg shadow-lg hover:shadow-xl transition-shadow"
 					>
-						קרא עוד אודותיי
-						<svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7" />
+						<svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z" />
 						</svg>
+						{siteData.hero.cta}
 					</a>
 				</div>
 			</div>
+
+			<div class="scroll-reveal scale-in bg-cream-warm rounded-2xl p-1.5 md:p-2 shadow-xl overflow-hidden w-full max-w-[440px] lg:max-w-[500px] mx-auto">
+				<picture>
+					<source media="(max-width: 767px)" srcset="/images/emdr-illustration-720.webp" />
+					<img
+						src="/images/emdr-illustration-1200.webp"
+						alt="EMDR - מעבר ממחשבות שליליות לחיוביות, טיפול ב-EMDR"
+						width="1200"
+						height="1200"
+						fetchpriority="high"
+						decoding="async"
+						class="w-full h-auto rounded-xl shadow-lg object-contain"
+					/>
+				</picture>
+			</div>
 		</div>
 	</div>
+
+	<a
+		id="home-scroll-hint"
+		href="#home-next-section"
+		class="scroll-hint fixed bottom-5 left-1/2 z-40 hidden md:flex w-11 h-11 items-center justify-center rounded-full border border-burgundy/30 bg-cream-warm/90 text-burgundy shadow-md backdrop-blur-sm transition-[opacity,background-color] duration-300 hover:bg-cream-warm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-burgundy"
+		aria-label="לגלילה לתוכן הבא"
+	>
+		<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+		</svg>
+	</a>
 </section>
 
-<!-- חלק תחתון - מה אני מציעה -->
-<section class="bg-gradient-warm py-6 md:py-8">
-	<div class="container-custom w-full">
-		<h2 class="scroll-reveal fade-up text-2xl md:text-3xl font-display text-burgundy mb-4 md:mb-6 text-center">
-			מה אני מציעה
-		</h2>
-		<div class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-			{siteData.features.map((feature, index) => (
-				feature.link ? (
-					<a href={feature.link} class={`scroll-reveal fade-up delay-${(index + 1) * 100} card pt-1.5 pb-2.5 px-3 md:pt-2 md:pb-3 md:px-3.5 block hover:shadow-2xl transition-all`}>
-						<h3 class="text-lg md:text-xl font-display text-charcoal mb-0.5">
-							{feature.title}
-						</h3>
-						<p class="text-sm md:text-base text-charcoal leading-relaxed mb-2">
-							{feature.description}
-						</p>
-						<span class="text-burgundy font-medium text-sm md:text-base inline-flex items-center gap-1">
-							קרא עוד →
-						</span>
-					</a>
-				) : (
-					<div class={`scroll-reveal fade-up delay-${(index + 1) * 100} card pt-1.5 pb-2.5 px-3 md:pt-2 md:pb-3 md:px-3.5`}>
-						<h3 class="text-lg md:text-xl font-display text-charcoal mb-0.5">
-							{feature.title}
-						</h3>
-						<p class="text-sm md:text-base text-charcoal leading-relaxed">
-							{feature.description}
-						</p>
-					</div>
-				)
-			))}
-		</div>
-	</div>
-</section>
+<script>
+	const scrollHint = document.getElementById('home-scroll-hint');
+
+	if (scrollHint) {
+		const updateScrollHint = () => {
+			scrollHint.classList.toggle('is-hidden', window.scrollY > 80);
+		};
+
+		updateScrollHint();
+		window.addEventListener('scroll', updateScrollHint, { passive: true });
+	}
+</script>

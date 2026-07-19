@@ -3,52 +3,101 @@ import Layout from '../components/Layout.astro';
 import { siteData } from '../content/site-data';
 ---
 
-<Layout title="תחומי טיפול" description="תחומי טיפול באמנות ו-EMDR למבוגרים">
-	<section class="py-6 md:py-8 bg-cream-warm min-h-[85vh] md:min-h-[90vh] flex items-center">
-		<div class="container-custom w-full">
+<Layout title="תחומי טיפול" description="טיפול רגשי למבוגרים ברמות השבים ליד רעננה: טראומה, התמכרויות, חרדה, משברי חיים וקשיים ביחסים ובערך העצמי.">
+	<section class="py-10 md:py-14 bg-cream-warm">
+		<div class="container-custom">
 			<div class="max-w-5xl mx-auto">
-				<div class="text-center mb-6 md:mb-8">
+				<div class="scroll-reveal fade-up text-center max-w-3xl mx-auto mb-9 md:mb-12">
 					<h1 class="text-3xl md:text-4xl font-display text-burgundy mb-3 md:mb-4">
 						{siteData.services.title}
 					</h1>
-					<p class="text-base md:text-lg text-charcoal">
+					<p class="text-base md:text-lg text-charcoal leading-relaxed">
 						{siteData.services.audience}
 					</p>
 				</div>
 				
-				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5 mb-6 md:mb-8">
-					{siteData.services.treatments.map((treatment) => (
-						<div class="card-sage p-4 md:p-5">
-							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								{treatment}
+				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5 mb-12 md:mb-16">
+					{siteData.services.treatments.map((treatment, index) => (
+						<div class:list={['scroll-reveal', 'fade-up', index % 2 === 1 && 'delay-100', 'card-sage p-5 md:p-6 last:md:col-span-2 last:md:max-w-[calc(50%-0.625rem)] last:md:mx-auto last:md:w-full']}>
+							<h2 class="card-heading text-xl md:text-2xl font-display text-burgundy mb-3">
+								{treatment.title}
+							</h2>
+							<p class="text-base text-charcoal leading-relaxed">
+								{treatment.description}
 							</p>
 						</div>
 					))}
 				</div>
-				
-				<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
-					<a href="/emdr" class="card p-4 md:p-5 hover:shadow-lg transition-shadow">
-						<h2 class="text-xl md:text-2xl font-display text-charcoal mb-3 font-bold">
-							{siteData.services.emdr.title}
-						</h2>
-						<p class="text-sm md:text-base text-charcoal leading-relaxed mb-3">
-							{siteData.services.emdr.description}
+
+				<div class="grid grid-cols-1 lg:grid-cols-2 gap-5 md:gap-6 mb-12 md:mb-16">
+					<div class="scroll-reveal fade-up card p-6 md:p-8">
+						<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4">למי הטיפול יכול להתאים?</h2>
+						<p class="text-base md:text-lg text-charcoal leading-relaxed">
+							למבוגרים שיש בהם רצון להבין את עצמם לעומק ולעשות שינוי, גם אם עדיין קיימים אמביוולנטיות, חשש או קושי להתקדם.
 						</p>
-						<span class="text-burgundy font-medium text-sm md:text-base inline-flex items-center gap-1">
-							קרא עוד →
-						</span>
-					</a>
-					
-					<a href="/art-therapy" class="card p-4 md:p-5 hover:shadow-lg transition-shadow">
-						<h2 class="text-xl md:text-2xl font-display text-charcoal mb-3 font-bold">
-							{siteData.services.artTherapy.title}
-						</h2>
-						<p class="text-sm md:text-base text-charcoal leading-relaxed mb-3">
-							{siteData.services.artTherapy.description}
+					</div>
+					<div class="scroll-reveal fade-up delay-100 card p-6 md:p-8">
+						<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4">מתי נדרשת מסגרת אחרת?</h2>
+						<p class="text-base md:text-lg text-charcoal leading-relaxed">
+							הטיפול פחות מתאים למי שמחפש רק עצות ופתרונות טכניים, ללא נכונות להתבוננות רגשית, או למי שזקוק למסגרת טיפולית אינטנסיבית, פסיכיאטרית או משברית יותר מזו שקליניקה פרטית יכולה לספק.
 						</p>
-						<span class="text-burgundy font-medium text-sm md:text-base inline-flex items-center gap-1">
-							קרא עוד →
-						</span>
+					</div>
+				</div>
+
+				<div class="mb-12 md:mb-16">
+					<div class="scroll-reveal fade-up text-center max-w-3xl mx-auto mb-7 md:mb-9">
+						<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4">דרכי עבודה אפשריות</h2>
+						<p class="text-base md:text-lg text-charcoal leading-relaxed">
+							אין צורך לדעת מראש איזו דרך מתאימה. אפשר להגיע לטיפול המבוסס על שיחה בלבד, ובהתאם לצרכים, לקצב ולמוכנות ניתן לשלב כלים נוספים.
+						</p>
+					</div>
+					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6">
+						<div class="scroll-reveal fade-up card p-5 md:p-6">
+							<h3 class="text-xl md:text-2xl font-display text-burgundy mb-3">שיחה וקשר טיפולי</h3>
+							<p class="text-base text-charcoal leading-relaxed">
+								אפשר להגיע לטיפול המבוסס על שיחה בלבד, בתוך קשר טיפולי שיש בו הקשבה וכבוד לקצב האישי.
+							</p>
+						</div>
+
+						<div class="scroll-reveal fade-up delay-100 card p-5 md:p-6">
+							<h3 class="text-xl md:text-2xl font-display text-burgundy mb-3">התייחסות לגוף ולמערכת העצבים</h3>
+							<p class="text-base text-charcoal leading-relaxed">
+								לעיתים ניתן לשלב תשומת לב לתחושות הגוף, לנשימה, לדריכות ולתגובות של מערכת העצבים. העבודה נעשית בהדרגה ובהתאם למה שמרגיש בטוח ומתאים בתהליך.
+							</p>
+						</div>
+
+						<a href="/emdr" class="scroll-reveal fade-up card p-5 md:p-6 hover:shadow-lg transition-shadow block">
+							<h3 class="text-xl md:text-2xl font-display text-burgundy mb-3">
+								{siteData.services.emdr.title}
+							</h3>
+							<p class="text-base text-charcoal leading-relaxed mb-4">
+								{siteData.services.emdr.description}
+							</p>
+							<span class="text-burgundy font-medium text-base inline-flex items-center gap-1">
+								לקריאה נוספת ←
+							</span>
+						</a>
+
+						<a href="/art-therapy" class="scroll-reveal fade-up delay-100 card p-5 md:p-6 hover:shadow-lg transition-shadow block">
+							<h3 class="text-xl md:text-2xl font-display text-burgundy mb-3">
+								{siteData.services.artTherapy.title}
+							</h3>
+							<p class="text-base text-charcoal leading-relaxed mb-4">
+								{siteData.services.artTherapy.description}
+							</p>
+							<span class="text-burgundy font-medium text-base inline-flex items-center gap-1">
+								לקריאה נוספת ←
+							</span>
+						</a>
+					</div>
+				</div>
+
+				<div class="scroll-reveal fade-up text-center max-w-3xl mx-auto">
+					<p class="text-lg md:text-xl text-charcoal leading-relaxed mb-5">
+						אם עולה שאלה לגבי התאמה, אפשר לפנות לשיחת היכרות קצרה ולבדוק יחד אם הטיפול יכול להתאים.
+					</p>
+					<a href="/contact" class="btn-primary inline-flex items-center justify-center">
+						לפרטים על שיחת ההיכרות
 					</a>
 				</div>
 			</div>

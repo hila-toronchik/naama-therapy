@@ -4,15 +4,31 @@ import FAQAccordion from '../components/FAQAccordion.astro';
 import { siteData } from '../content/site-data';
 ---
 
-<Layout title="שאלות נפוצות" description="שאלות נפוצות על טיפול באמנות ו-EMDR">
-	<section class="py-6 md:py-8 bg-cream-warm min-h-[85vh] md:min-h-[90vh] flex items-center">
-		<div class="container-custom w-full">
-			<div class="max-w-3xl mx-auto">
-				<h1 class="text-3xl md:text-4xl font-display text-burgundy mb-6 md:mb-8 text-center">
-					{siteData.faq.title}
-				</h1>
+<Layout title="שאלות נפוצות" description="תשובות לשאלות על טיפול רגשי למבוגרים, שיחת היכרות, EMDR, טיפול באמנות וטיפול מקוון.">
+	<section class="py-10 md:py-14 bg-cream-warm">
+		<div class="container-custom">
+			<div class="max-w-5xl mx-auto">
+				<header class="scroll-reveal fade-up text-center mb-8 md:mb-10">
+					<h1 class="text-3xl md:text-4xl font-display text-burgundy mb-4">
+						{siteData.faq.title}
+					</h1>
+					<p class="reading-width text-base md:text-lg text-charcoal leading-relaxed">
+						מידע על תחילת הטיפול, דרכי העבודה וההתאמה לתהליך.
+					</p>
+				</header>
 				
-				<FAQAccordion items={siteData.faq.items} />
+				<div class="max-w-4xl mx-auto">
+					<FAQAccordion items={siteData.faq.items} />
+				</div>
+
+				<div class="scroll-reveal fade-up text-center mt-9 md:mt-12">
+					<p class="cta-width text-base md:text-lg text-charcoal leading-relaxed mb-5">
+						אם נשארה שאלה, אפשר לפנות ולבדוק יחד אם הטיפול יכול להתאים.
+					</p>
+					<a href="/contact" class="btn-primary inline-flex items-center justify-center">
+						לפרטים על שיחת ההיכרות
+					</a>
+				</div>
 			</div>
 		</div>
 	</section>

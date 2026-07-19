@@ -11,6 +11,8 @@
 		--sage: #f6e7d4;
 		--burgundy: #6D2E46;
 		--charcoal: #493000;
+		--reading-width: 48rem;
+		--cta-width: 42rem;
 	}
 
 	* {
@@ -77,18 +79,112 @@
 	.card {
 		background-color: var(--sage);
 		border: 1px solid rgba(73, 48, 0, 0.1);
-		@apply rounded-xl shadow-md p-5 md:p-7 transition-all duration-300 hover:shadow-xl;
+		@apply rounded-xl shadow-sm p-5 md:p-7;
 	}
 
 	.card-warm {
 		background-color: var(--cream-warm);
 		border: 1px solid rgba(170, 166, 160, 0.2);
-		@apply rounded-xl shadow-md p-5 md:p-7 transition-all duration-300 hover:shadow-xl;
+		@apply rounded-xl shadow-sm p-5 md:p-7;
 	}
 
 	.card-sage {
 		background-color: var(--sage);
-		@apply rounded-xl shadow-md p-5 md:p-7 transition-all duration-300 hover:shadow-xl;
+		border: 1px solid rgba(73, 48, 0, 0.08);
+		@apply rounded-xl shadow-sm p-5 md:p-7;
+	}
+
+	/* Shared visual hierarchy */
+	main h1 {
+		font-size: 1.875rem !important;
+		line-height: 1.25 !important;
+		font-weight: 400 !important;
+		color: var(--burgundy) !important;
+	}
+
+	main h2 {
+		font-size: 1.5rem !important;
+		line-height: 1.35 !important;
+		font-weight: 400 !important;
+	}
+
+	main h3 {
+		font-size: 1.125rem !important;
+		line-height: 1.45 !important;
+		font-weight: 500 !important;
+	}
+
+	.reading-width {
+		width: 100%;
+		max-width: var(--reading-width);
+		margin-inline: auto;
+	}
+
+	.cta-width {
+		width: 100%;
+		max-width: var(--cta-width);
+		margin-inline: auto;
+	}
+
+	.card-heading {
+		font-size: 1.25rem !important;
+		line-height: 1.4 !important;
+	}
+
+	/* A consistent readable line length in the long-form method pages. */
+	main .max-w-5xl > .card > p,
+	main .max-w-5xl > .card-sage > p {
+		width: 100%;
+		max-width: var(--reading-width);
+		margin-inline: auto;
+	}
+
+	.scroll-hint {
+		animation: scroll-hint-bounce 1.8s ease-in-out infinite;
+	}
+
+	.scroll-hint.is-hidden,
+	.scroll-hint.is-unavailable {
+		opacity: 0;
+		pointer-events: none;
+	}
+
+	main a:focus-visible,
+	main button:focus-visible,
+	main summary:focus-visible {
+		outline: 3px solid var(--burgundy);
+		outline-offset: 3px;
+	}
+
+	a.card:hover,
+	a.card:focus-visible,
+	a.card-sage:hover,
+	a.card-sage:focus-visible {
+		transform: translateY(-2px);
+		box-shadow: 0 10px 20px rgba(73, 48, 0, 0.12);
+	}
+
+	@media (max-width: 767px) {
+		main a:not(p a),
+		main button,
+		main summary {
+			min-height: 2.75rem;
+		}
+
+		main a:not(p a) {
+			display: inline-flex;
+			align-items: center;
+		}
+	}
+
+	@media (min-width: 768px) {
+		main h1 { font-size: 3rem !important; }
+		main h2 { font-size: 1.875rem !important; }
+		main h3 { font-size: 1.25rem !important; }
+
+		.card-heading {
+			font-size: 1.5rem !important;
+		}
 	}
 
 	.grid {
@@ -152,6 +248,11 @@
 		}
 	}
 
+	@keyframes scroll-hint-bounce {
+		0%, 100% { transform: translate(-50%, 0); }
+		50% { transform: translate(-50%, 7px); }
+	}
+
 	.pulse-slow {
 		animation: pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite;
 	}
@@ -159,7 +260,7 @@
 	/* ===== Scroll Reveal Animations ===== */
 	
 	/* הסתרה התחלתית - אלמנטים לא נראים עד שנכנסים לתצוגה */
-	.scroll-reveal {
+	.reveal-ready .scroll-reveal {
 		opacity: 0;
 		transition: opacity 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94),
 		            transform 0.8s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -167,16 +268,16 @@
 	}
 	
 	/* כשהאלמנט נכנס לתצוגה - הופעה עם fade */
-	.scroll-reveal.is-visible {
+	.reveal-ready .scroll-reveal.is-visible {
 		opacity: 1;
 	}
 	
 	/* Fade Up - עולה ודוהה פנימה */
-	.fade-up {
+	.reveal-ready .fade-up {
 		transform: translateY(30px);
 	}
 	
-	.fade-up.is-visible {
+	.reveal-ready .fade-up.is-visible {
 		transform: translateY(0);
 	}
 	
@@ -186,11 +287,11 @@
 	}
 	
 	/* Scale In - גדל מעט */
-	.scale-in {
+	.reveal-ready .scale-in {
 		transform: scale(0.95);
 	}
 	
-	.scale-in.is-visible {
+	.reveal-ready .scale-in.is-visible {
 		transform: scale(1);
 	}
 	
@@ -207,6 +308,19 @@
 			opacity: 1 !important;
 			transform: none !important;
 			transition: none !important;
+		}
+
+		.pulse-slow,
+		.animate-fade-in,
+		.animate-slide-up,
+		.animate-stagger-1,
+		.animate-stagger-2,
+		.animate-stagger-3 {
+			animation: none !important;
+		}
+
+		.scroll-hint {
+			animation: none !important;
 		}
 	}
 	

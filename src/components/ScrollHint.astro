@@ -1,0 +1,37 @@
+---
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const showOnThisPage = currentPath !== '/';
+---
+
+{showOnThisPage && (
+	<button
+		id="page-scroll-hint"
+		type="button"
+		class="scroll-hint fixed bottom-5 left-1/2 z-40 hidden md:flex w-11 h-11 items-center justify-center rounded-full border border-burgundy/30 bg-cream-warm/90 text-burgundy shadow-md backdrop-blur-sm transition-[opacity,background-color] duration-300 hover:bg-cream-warm focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-burgundy"
+		aria-label="לגלילה לתוכן הבא"
+	>
+		<svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+			<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+		</svg>
+	</button>
+)}
+
+<script>
+	const scrollHint = document.getElementById('page-scroll-hint');
+
+	if (scrollHint) {
+		const updateScrollHint = () => {
+			const pageCanScroll = document.documentElement.scrollHeight > window.innerHeight + 120;
+			scrollHint.classList.toggle('is-unavailable', !pageCanScroll);
+			scrollHint.classList.toggle('is-hidden', window.scrollY > 80);
+		};
+
+		scrollHint.addEventListener('click', () => {
+			window.scrollBy({ top: Math.round(window.innerHeight * 0.78), behavior: 'smooth' });
+		});
+
+		updateScrollHint();
+		window.addEventListener('scroll', updateScrollHint, { passive: true });
+		window.addEventListener('resize', updateScrollHint, { passive: true });
+	}
+</script>

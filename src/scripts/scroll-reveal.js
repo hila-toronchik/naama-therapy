@@ -3,6 +3,10 @@
  * מערכת אנימציות עדינה ומקצועית עם Intersection Observer
  */
 
+// מפעילים הסתרה רק לאחר שמערכת האנימציה נטענה בהצלחה.
+// ללא JavaScript התוכן נשאר גלוי.
+document.documentElement.classList.add('reveal-ready');
+
 // בדיקה אם המשתמש מעדיף פחות תנועה
 const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 

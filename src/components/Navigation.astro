@@ -1,5 +1,10 @@
 ---
 import { siteData } from '../content/site-data';
+
+const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
+const isActive = (path: string) => currentPath === path;
+const isServicesActive = ['/services', '/emdr', '/art-therapy'].includes(currentPath);
+const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transition-colors font-medium ${active ? 'text-burgundy underline decoration-burgundy/40 underline-offset-8' : ''}`;
 ---
 
 <nav class="bg-white shadow-md sticky top-0 z-50">
@@ -13,15 +18,15 @@ import { siteData } from '../content/site-data';
 
 			<!-- Desktop Navigation -->
 			<div class="hidden md:flex items-center gap-6">
-				<a href="/" class="text-charcoal hover:text-burgundy transition-colors font-medium">
+				<a href="/" class={linkClass(isActive('/'))} aria-current={isActive('/') ? 'page' : undefined}>
 					{siteData.nav.home}
 				</a>
-				<a href="/about" class="text-charcoal hover:text-burgundy transition-colors font-medium">
+				<a href="/about" class={linkClass(isActive('/about'))} aria-current={isActive('/about') ? 'page' : undefined}>
 					{siteData.nav.about}
 				</a>
 			<!-- Dropdown Menu -->
 			<div class="relative group">
-				<a href="/services" class="text-charcoal hover:text-burgundy transition-colors font-medium inline-flex items-center gap-1">
+				<a href="/services" class={`${linkClass(isServicesActive)} inline-flex items-center gap-1`} aria-current={isActive('/services') ? 'page' : undefined}>
 					{siteData.nav.services}
 					<svg class="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
@@ -29,22 +34,22 @@ import { siteData } from '../content/site-data';
 				</a>
 				<div class="absolute top-full right-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
 						<div class="py-2">
-							<a href="/services" class="block px-4 py-2 text-charcoal hover:bg-cream-warm hover:text-burgundy transition-colors">
+							<a href="/services" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/services') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/services') ? 'page' : undefined}>
 								{siteData.nav.services}
 							</a>
-							<a href="/emdr" class="block px-4 py-2 text-charcoal hover:bg-cream-warm hover:text-burgundy transition-colors">
+							<a href="/emdr" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/emdr') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/emdr') ? 'page' : undefined}>
 								{siteData.nav.emdr}
 							</a>
-							<a href="/art-therapy" class="block px-4 py-2 text-charcoal hover:bg-cream-warm hover:text-burgundy transition-colors">
+							<a href="/art-therapy" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/art-therapy') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/art-therapy') ? 'page' : undefined}>
 								{siteData.nav.artTherapy}
 							</a>
 						</div>
 					</div>
 				</div>
-				<a href="/faq" class="text-charcoal hover:text-burgundy transition-colors font-medium">
+				<a href="/faq" class={linkClass(isActive('/faq'))} aria-current={isActive('/faq') ? 'page' : undefined}>
 					{siteData.nav.faq}
 				</a>
-				<a href="/contact" class="btn-primary">
+				<a href="/contact" class={`btn-primary ${isActive('/contact') ? 'ring-2 ring-burgundy/30 ring-offset-2' : ''}`} aria-current={isActive('/contact') ? 'page' : undefined}>
 					{siteData.nav.contact}
 				</a>
 			</div>
@@ -64,28 +69,28 @@ import { siteData } from '../content/site-data';
 			<!-- Mobile Menu -->
 			<div id="mobile-menu" class="hidden md:hidden pb-4">
 				<div class="flex flex-col gap-4 mt-4">
-					<a href="/" class="text-charcoal hover:text-burgundy transition-colors font-medium py-2">
+					<a href="/" class={`${linkClass(isActive('/'))} py-2`} aria-current={isActive('/') ? 'page' : undefined}>
 						{siteData.nav.home}
 					</a>
-					<a href="/about" class="text-charcoal hover:text-burgundy transition-colors font-medium py-2">
+					<a href="/about" class={`${linkClass(isActive('/about'))} py-2`} aria-current={isActive('/about') ? 'page' : undefined}>
 						{siteData.nav.about}
 					</a>
-				<a href="/services" class="text-charcoal hover:text-burgundy transition-colors font-medium py-2 inline-flex items-center gap-1">
+				<a href="/services" class={`${linkClass(isServicesActive)} py-2 inline-flex items-center gap-1`} aria-current={isActive('/services') ? 'page' : undefined}>
 					{siteData.nav.services}
 					<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
 					</svg>
 				</a>
-					<a href="/emdr" class="text-charcoal hover:text-burgundy transition-colors font-medium py-2 pr-4">
+					<a href="/emdr" class={`${linkClass(isActive('/emdr'))} py-2 pr-4`} aria-current={isActive('/emdr') ? 'page' : undefined}>
 						→ {siteData.nav.emdr}
 					</a>
-					<a href="/art-therapy" class="text-charcoal hover:text-burgundy transition-colors font-medium py-2 pr-4">
+					<a href="/art-therapy" class={`${linkClass(isActive('/art-therapy'))} py-2 pr-4`} aria-current={isActive('/art-therapy') ? 'page' : undefined}>
 						→ {siteData.nav.artTherapy}
 					</a>
-					<a href="/faq" class="text-charcoal hover:text-burgundy transition-colors font-medium py-2">
+					<a href="/faq" class={`${linkClass(isActive('/faq'))} py-2`} aria-current={isActive('/faq') ? 'page' : undefined}>
 						{siteData.nav.faq}
 					</a>
-					<a href="/contact" class="btn-primary text-center">
+					<a href="/contact" class={`btn-primary text-center ${isActive('/contact') ? 'ring-2 ring-burgundy/30 ring-offset-2' : ''}`} aria-current={isActive('/contact') ? 'page' : undefined}>
 						{siteData.nav.contact}
 					</a>
 				</div>

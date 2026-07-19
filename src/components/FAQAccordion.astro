@@ -8,61 +8,44 @@ const { items } = Astro.props;
 
 <div class="space-y-3 md:space-y-4">
 	{items.map((item, index) => (
-		<div class="faq-item card-sage p-4 md:p-5">
-			<input
-				type="checkbox"
-				id={`faq-${index}`}
-				class="faq-checkbox"
-				checked={index === 0}
-			/>
-			<label
-				for={`faq-${index}`}
-				class="faq-label flex items-center justify-between cursor-pointer"
-			>
-				<h3 class="text-base md:text-lg font-display text-charcoal pr-3 md:pr-4">
+		<details class:list={['scroll-reveal', 'fade-up', index % 2 === 1 && 'delay-100', 'faq-item card-sage p-4 md:p-5']} open={index === 0}>
+			<summary class="faq-label min-h-11 flex items-center justify-between cursor-pointer rounded-lg focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-burgundy">
+				<span class="text-base md:text-lg font-display text-charcoal pr-3 md:pr-4">
 					{item.question}
-				</h3>
+				</span>
 				<svg
 					class="faq-icon w-4 h-4 md:w-5 md:h-5 text-burgundy transition-transform flex-shrink-0"
 					fill="none"
 					stroke="currentColor"
 					viewBox="0 0 24 24"
+					aria-hidden="true"
 				>
 					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
 				</svg>
-			</label>
-			<div class="faq-content">
+			</summary>
+			<div>
 				<p class="text-sm md:text-base text-charcoal leading-relaxed pt-3 md:pt-4">
 					{item.answer}
 				</p>
 			</div>
-		</div>
+		</details>
 	))}
 </div>
 
 <style>
-	.faq-checkbox {
-		position: absolute;
-		opacity: 0;
-		pointer-events: none;
+	.faq-label {
+		list-style: none;
 	}
-	
-	.faq-content {
-		max-height: 0;
-		overflow: hidden;
-		transition: max-height 0.3s ease-out, padding-top 0.3s ease-out;
-	}
-	
-	.faq-checkbox:checked ~ .faq-content {
-		max-height: 500px;
-		padding-top: 1rem;
+
+	.faq-label::-webkit-details-marker {
+		display: none;
 	}
 	
 	.faq-icon {
 		transition: transform 0.3s ease-out;
 	}
 	
-	.faq-checkbox:checked ~ .faq-label .faq-icon {
+	.faq-item[open] .faq-icon {
 		transform: rotate(180deg);
 	}
 </style>

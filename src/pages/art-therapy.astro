@@ -4,12 +4,12 @@ import { siteData } from '../content/site-data';
 import ArtTherapyGallery from '../components/ArtTherapyGallery.astro';
 ---
 
-<Layout title="טיפול באמנות" description="מהו טיפול באמנות - ענף בפסיכותרפיה המשתמש ביצירה ככלי לביטוי ועיבוד רגשי">
-	<section class="py-6 md:py-8 bg-cream-warm min-h-[85vh]">
+<Layout title="טיפול באמנות" description="מידע על טיפול באמנות למבוגרים: כיצד ניתן לשלב יצירה וחומרי אמנות בטיפול רגשי, למי האפשרות עשויה להתאים ומה קורה בתהליך.">
+	<section class="py-10 md:py-14 bg-cream-warm">
 		<div class="container-custom w-full">
 			<div class="max-w-5xl mx-auto">
 				<!-- Header -->
-				<div class="text-center mb-8 md:mb-12">
+				<div class="scroll-reveal fade-up text-center mb-8 md:mb-12">
 					<h1 class="text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-3 md:mb-4">
 						מהו טיפול באמנות?
 					</h1>
@@ -17,15 +17,16 @@ import ArtTherapyGallery from '../components/ArtTherapyGallery.astro';
 				</div>
 
 				<!-- מהו טיפול באמנות - ריבוע ראשי -->
-				<div class="card-sage p-5 md:p-6 mb-6 md:mb-8">
-					<p class="text-base md:text-lg text-charcoal leading-relaxed">
-						טיפול באמנות הוא ענף בפסיכותרפיה המשתמש ביצירה ובחומרי אמנות ככלי לביטוי ועיבוד רגשי. הוא יכול להציע דרך נוספת לביטוי ולעיבוד, במיוחד כאשר קשה למצוא מילים מדויקות לחוויה.
+				<div class="scroll-reveal fade-up card-sage p-5 md:p-6 mb-6 md:mb-8">
+					<p class="reading-width text-base md:text-lg text-charcoal leading-relaxed">
+						טיפול באמנות הוא טיפול רגשי המאפשר לשלב בתהליך יצירה, דימויים וחומרי אמנות. לעיתים העבודה החזותית או החומרית מציעה דרך נוספת לבטא, לחוש ולהתבונן בחוויות שקשה עדיין לנסח במילים. אין צורך בניסיון או בכישרון, והשימוש באמנות אינו חובה — אפשר בהחלט להגיע לטיפול המבוסס על שיחה בלבד.
 					</p>
 				</div>
 
+				<div class="grid grid-cols-1 lg:grid-cols-[3fr_2fr] gap-6 md:gap-8 mb-6 md:mb-8 items-stretch">
 				<!-- איך זה עובד -->
-				<div class="card p-5 md:p-6 mb-6 md:mb-8">
-					<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
+				<div class="scroll-reveal fade-up card p-5 md:p-6 h-full">
+					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4 md:mb-5 font-bold">
 						איך זה עובד?
 					</h2>
 					
@@ -41,7 +42,7 @@ import ArtTherapyGallery from '../components/ArtTherapyGallery.astro';
 								מתן ביטוי מוחשי לרגש
 							</h3>
 							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								לעיתים אנחנו מנסים להבין את החוויה דרך הסברים הגיוניים, אך המילים אינן מצליחות לבטא את כולה. צבע, קו, צורה או חומר יכולים לפתוח ערוץ נוסף לביטוי ולאפשר מגע עם מה שעדיין קשה לומר, בלי לבטל את ההגנות ובלי לוותר על השיחה.
+								לעיתים אנחנו מנסים להבין את החוויה באמצעות הסברים ומילים, אך הם אינם מצליחים לבטא את כולה. צבע, קו, צורה או חומר יכולים לפתוח ערוץ נוסף לביטוי ולאפשר מגע עם מה שעדיין קשה לומר — בלי לוותר על השיחה ובלי לחפש משמעות אחת נכונה.
 							</p>
 						</div>
 						
@@ -56,28 +57,31 @@ import ArtTherapyGallery from '../components/ArtTherapyGallery.astro';
 					</div>
 				</div>
 
-			<!-- גלריית דוגמאות עבודה -->
-			<div class="mb-3 md:mb-6">
-				<ArtTherapyGallery />
-			</div>
+				<!-- גלריית המחשה -->
+				<div class="scroll-reveal fade-up delay-100 card-sage p-5 md:p-6 h-full">
+					<h2 class="card-heading text-2xl md:text-3xl font-display text-burgundy mb-2 font-bold">חומרים ויצירה</h2>
+					<p class="text-sm md:text-base text-charcoal leading-relaxed mb-4">התמונות מוצגות להמחשה בלבד ואינן עבודות של מטופלים.</p>
+					<ArtTherapyGallery />
+				</div>
+				</div>
 
 				<!-- למי הטיפול מיועד -->
-				<div id="target-height-card" class="card-sage p-5 md:p-6 mb-6 md:mb-8">
-					<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
+				<div class="scroll-reveal fade-up bg-[#fffaf3] rounded-xl border border-charcoal/10 p-5 md:p-6 mb-6 md:mb-8 md:grid md:grid-cols-[240px_1fr] md:gap-7 md:items-center">
+					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4 md:mb-0 font-bold">
 						למי הטיפול מיועד?
 					</h2>
 					<p class="text-base md:text-lg text-charcoal leading-relaxed">
-						טיפול באמנות עשוי להתאים למבוגרים שמרגישים שלפעמים המילים אינן מספיקות, או שרוצים לבחון דרך נוספת לביטוי ולהתבוננות. ניתן לשלב אותו בעבודה עם טראומה, חרדה, קשיי ויסות, משברי חיים והתמכרויות, בהתאם לצרכים ולהתאמה האישית. אין צורך בכישרון או בניסיון באמנות, משום שהדגש הוא על התהליך הרגשי ולא על התוצאה האסתטית.
+						טיפול באמנות עשוי להתאים למבוגרים שמרגישים שלפעמים המילים אינן מספיקות, או שרוצים לבחון דרך נוספת לביטוי ולהתבוננות. ניתן לשלב אותו בעבודה עם טראומה, חרדה, קשיי ויסות, משברי חיים והתמכרויות, בהתאם לצרכים ולהתאמה האישית. אין צורך בכישרון או בניסיון באמנות, וההחלטה אם וכיצד לשלב יצירה נעשית יחד ובהדרגה.
 					</p>
 				</div>
 
 				<!-- מה קורה בתוך חדר הטיפול -->
-				<div class="card p-5 md:p-6 mb-6 md:mb-8">
-					<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
+				<div class="scroll-reveal fade-up card p-5 md:p-6 mb-6 md:mb-8">
+					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4 md:mb-5 font-bold">
 						מה קורה בתוך חדר הטיפול?
 					</h2>
 					<p class="text-base md:text-lg text-charcoal leading-relaxed mb-6">
-						החדר הוא מרחב של חופש שבו אין שיפוטיות, "נכון" או "לא נכון". כאן לא יוצרים אמנות כדי שתהיה יפה, אלא כדי שתהיה כנה.
+						בחדר הטיפול אין ציפייה ליצור תוצר יפה, מוצלח או מובן. אם בוחרים לעבוד עם חומרי אמנות, אפשר להתנסות, לעצור, לשנות כיוון או לבחור שלא להמשיך. ההתבוננות במה שנוצר נעשית יחד, בסקרנות וללא ניסיון לקבוע לו פירוש אחד נכון.
 					</p>
 					
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
@@ -86,7 +90,7 @@ import ArtTherapyGallery from '../components/ArtTherapyGallery.astro';
 								1. הזמנה ליצירה
 							</h3>
 							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								נתחיל בשיחה קצרה ולאחריה נבחר בחומרים שמרגישים נכונים באותו רגע – מצבעים רכים ועד חומרים בעלי נוכחות פיזית חזקה יותר.
+								לא בכל פגישה נעשה שימוש באמנות. כאשר עולה אפשרות לשלב יצירה, נבדוק יחד אם היא מרגישה מתאימה ונבחר חומרים בהתאם למה שנוח ובטוח באותו רגע.
 							</p>
 						</div>
 						
@@ -95,7 +99,7 @@ import ArtTherapyGallery from '../components/ArtTherapyGallery.astro';
 								2. תהליך היצירה
 							</h3>
 							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								במהלך היצירה אני נמצאת איתכם, קשובה למה שעולה ועוזרת לשמור על קצב שמתאים לכם. אפשר ליצור בשקט, לדבר תוך כדי, לעצור או לשנות כיוון, בהתאם למה שמרגיש נכון ובטוח באותו רגע.
+								במהלך היצירה אני נמצאת לצדך וקשובה למה שעולה. אפשר ליצור בשקט, לדבר תוך כדי, לעצור או לשנות כיוון, בהתאם למה שמרגיש נכון באותו רגע.
 							</p>
 						</div>
 						
@@ -104,7 +108,7 @@ import ArtTherapyGallery from '../components/ArtTherapyGallery.astro';
 								3. שיח והתבוננות
 							</h3>
 							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								לאחר היצירה נתבונן יחד במה שנוצר. לא ננסה "לפענח" את התוצאה, אלא ננסה להבין אילו רגשות ותובנות היא מעוררת בכם ואיך היא מתקשרת לחיים שלכם.
+								לאחר היצירה אפשר להתבונן יחד במה שנוצר. לא ננסה "לפענח" את העבודה או להכתיב לה משמעות, אלא לבדוק אילו רגשות, מחשבות או אסוציאציות היא מעוררת וכיצד הם מתקשרים לחוויה האישית.
 							</p>
 						</div>
 						
@@ -119,14 +123,13 @@ import ArtTherapyGallery from '../components/ArtTherapyGallery.astro';
 					</div>
 				</div>
 
-				<!-- חזרה לתחומי טיפול -->
-				<div class="text-center">
-					<a
-						href="/services"
-						class="text-burgundy hover:text-burgundy/80 transition-colors font-medium inline-flex items-center gap-2"
-					>
-						← חזרה לתחומי טיפול
-					</a>
+				<div class="scroll-reveal fade-up text-center card-sage p-5 md:p-7">
+					<p class="text-base md:text-lg text-charcoal leading-relaxed max-w-2xl mx-auto mb-5">אין צורך לדעת מראש אם תרצה או תרצי לשלב אמנות בטיפול. אפשר להתחיל בשיחה ולבדוק יחד אילו דרכי עבודה מרגישות מתאימות.</p>
+					<a href="/contact" class="btn-primary inline-flex items-center justify-center mb-5">לפרטים על שיחת ההיכרות</a>
+					<div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+						<a href="/services" class="text-burgundy hover:text-burgundy/80 transition-colors font-medium">← חזרה לתחומי טיפול</a>
+						<a href="/faq" class="text-burgundy hover:text-burgundy/80 transition-colors font-medium">לשאלות נפוצות ←</a>
+					</div>
 				</div>
 			</div>
 		</div>

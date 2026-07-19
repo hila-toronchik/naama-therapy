@@ -3,6 +3,7 @@ import '../styles/global.css';
 import Navigation from './Navigation.astro';
 import Footer from './Footer.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
+import ScrollHint from './ScrollHint.astro';
 
 interface Props {
 	title: string;
@@ -176,6 +177,7 @@ const logoURL = Astro.site ? new URL('/logo.png', Astro.site).href : '/logo.png'
 		</main>
 		<Footer />
 		<WhatsAppButton />
+		<ScrollHint />
 		
 		<!-- Scroll Reveal Animation Script -->
 		<script src="../scripts/scroll-reveal.js"></script>

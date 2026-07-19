@@ -3,124 +3,113 @@ import Layout from '../components/Layout.astro';
 import { siteData } from '../content/site-data';
 ---
 
-<Layout title="EMDR" description="שיטת טיפול מבוססת מחקר לעיבוד חוויות וזיכרונות משמעותיים, להפחתת מצוקה וליצירת שינוי בדפוסים רגשיים ובהתנהגות">
-	<section class="py-6 md:py-8 bg-cream-warm min-h-[85vh]">
+<Layout title="EMDR" description="מידע על טיפול EMDR למבוגרים: למי השיטה יכולה להתאים, כיצד מתבצעת העבודה ומה קורה בתהליך עיבוד של חוויות טראומטיות וזיכרונות מעוררי מצוקה.">
+	<section class="py-10 md:py-14 bg-cream-warm">
 		<div class="container-custom w-full">
 			<div class="max-w-5xl mx-auto">
 				<!-- Header -->
-				<div class="text-center mb-8 md:mb-12">
+				<div class="scroll-reveal fade-up text-center mb-8 md:mb-12">
 					<h1 class="text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-3 md:mb-4">
 						מהו טיפול EMDR?
 					</h1>
 					<div class="w-16 md:w-24 h-1 bg-burgundy mx-auto rounded-full"></div>
 				</div>
 
-			<!-- מהו EMDR + למי זה מתאים + תמונה - פריסה זה לצד זה -->
-			<div class="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-6 md:mb-8 items-stretch">
-				<!-- שני ריבועים - משמאל -->
-				<div class="flex flex-col gap-6 md:gap-8">
-					<!-- מהו EMDR - ריבוע ראשון -->
-					<div class="card-sage p-5 md:p-6">
-						<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
-							מהי שיטת EMDR?
-						</h2>
-						<div class="space-y-3">
-							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								EMDR היא גישה פסיכותרפויטית המסייעת לעבד חוויות, זיכרונות ואמונות שממשיכים לעורר מצוקה ולהשפיע על ההווה. ניתן לשלב אותה בטיפול בקשיים שונים, ובהם טראומה ופוסט טראומה, חרדה ופחדים, אבל, דפוסים רגשיים חוזרים, פגיעות בערך העצמי ומשברי חיים.
-							</p>
-							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								השיטה נחקרה בהיקף הרחב ביותר בטיפול בפוסט טראומה, ונכללת בהמלצות של ארגון הבריאות העולמי וגופים מקצועיים נוספים לטיפול ב־PTSD. לצד זאת, נעשה בה שימוש גם במצבים נוספים שבהם חוויות עבר ממשיכות להשפיע על הרגש, הגוף, האמונות וההתנהגות בהווה.
-							</p>
-						</div>
-					</div>
-
-					<!-- למי זה מתאים - ריבוע שני -->
-					<div class="card-sage p-5 md:p-6">
-						<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
-							למי זה מתאים?
-						</h2>
+			<!-- פתיחה: הסבר ותמונה בגובה אחיד -->
+			<div class="grid grid-cols-1 md:grid-cols-[3fr_2fr] gap-6 md:gap-8 mb-6 md:mb-8 items-stretch">
+				<div class="scroll-reveal fade-up card-sage p-5 md:p-7 h-full">
+					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4 md:mb-5 font-bold">EMDR בקצרה</h2>
+					<div class="space-y-3">
 						<p class="text-base md:text-lg text-charcoal leading-relaxed">
-							ההתאמה לטיפול ב־EMDR נבחנת באופן אישי ותלויה במצבו של האדם, במטרות הטיפול, בקצב המתאים לו ובאפשרות לקיים תהליך יציב ובטוח.
+							EMDR — הקהיה ועיבוד מחדש באמצעות תנועות עיניים — היא גישה פסיכותרפויטית המסייעת בעיבוד חוויות, זיכרונות ואמונות שממשיכים לעורר מצוקה ולהשפיע על ההווה. הבסיס המחקרי הרחב ביותר של השיטה הוא בטיפול בטראומה ובפוסט־טראומה, והיא נכללת בהמלצות של ארגון הבריאות העולמי ושל NICE לטיפול ב־PTSD.
+						</p>
+						<p class="text-base md:text-lg text-charcoal leading-relaxed">
+							לצד זאת, בהתאם לצורך ולהתאמה, ניתן לשלב EMDR גם בעבודה עם קשיים נוספים הקשורים לחוויות עבר, ובהם חרדה ופחדים, אבל, משברי חיים, פגיעות בערך העצמי ודפוסים רגשיים חוזרים. ההתאמה לשיטה נבחנת באופן אישי, בהתאם למטרות הטיפול, למצבו של האדם, לקצב וליכולת לקיים תהליך יציב ובטוח.
 						</p>
 					</div>
 				</div>
 
-				<!-- תמונה - מימין (בגובה של שני הריבועים) -->
-				<div class="flex items-stretch h-full">
-					<div class="w-full h-full">
-						<img
-							src="/images/emdr-healing.jpg"
-							width="607"
-							height="607"
-							loading="lazy"
-							decoding="async"
-							alt="עיבוד טראומה וריפוי - תהליך של איחוי זיכרונות מפוצלים דרך טיפול EMDR"
-							class="w-full h-full rounded-xl shadow-lg object-cover"
-						/>
-					</div>
+				<div class="scroll-reveal scale-in delay-100 h-full">
+					<img
+						src="/images/emdr-healing.jpg"
+						width="607"
+						height="607"
+						loading="lazy"
+						decoding="async"
+						alt="עיבוד טראומה וריפוי - תהליך של איחוי זיכרונות מפוצלים דרך טיפול EMDR"
+						class="w-full h-auto md:h-full md:min-h-[430px] rounded-xl shadow-lg object-cover"
+					/>
 				</div>
 			</div>
 
+			<!-- למי זה מתאים - רצועה רחבה -->
+			<div class="scroll-reveal fade-up delay-100 bg-[#fffaf3] rounded-xl border border-charcoal/10 p-5 md:p-6 mb-6 md:mb-8 md:grid md:grid-cols-[220px_1fr] md:gap-7 md:items-center">
+				<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-3 md:mb-0 font-bold">למי זה מתאים?</h2>
+				<p class="text-base md:text-lg text-charcoal leading-relaxed">
+					ההתאמה לעבודה עם EMDR נבחנת באופן אישי ותלויה בסיבת הפנייה, במצב הרגשי, במטרות הטיפול ובאפשרות לקיים תהליך יציב ובטוח. לא מתחילים בעיבוד מיד: קודם נקדיש זמן להיכרות, להכנה ולבדיקה משותפת של המוכנות. אם EMDR אינו מתאים בשלב מסוים, אפשר להמשיך לעבוד באמצעות שיחה או בדרכים אחרות.
+				</p>
+			</div>
+
 			<!-- איך זה עובד - על כל רוחב הדף -->
-			<div class="card-sage p-5 md:p-6 mb-6 md:mb-8">
-				<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
+			<div class="scroll-reveal fade-up card-sage p-5 md:p-6 mb-6 md:mb-8">
+				<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4 md:mb-5 font-bold">
 					איך זה עובד?
 				</h2>
 		
 				<div class="space-y-4 md:space-y-5">
 					<div>
-						<p class="text-base md:text-lg text-charcoal leading-relaxed mb-4">
-							למוח ולמערכת העצבים יש יכולת טבעית לעבד חוויות ולהתאושש מהן. לעיתים חוויה קשה ממשיכה לעורר מצוקה ותגובות בהווה, ו־EMDR נועד לסייע בהנעת תהליך העיבוד.
+						<p class="reading-width text-base md:text-lg text-charcoal leading-relaxed mb-4">
+							למוח ולמערכת העצבים יש יכולת טבעית לעבד חוויות ולהתאושש מהן. לעיתים חוויה קשה ממשיכה לעורר מצוקה ותגובות בהווה, ו־EMDR עשוי לסייע בעיבוד החוויה ובהפחתת עוצמת המצוקה הקשורה אליה.
 						</p>
 					</div>
 					
-					<div class="bg-[#fbf3ea] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+					<div class="bg-[#fbf3ea] rounded-xl shadow-sm p-4 md:p-5 border border-charcoal/10">
 						<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
 							אז למה לפעמים אנחנו נתקעים?
 						</h3>
-						<p class="text-base md:text-lg text-charcoal leading-relaxed">
+						<p class="reading-width text-base md:text-lg text-charcoal leading-relaxed">
 							בזמן אירוע קשה או מאיים, החוויה יכולה להיחרט באופן שממשיך לעורר תגובות רגשיות וגופניות גם לאחר שהסכנה חלפה. לכן תזכורות כמו ריח, צליל או מצב דומה עשויות לעורר תחושה שהאירוע עדיין קרוב או נוכח.
 						</p>
 					</div>
 					
-					<div class="bg-[#fbf3ea] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+					<div class="bg-[#fbf3ea] rounded-xl shadow-sm p-4 md:p-5 border border-charcoal/10">
 						<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
 							מה קורה במהלך עיבוד ב־EMDR?
 						</h3>
-						<p class="text-base md:text-lg text-charcoal leading-relaxed">
+						<p class="reading-width text-base md:text-lg text-charcoal leading-relaxed">
 							במהלך חלקים מהטיפול נעשה שימוש בגירוי דו צדדי, בדרך כלל בתנועות עיניים ולעיתים בטפיחות או בצלילים. במקביל נשמרת תשומת לב לזיכרון, למחשבות, לרגשות ולתחושות הגוף שעולות. המנגנונים המדויקים שבאמצעותם EMDR פועל עדיין נחקרים. אחת ההשערות היא שהשילוב בין העלאת הזיכרון לבין משימה נוספת, כמו תנועות עיניים, מפחית בהדרגה את עוצמתו ואת המטען הרגשי הנלווה אליו.
 						</p>
 						<p class="text-base md:text-lg text-charcoal leading-relaxed mt-3">
 							עם התקדמות העיבוד, הזיכרון עשוי להרגיש רחוק יותר ולעורר פחות מצוקה, גם אם הוא עדיין נשאר חלק מסיפור החיים.
 						</p>
 					</div>
+					</div>
 				</div>
-			</div>
 
 				<!-- מה קורה בתוך חדר הטיפול -->
-				<div class="card p-5 md:p-6 mb-6 md:mb-8">
-					<h2 class="text-2xl md:text-3xl font-display text-charcoal mb-4 md:mb-5 font-bold">
+				<div class="scroll-reveal fade-up card p-5 md:p-6 mb-6 md:mb-8">
+					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4 md:mb-5 font-bold">
 						מה קורה בתוך חדר הטיפול?
 					</h2>
-					<p class="text-base md:text-lg text-charcoal leading-relaxed mb-6">
+					<p class="reading-width text-base md:text-lg text-charcoal leading-relaxed mb-6">
 						ב־EMDR אין צורך לתאר בקול כל פרט של החוויה. העבודה נעשית באופן מובנה, תוך תשומת לב למה שעולה והתאמת הקצב ליכולת לשאת את התהליך.
 					</p>
 					
-					<p class="text-base md:text-lg text-charcoal leading-relaxed mb-6 font-semibold">
+					<p class="reading-width text-base md:text-lg text-charcoal leading-relaxed mb-6 font-semibold">
 						התהליך כולל הערכה, הכנה ועיבוד. כך עשויים להיראות כמה מהחלקים בעבודה:
 					</p>
 					
 					<div class="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-5">
-						<div class="bg-[#fbf3ea] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+						<div class="bg-[#fbf3ea] rounded-xl shadow-sm p-4 md:p-5 border border-charcoal/10">
 							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
 								1. היכרות, הערכה והכנה
 							</h3>
 							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								יחד נבחר זיכרון, תמונה או תחושה גופנית שתרצו לעבוד עליה. לפני תחילת העיבוד נקדיש זמן להיכרות, להכנה ולבניית דרכים שיכולות לסייע בוויסות. נבדוק יחד אם נכון להתחיל, ובמהלך העבודה נתאים את הקצב ונוכל לעצור כאשר יהיה בכך צורך.
+								יחד נבחר זיכרון, תמונה או תחושה גופנית לעבודה. לפני תחילת העיבוד נקדיש זמן להיכרות, להכנה ולבניית דרכים שיכולות לסייע בוויסות. נבדוק יחד אם נכון להתחיל, ובמהלך העבודה נתאים את הקצב ונוכל לעצור כאשר יהיה בכך צורך.
 							</p>
 						</div>
 						
-						<div class="bg-[#fbf3ea] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+						<div class="bg-[#fbf3ea] rounded-xl shadow-sm p-4 md:p-5 border border-charcoal/10">
 							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
 								2. עבודה עם גירוי דו־צדדי
 							</h3>
@@ -129,34 +118,38 @@ import { siteData } from '../content/site-data';
 							</p>
 						</div>
 						
-						<div class="bg-[#fbf3ea] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+						<div class="bg-[#fbf3ea] rounded-xl shadow-sm p-4 md:p-5 border border-charcoal/10">
 							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
 								3. מעקב אחר מה שעולה
 							</h3>
 							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								המוח שלכם יתחיל להעלות מחשבות, תמונות או תחושות. אנחנו נאפשר להם לעבור, כמו נוף שחולף מחלון של רכבת. עוצמת הכאב והדריכות הגופנית תלך ותפחת, והזיכרון יאבד מהכוח המציף שלו.
+								במהלך העיבוד עשויים לעלות מחשבות, תמונות, רגשות או תחושות גוף. נעקוב אחר מה שעולה בלי לנסות לכוון אותו לתוצאה מסוימת, תוך התאמת הקצב ושמירה על אפשרות לעצור. עם התקדמות התהליך, הזיכרון עשוי לעורר פחות מצוקה ולהרגיש פחות נוכח או מציף.
 							</p>
 						</div>
 						
-						<div class="bg-[#fbf3ea] rounded-xl shadow-md p-4 md:p-5 border border-charcoal/10">
+						<div class="bg-[#fbf3ea] rounded-xl shadow-sm p-4 md:p-5 border border-charcoal/10">
 							<h3 class="text-lg md:text-xl font-display text-charcoal mb-3 font-semibold">
 								4. חיזוק אמונה מיטיבה וסיום
 							</h3>
 							<p class="text-base md:text-lg text-charcoal leading-relaxed">
-								בשלב מתאים נבחן איזו אמונה מיטיבה ומציאותית הייתם רוצים לחזק ביחס לעצמכם ולחוויה, למשל: "אני מסוגלת להתמודד" או "זה נגמר ואני בטוחה עכשיו". הניסוח נבחר יחד ובהתאם למה שמרגיש אמין ונכון.
+								בשלב מתאים נבחן איזו אמונה מיטיבה ומציאותית נכון לחזק ביחס לעצמך ולחוויה, למשל: "אני מסוגל להתמודד" או "זה נגמר ואני בטוחה עכשיו". הניסוח נבחר יחד ובהתאם למה שמרגיש אמין ונכון.
 							</p>
 						</div>
 					</div>
 				</div>
 
-				<!-- חזרה לתחומי טיפול -->
-				<div class="text-center">
-					<a
-						href="/services"
-						class="text-burgundy hover:text-burgundy/80 transition-colors font-medium inline-flex items-center gap-2"
-					>
-						← חזרה לתחומי טיפול
+				<!-- פנייה וקישורים נוספים -->
+				<div class="scroll-reveal fade-up text-center card-sage p-5 md:p-7">
+					<p class="text-base md:text-lg text-charcoal leading-relaxed max-w-2xl mx-auto mb-5">
+						לא צריך לדעת מראש אם EMDR מתאים לך. אפשר לפנות לשיחת היכרות קצרה, ובמהלך התהליך נבדוק יחד איזו דרך עבודה יכולה להתאים.
+					</p>
+					<a href="/contact" class="btn-primary inline-flex items-center justify-center mb-5">
+						לפרטים על שיחת ההיכרות
 					</a>
+					<div class="flex flex-wrap justify-center gap-x-6 gap-y-2">
+						<a href="/services" class="text-burgundy hover:text-burgundy/80 transition-colors font-medium">← חזרה לתחומי טיפול</a>
+						<a href="/faq" class="text-burgundy hover:text-burgundy/80 transition-colors font-medium">לשאלות נפוצות ←</a>
+					</div>
 				</div>
 			</div>
 		</div>
