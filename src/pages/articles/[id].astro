@@ -45,8 +45,8 @@ const articleSchema = {
 			</header>
 
 			{article.data.image && (
-				<figure class="scroll-reveal fade-up reading-width mb-7 md:mb-9">
-					<img src={article.data.image} alt={article.data.imageAlt || ''} width="1600" height="704" class="w-full aspect-[1600/704] object-cover rounded-2xl border border-charcoal/10 shadow-sm" />
+				<figure class="scroll-reveal fade-up max-w-5xl mx-auto mb-4 md:mb-5">
+					<img src={article.data.image} alt={article.data.imageAlt || ''} width="1600" height="529" class="w-full h-auto rounded-2xl border border-charcoal/10 shadow-sm" />
 				</figure>
 			)}
 

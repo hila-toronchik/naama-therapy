@@ -1,5 +1,6 @@
 ---
 import { siteData } from '../content/site-data';
+import { articleCategories } from '../content/article-categories';
 
 const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const isActive = (path: string) => currentPath === path;
@@ -25,16 +26,15 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 				<a href="/about" class={linkClass(isActive('/about'))} aria-current={isActive('/about') ? 'page' : undefined}>
 					{siteData.nav.about}
 				</a>
-			<!-- Dropdown Menu -->
-			<div class="relative group">
-				<a href="/services" class={`${linkClass(isServicesActive)} inline-flex items-center gap-1`} aria-current={isActive('/services') ? 'page' : undefined}>
+			<details class="relative group nav-dropdown">
+				<summary class={`${linkClass(isServicesActive)} inline-flex items-center gap-1 cursor-pointer list-none`}>
 					{siteData.nav.services}
-					<svg class="w-3 h-3 transition-transform duration-200 group-hover:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<svg class="w-3 h-3 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
 					</svg>
-				</a>
-				<div class="absolute top-full right-0 mt-2 w-48 bg-white shadow-lg rounded-lg opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-50">
-						<div class="py-2">
+				</summary>
+				<div class="absolute top-full right-0 mt-2 w-48 bg-white shadow-lg rounded-lg z-50">
+					<div class="py-2">
 							<a href="/services" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/services') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/services') ? 'page' : undefined}>
 								{siteData.nav.services}
 							</a>
@@ -46,10 +46,26 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 							</a>
 						</div>
 					</div>
-				</div>
-				<a href="/articles" class={linkClass(isArticlesActive)} aria-current={isArticlesActive ? 'page' : undefined}>
-					{siteData.nav.articles}
-				</a>
+			</details>
+				<details class="relative group nav-dropdown">
+					<summary class={`${linkClass(isArticlesActive)} inline-flex items-center gap-1 cursor-pointer list-none`}>
+						{siteData.nav.articles}
+						<svg class="w-3 h-3 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
+						</svg>
+					</summary>
+					<div class="absolute top-full right-0 mt-2 w-80 bg-white shadow-lg rounded-lg z-50">
+						<div class="py-2">
+							<a href="/articles" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/articles') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/articles') ? 'page' : undefined}>
+								כל המאמרים
+							</a>
+							{articleCategories.map((category) => {
+								const path = `/articles/category/${category.slug}`;
+								return <a href={`${path}/`} class:list={['block px-4 py-2 text-sm hover:bg-cream-warm hover:text-burgundy transition-colors', isActive(path) ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive(path) ? 'page' : undefined}>{category.name}</a>;
+							})}
+						</div>
+					</div>
+				</details>
 				<a href="/faq" class={linkClass(isActive('/faq'))} aria-current={isActive('/faq') ? 'page' : undefined}>
 					{siteData.nav.faq}
 				</a>
@@ -79,21 +95,30 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 					<a href="/about" class={`${linkClass(isActive('/about'))} py-2`} aria-current={isActive('/about') ? 'page' : undefined}>
 						{siteData.nav.about}
 					</a>
-				<a href="/services" class={`${linkClass(isServicesActive)} py-2 inline-flex items-center gap-1`} aria-current={isActive('/services') ? 'page' : undefined}>
-					{siteData.nav.services}
-					<svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
-					</svg>
-				</a>
-					<a href="/emdr" class={`${linkClass(isActive('/emdr'))} py-2 pr-4`} aria-current={isActive('/emdr') ? 'page' : undefined}>
-						→ {siteData.nav.emdr}
-					</a>
-					<a href="/art-therapy" class={`${linkClass(isActive('/art-therapy'))} py-2 pr-4`} aria-current={isActive('/art-therapy') ? 'page' : undefined}>
-						→ {siteData.nav.artTherapy}
-					</a>
-					<a href="/articles" class={`${linkClass(isArticlesActive)} py-2`} aria-current={isArticlesActive ? 'page' : undefined}>
-						{siteData.nav.articles}
-					</a>
+					<details class="group">
+						<summary class={`${linkClass(isServicesActive)} py-2 inline-flex items-center gap-1 cursor-pointer list-none`}>
+							{siteData.nav.services}
+							<svg class="w-3 h-3 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+						</summary>
+						<div class="flex flex-col gap-2 mt-1">
+							<a href="/services" class={`${linkClass(isActive('/services'))} py-1 pr-4`} aria-current={isActive('/services') ? 'page' : undefined}>→ כל תחומי הטיפול</a>
+							<a href="/emdr" class={`${linkClass(isActive('/emdr'))} py-1 pr-4`} aria-current={isActive('/emdr') ? 'page' : undefined}>→ {siteData.nav.emdr}</a>
+							<a href="/art-therapy" class={`${linkClass(isActive('/art-therapy'))} py-1 pr-4`} aria-current={isActive('/art-therapy') ? 'page' : undefined}>→ {siteData.nav.artTherapy}</a>
+						</div>
+					</details>
+					<details class="group">
+						<summary class={`${linkClass(isArticlesActive)} py-2 inline-flex items-center gap-1 cursor-pointer list-none`}>
+							{siteData.nav.articles}
+							<svg class="w-3 h-3 transition-transform duration-200 group-open:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+						</summary>
+						<div class="flex flex-col gap-2 mt-1">
+							<a href="/articles" class={`${linkClass(isActive('/articles'))} py-1 pr-4`} aria-current={isActive('/articles') ? 'page' : undefined}>→ כל המאמרים</a>
+							{articleCategories.map((category) => {
+								const path = `/articles/category/${category.slug}`;
+								return <a href={`${path}/`} class={`${linkClass(isActive(path))} py-1 pr-4 text-sm`} aria-current={isActive(path) ? 'page' : undefined}>→ {category.name}</a>;
+							})}
+						</div>
+					</details>
 					<a href="/faq" class={`${linkClass(isActive('/faq'))} py-2`} aria-current={isActive('/faq') ? 'page' : undefined}>
 						{siteData.nav.faq}
 					</a>
@@ -110,8 +135,29 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 	const mobileMenu = document.getElementById('mobile-menu');
 
 	if (menuButton && mobileMenu) {
+		menuButton.setAttribute('aria-expanded', 'false');
 		menuButton.addEventListener('click', () => {
 			mobileMenu.classList.toggle('hidden');
+			const isOpen = !mobileMenu.classList.contains('hidden');
+			menuButton.setAttribute('aria-expanded', String(isOpen));
+			if (!isOpen) {
+				mobileMenu.querySelectorAll('details').forEach((detail) => detail.removeAttribute('open'));
+			}
 		});
 	}
+
+	const dropdowns = Array.from(document.querySelectorAll('nav details'));
+	dropdowns.forEach((dropdown) => {
+		dropdown.addEventListener('toggle', () => {
+			if (dropdown.open) {
+				dropdowns.forEach((otherDropdown) => {
+					if (otherDropdown !== dropdown) otherDropdown.removeAttribute('open');
+				});
+			}
+		});
+	});
 </script>
+
+<style>
+	summary::-webkit-details-marker { display: none; }
+</style>

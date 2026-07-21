@@ -4,7 +4,7 @@ description: "כיצד חוויות מן העבר עשויות להמשיך לה
 excerpt: "לפעמים האירוע כבר הסתיים, אבל משהו ממנו ממשיך להופיע בגוף, ברגש, ביחסים או בדרך שבה אנו מגיבים למצבים בהווה."
 publishedAt: 2026-07-21
 category: "trauma-and-ptsd"
-image: "/images/articles/past-experiences-present.webp"
+image: "/images/articles/past-experiences-present-v2.webp"
 imageAlt: "ארבעה איורים בצבעי מים המתארים מעבר הדרגתי מנשיאת עומס רגשי אל החזקתו באופן קל ומאפשר יותר"
 draft: false
 featured: true
