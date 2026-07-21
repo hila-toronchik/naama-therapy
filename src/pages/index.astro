@@ -7,31 +7,28 @@ import { siteData } from '../content/site-data';
 <Layout title="נעמה טירן | טיפול רגשי למבוגרים ברמות השבים" description="טיפול רגשי למבוגרים ברמות השבים, ליד רעננה, בגישה אינטגרטיבית המשלבת לפי הצורך שיחה, EMDR, התייחסות לגוף וחומרי אמנות.">
 	<Hero />
 
-	<section id="home-next-section" class="py-10 md:py-14 bg-[#fffaf3] scroll-mt-20">
+	<section id="home-next-section" class="py-10 md:py-14 bg-cream-warm scroll-mt-20">
 		<div class="container-custom">
-			<div class="max-w-4xl mx-auto">
-				<h2 class="scroll-reveal fade-up text-2xl md:text-3xl font-display text-burgundy mb-6 text-center">אולי הגעת לכאן כי…</h2>
-				<div class="scroll-reveal fade-up delay-100 max-w-3xl mx-auto border-r border-sage/50 pr-5 md:pr-7 space-y-5">
-					<p class="relative text-base md:text-lg leading-relaxed pr-5"><span class="absolute right-0 top-2.5 w-2 h-2 rounded-full bg-burgundy/60" aria-hidden="true"></span>אולי יש חוויות מהעבר שממשיכות להשפיע על ההווה.</p>
-					<p class="relative text-base md:text-lg leading-relaxed pr-5"><span class="absolute right-0 top-2.5 w-2 h-2 rounded-full bg-burgundy/60" aria-hidden="true"></span>אולי אותם דפוסים חוזרים שוב ושוב, גם כשברור לך שהם כבר אינם מיטיבים איתך.</p>
-					<p class="relative text-base md:text-lg leading-relaxed pr-5"><span class="absolute right-0 top-2.5 w-2 h-2 rounded-full bg-burgundy/60" aria-hidden="true"></span>אולי יש חרדה, הצפה, ביקורת עצמית או קושי להרגיש בטוח בקשר.</p>
-					<p class="relative text-base md:text-lg leading-relaxed pr-5"><span class="absolute right-0 top-2.5 w-2 h-2 rounded-full bg-burgundy/60" aria-hidden="true"></span>ואולי תקופה של שינוי, פרידה או משבר מעוררת צורך לעצור ולהבין מה קורה בפנים.</p>
-				</div>
-				<div class="scroll-reveal fade-up delay-200 mt-6 text-center">
-					<a href="/services" class="text-burgundy font-medium text-base md:text-lg hover:text-burgundy/80 transition-colors">לתחומי הטיפול שבהם אני עוסקת ←</a>
+			<div class="scroll-reveal fade-up max-w-5xl mx-auto card-sage p-6 md:p-8 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-8 items-center">
+				<img src="/images/naama.jpg" alt="נעמה טירן" width="320" height="320" loading="lazy" decoding="async" class="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover shadow-lg mx-auto" />
+				<div>
+					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4">נעים להכיר</h2>
+					<p class="text-base md:text-lg text-charcoal leading-relaxed text-justify mb-5">נעמה טירן, בעלת תואר שני בטיפול באמנות והכשרה ב־EMDR. בעלת ניסיון טיפולי בבית החולים לב השרון, במכבי בתחום ההתמכרויות ובבית ההדרים. אני מציעה טיפול למבוגרים בקליניקה ברמות השבים, ליד רעננה.</p>
+					<a href="/about" class="text-burgundy font-medium text-base md:text-lg hover:text-burgundy/80 transition-colors">עוד על ההכשרה והגישה שלי ←</a>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="py-10 md:py-14 bg-gradient-warm">
+	<section class="py-10 md:py-14 bg-sage/20 border-y border-sage/20">
 		<div class="container-custom">
-			<div class="scroll-reveal fade-up max-w-4xl mx-auto card-sage p-6 md:p-9 relative">
-				<span class="absolute top-2 left-5 text-6xl md:text-7xl font-display text-burgundy/15 leading-none" aria-hidden="true">״</span>
+			<div class="scroll-reveal fade-up max-w-3xl mx-auto text-center relative px-4 md:px-8">
+				<span class="absolute -top-5 left-2 md:left-4 text-7xl md:text-8xl font-display text-burgundy/12 leading-none" aria-hidden="true">״</span>
 				<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-5">אני מאמינה</h2>
-				<p class="text-base md:text-lg text-charcoal leading-relaxed text-justify relative z-10">
+				<p class="text-base md:text-lg text-charcoal leading-relaxed relative z-10">
 					אני מאמינה בכוחות וב<strong>יכולת לשינוי</strong> שקיימים בך, גם כשקשה להרגיש אותם. יחד נוכל להתבונן בקושי בסקרנות ובחמלה, <strong>להבין את מה שמנהל אותך</strong> וליצור בהדרגה אפשרויות חדשות.
 				</p>
+				<div class="w-16 h-0.5 bg-burgundy/35 mx-auto mt-6" aria-hidden="true"></div>
 			</div>
 		</div>
 	</section>
@@ -46,7 +43,7 @@ import { siteData } from '../content/site-data';
 					'חרדה, הצפה וקושי בוויסות רגשי',
 					'משברי חיים, פרידות ושינויים',
 					'קשיים ביחסים, התקשרות וערך עצמי',
-				].map((area) => <div class="card px-4 py-3 md:p-5 flex items-center gap-3 w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] md:min-h-28"><span class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-burgundy/55" aria-hidden="true"></span><p class="text-base md:text-lg leading-relaxed">{area}</p></div>)}
+				].map((area) => <div class="card px-4 py-3 md:p-5 flex items-center gap-3 w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] md:min-h-24"><span class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-burgundy/55" aria-hidden="true"></span><p class="text-base md:text-lg leading-relaxed">{area}</p></div>)}
 			</div>
 			<p class="scroll-reveal fade-up delay-200 mt-6 max-w-3xl mx-auto text-center text-base md:text-lg text-charcoal leading-relaxed">
 				הטיפול מתאים למבוגרים שרוצים להבין את עצמם לעומק ולעשות שינוי, גם אם קיימת עדיין אמביוולנטיות או תחושה של תקיעות.
@@ -72,19 +69,6 @@ import { siteData } from '../content/site-data';
 					<a href="/art-therapy" class="scroll-reveal fade-up delay-200 card p-5 block hover:shadow-2xl transition-shadow"><h3 class="text-xl font-display text-burgundy mb-3">גוף, דימויים וחומרי אמנות</h3><p class="leading-relaxed">כלים אפשריים שאינם דורשים ניסיון או כישרון.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
 					<div class="scroll-reveal fade-up delay-300 card p-5"><h3 class="text-xl font-display text-burgundy mb-3">התאמה אישית</h3><p class="leading-relaxed">אין צורך לדעת מראש איזו דרך מתאימה.</p></div>
 					</div>
-				</div>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-10 md:py-14 bg-cream-warm">
-		<div class="container-custom">
-			<div class="scroll-reveal fade-up max-w-5xl mx-auto card-sage p-6 md:p-8 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-8 items-center">
-				<img src="/images/naama.jpg" alt="נעמה טירן" width="320" height="320" loading="lazy" decoding="async" class="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover shadow-lg mx-auto" />
-				<div>
-					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4">נעים להכיר</h2>
-					<p class="text-base md:text-lg text-charcoal leading-relaxed text-justify mb-5">נעמה טירן, בעלת תואר שני בטיפול באמנות והכשרה ב־EMDR. בעלת ניסיון טיפולי בבית החולים לב השרון, במכבי בתחום ההתמכרויות ובבית ההדרים. אני מציעה טיפול למבוגרים בקליניקה ברמות השבים, ליד רעננה.</p>
-					<a href="/about" class="text-burgundy font-medium text-base md:text-lg hover:text-burgundy/80 transition-colors">עוד על ההכשרה והגישה שלי ←</a>
 				</div>
 			</div>
 		</div>

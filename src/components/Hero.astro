@@ -2,28 +2,30 @@
 import { siteData } from '../content/site-data';
 ---
 
-<section class="relative bg-gradient-warm py-8 md:pt-12 md:pb-20">
+<section class="relative overflow-hidden bg-gradient-warm py-8 md:pt-12 md:pb-20">
+	<div class="hero-text-glow" aria-hidden="true"></div>
+	<div class="hero-image-glow" aria-hidden="true"></div>
 	<div class="container-custom w-full">
 		<div class="grid grid-cols-1 md:grid-cols-[46%_54%] items-center gap-7 md:gap-10">
-			<div class="px-2 md:px-4">
+			<div class="relative z-10 px-2 md:px-4">
 				<h1 class="scroll-reveal fade-up text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-5 text-right">
 					{siteData.hero.title}
 				</h1>
 
-				<div class="scroll-reveal fade-up delay-100 text-base md:text-lg text-charcoal leading-relaxed text-right">
-					<p>
-						טיפול רגשי למבוגרים,<br />
-						<strong>המותאם לאדם</strong><br />
-						ומשלב לפי הצורך שיחה, <a href="/emdr" class="text-burgundy underline decoration-burgundy/40 underline-offset-4 hover:decoration-burgundy">EMDR</a>,<br />
-						התייחסות לגוף וביטוי יצירתי.
+				<div class="text-base md:text-lg text-charcoal leading-relaxed text-right">
+					<p class="scroll-reveal fade-up delay-100 hero-hook">
+						כש־<strong class="brush-highlight brush-rose">חוויות מהעבר</strong>, <strong class="brush-highlight brush-sage">דפוסים חוזרים</strong><br class="hidden lg:block" />
+						או תחושות של <strong class="brush-highlight brush-gold">חרדה והצפה</strong><br class="hidden md:block" />
+						ממשיכים להשפיע על ההווה,
 					</p>
-					<p class="mt-5">
-						מענה מקצועי ל<strong>מצבי מצוקה, חוסר ביטחון<br />
-						ודפוסי התנהגות לא יעילים</strong>.
+					<p class="scroll-reveal fade-up delay-200 mt-5 hero-response">
+						טיפול יכול להציע מקום <strong class="response-highlight">לעצור,<br class="hidden lg:block" />
+						להבין מה קורה בפנים</strong> וליצור בהדרגה<br class="hidden lg:block" />
+						<strong class="response-highlight">אפשרויות חדשות</strong>.
 					</p>
 				</div>
 
-				<p class="scroll-reveal fade-up delay-200 mt-5 text-base md:text-lg text-charcoal text-right">
+				<p class="scroll-reveal fade-up delay-300 mt-5 text-base md:text-lg text-charcoal text-right">
 					טיפול במושב <strong>רמות השבים</strong> (ליד רעננה)
 				</p>
 
@@ -42,11 +44,11 @@ import { siteData } from '../content/site-data';
 				</div>
 			</div>
 
-			<div class="scroll-reveal scale-in bg-cream-warm rounded-2xl p-1.5 md:p-2 shadow-xl overflow-hidden w-full max-w-[440px] lg:max-w-[500px] mx-auto">
+			<div class="relative z-10 scroll-reveal scale-in bg-cream-warm rounded-2xl p-1.5 md:p-2 shadow-xl overflow-hidden w-full max-w-[440px] lg:max-w-[500px] mx-auto">
 				<picture>
-					<source media="(max-width: 767px)" srcset="/images/emdr-illustration-720.webp" />
+					<source media="(max-width: 767px)" srcset="/images/emdr-illustration-reversed-720.webp" />
 					<img
-						src="/images/emdr-illustration-1200.webp"
+						src="/images/emdr-illustration-reversed-1200.webp"
 						alt="EMDR - מעבר ממחשבות שליליות לחיוביות, טיפול ב-EMDR"
 						width="1200"
 						height="1200"
@@ -83,3 +85,87 @@ import { siteData } from '../content/site-data';
 		window.addEventListener('scroll', updateScrollHint, { passive: true });
 	}
 </script>
+
+<style>
+	.hero-text-glow,
+	.hero-image-glow {
+		position: absolute;
+		pointer-events: none;
+		filter: blur(2px);
+	}
+
+	.hero-text-glow {
+		inset: 4% 48% 8% 2%;
+		background: radial-gradient(ellipse at center, rgba(255, 253, 248, 0.94) 0%, rgba(255, 253, 248, 0.42) 58%, transparent 78%);
+	}
+
+	.hero-image-glow {
+		width: 42rem;
+		height: 42rem;
+		left: -9rem;
+		top: -10rem;
+		border-radius: 44% 56% 63% 37% / 48% 42% 58% 52%;
+		background: rgba(212, 224, 199, 0.24);
+		transform: rotate(-9deg);
+	}
+
+	.hero-hook,
+	.hero-response {
+		max-width: 36rem;
+	}
+
+	.brush-highlight {
+		position: relative;
+		display: inline;
+		z-index: 0;
+		font-weight: 700;
+		white-space: nowrap;
+	}
+
+	.brush-highlight::before {
+		content: '';
+		position: absolute;
+		z-index: -1;
+		right: -0.18em;
+		left: -0.18em;
+		bottom: 0.03em;
+		height: 0.64em;
+		border-radius: 58% 42% 55% 45% / 72% 58% 42% 28%;
+		transform: rotate(-1.2deg) scaleX(0);
+		transform-origin: right center;
+		animation: brush-reveal 650ms ease-out forwards;
+	}
+
+	.brush-rose::before { background: rgba(224, 177, 170, 0.42); animation-delay: 350ms; }
+	.brush-sage::before { background: rgba(166, 187, 146, 0.38); animation-delay: 520ms; }
+	.brush-gold::before { background: rgba(224, 194, 135, 0.40); animation-delay: 690ms; }
+
+	.response-highlight {
+		color: #743247;
+		font-weight: 800;
+	}
+
+	@keyframes brush-reveal {
+		to { transform: rotate(-1.2deg) scaleX(1); }
+	}
+
+	@media (max-width: 767px) {
+		.hero-text-glow {
+			inset: 0 -15% 48% -15%;
+		}
+
+		.hero-image-glow {
+			width: 28rem;
+			height: 28rem;
+			left: -11rem;
+			top: 48%;
+		}
+	}
+
+	@media (prefers-reduced-motion: reduce) {
+		.brush-highlight::before {
+			animation: none;
+			transform: rotate(-1.2deg) scaleX(1);
+		}
+	}
+</style>
