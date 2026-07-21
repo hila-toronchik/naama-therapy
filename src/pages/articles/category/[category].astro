@@ -1,0 +1,52 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../../components/Layout.astro';
+import { articleCategories } from '../../../content/article-categories';
+
+export function getStaticPaths() {
+	return articleCategories.map((category) => ({ params: { category: category.slug }, props: { category } }));
+}
+
+const { category } = Astro.props;
+const entries = await getCollection('articles');
+const articles = entries
+	.filter((article) => article.data.category === category.slug && (import.meta.env.DEV || !article.data.draft))
+	.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+const hasPublishedArticles = entries.some((article) => article.data.category === category.slug && !article.data.draft);
+---
+
+<Layout
+	title={`${category.name} | מאמרים | נעמה טירן`}
+	description={category.description}
+	noindex={!hasPublishedArticles}
+>
+	<section class="bg-cream-warm py-10 md:py-14">
+		<div class="container-custom">
+			<header class="scroll-reveal fade-up reading-width text-center mb-9 md:mb-12">
+				<a class="text-burgundy underline underline-offset-4 inline-flex mb-4" href="/articles/">מאמרים</a>
+				<h1 class="text-balance mb-4">{category.name}</h1>
+				<p class="text-base md:text-lg leading-relaxed">{category.description}</p>
+				<div class="w-16 md:w-24 h-1 bg-burgundy mx-auto mt-5 rounded-full"></div>
+			</header>
+
+			{articles.length > 0 ? (
+				<div class="max-w-5xl mx-auto grid gap-5 md:grid-cols-2 md:gap-7">
+					{articles.map((article) => (
+						<a class="scroll-reveal fade-up card-sage group block overflow-hidden transition-all duration-300" href={`/articles/${article.id}/`}>
+							{article.data.image && <img src={article.data.image} alt={article.data.imageAlt || ''} width="1600" height="704" loading="lazy" class="w-full aspect-[1600/704] object-cover rounded-lg mb-5" />}
+							{article.data.draft && <span class="inline-block rounded-full bg-white/70 px-3 py-1 text-sm text-burgundy mb-3">טיוטה מקומית</span>}
+							<h2 class="text-burgundy mb-3 group-hover:opacity-80">{article.data.title}</h2>
+							<p class="leading-relaxed mb-5">{article.data.excerpt}</p>
+							<span class="inline-flex items-center gap-2 text-burgundy font-medium">לקריאת המאמר <span aria-hidden="true">←</span></span>
+						</a>
+					))}
+				</div>
+			) : (
+				<div class="card-sage reading-width text-center">
+					<h2 class="text-burgundy mb-3">המאמרים בנושא יעלו כאן בהמשך</h2>
+					<p>אנחנו מכינים כל מאמר בקפידה ומפרסמים רק לאחר בדיקה ואישור.</p>
+				</div>
+			)}
+		</div>
+	</section>
+</Layout>

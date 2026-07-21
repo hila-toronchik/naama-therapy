@@ -19,6 +19,7 @@ export const siteData = {
 		services: 'תחומי טיפול',
 		emdr: 'EMDR',
 		artTherapy: 'טיפול באמנות',
+		articles: 'מאמרים',
 		faq: 'שאלות נפוצות',
 		contact: 'צור קשר',
 	},

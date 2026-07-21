@@ -4,6 +4,7 @@ import { siteData } from '../content/site-data';
 const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const isActive = (path: string) => currentPath === path;
 const isServicesActive = ['/services', '/emdr', '/art-therapy'].includes(currentPath);
+const isArticlesActive = currentPath === '/articles' || currentPath.startsWith('/articles/');
 const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transition-colors font-medium ${active ? 'text-burgundy underline decoration-burgundy/40 underline-offset-8' : ''}`;
 ---
 
@@ -17,7 +18,7 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 		</a>
 
 			<!-- Desktop Navigation -->
-			<div class="hidden md:flex items-center gap-6">
+			<div class="hidden md:flex items-center gap-4 lg:gap-6">
 				<a href="/" class={linkClass(isActive('/'))} aria-current={isActive('/') ? 'page' : undefined}>
 					{siteData.nav.home}
 				</a>
@@ -46,6 +47,9 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 						</div>
 					</div>
 				</div>
+				<a href="/articles" class={linkClass(isArticlesActive)} aria-current={isArticlesActive ? 'page' : undefined}>
+					{siteData.nav.articles}
+				</a>
 				<a href="/faq" class={linkClass(isActive('/faq'))} aria-current={isActive('/faq') ? 'page' : undefined}>
 					{siteData.nav.faq}
 				</a>
@@ -86,6 +90,9 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 					</a>
 					<a href="/art-therapy" class={`${linkClass(isActive('/art-therapy'))} py-2 pr-4`} aria-current={isActive('/art-therapy') ? 'page' : undefined}>
 						→ {siteData.nav.artTherapy}
+					</a>
+					<a href="/articles" class={`${linkClass(isArticlesActive)} py-2`} aria-current={isArticlesActive ? 'page' : undefined}>
+						{siteData.nav.articles}
 					</a>
 					<a href="/faq" class={`${linkClass(isActive('/faq'))} py-2`} aria-current={isActive('/faq') ? 'page' : undefined}>
 						{siteData.nav.faq}

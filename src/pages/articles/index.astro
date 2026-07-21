@@ -1,0 +1,47 @@
+---
+import { getCollection } from 'astro:content';
+import Layout from '../../components/Layout.astro';
+import { articleCategories } from '../../content/article-categories';
+
+const entries = await getCollection('articles');
+const hasPublishedArticles = entries.some((article) => !article.data.draft);
+const articles = entries
+	.filter((article) => import.meta.env.DEV || !article.data.draft)
+	.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf());
+
+const categories = articleCategories.map((category) => ({
+	...category,
+	count: articles.filter((article) => article.data.category === category.slug).length,
+}));
+---
+
+<Layout
+	title="מאמרים | נעמה טירן"
+	description="מאמרים על טיפול רגשי למבוגרים, טראומה, EMDR, טיפול באמנות, ויסות רגשי ודפוסים חוזרים."
+	noindex={!hasPublishedArticles}
+>
+	<section class="bg-cream-warm py-10 md:py-14">
+		<div class="container-custom">
+			<header class="scroll-reveal fade-up text-center mb-9 md:mb-12">
+				<h1 class="mb-3">מאמרים</h1>
+				<p class="reading-width text-base md:text-lg leading-relaxed">
+					מחשבות ומידע על תהליכים רגשיים, דרכי טיפול והאפשרות להתבונן במה שמתרחש בפנים.
+				</p>
+				<div class="w-16 md:w-24 h-1 bg-burgundy mx-auto mt-5 rounded-full"></div>
+			</header>
+
+			<div class="max-w-5xl mx-auto grid gap-5 md:grid-cols-2 md:gap-7">
+				{categories.map((category) => (
+					<a class="scroll-reveal fade-up card-sage group block transition-all duration-300" href={`/articles/category/${category.slug}/`}>
+						<div class="flex items-start justify-between gap-4 mb-3">
+							<h2 class="text-burgundy group-hover:opacity-80">{category.name}</h2>
+							{category.count > 0 && <span class="shrink-0 rounded-full bg-white/70 px-3 py-1 text-sm text-burgundy">{category.count}</span>}
+						</div>
+						<p class="leading-relaxed mb-5">{category.description}</p>
+						<span class="inline-flex items-center gap-2 text-burgundy font-medium">למאמרים בנושא <span aria-hidden="true">←</span></span>
+					</a>
+				))}
+			</div>
+		</div>
+	</section>
+</Layout>

@@ -1,0 +1,97 @@
+---
+import { getCollection, render } from 'astro:content';
+import Layout from '../../components/Layout.astro';
+import { getArticleCategory } from '../../content/article-categories';
+
+export async function getStaticPaths() {
+	const entries = await getCollection('articles');
+	return entries
+		.filter((article) => import.meta.env.DEV || !article.data.draft)
+		.map((article) => ({ params: { id: article.id }, props: { article } }));
+}
+
+const { article } = Astro.props;
+const { Content } = await render(article);
+const category = getArticleCategory(article.data.category);
+const articleURL = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
+const articleSchema = {
+	'@context': 'https://schema.org',
+	'@type': 'Article',
+	headline: article.data.title,
+	description: article.data.description,
+	datePublished: article.data.publishedAt.toISOString(),
+	dateModified: (article.data.updatedAt || article.data.publishedAt).toISOString(),
+	inLanguage: 'he-IL',
+	mainEntityOfPage: articleURL,
+	author: { '@type': 'Person', name: 'נעמה טירן', url: 'https://naamatiran.com/about/' },
+	publisher: { '@type': 'Organization', name: 'נעמה טירן', url: 'https://naamatiran.com/' },
+};
+---
+
+<Layout
+	title={`${article.data.title} | נעמה טירן`}
+	description={article.data.description}
+	ogImage={article.data.image}
+	noindex={article.data.draft}
+>
+	<script type="application/ld+json" set:html={JSON.stringify(articleSchema)} />
+	<article class="bg-cream-warm py-10 md:py-14">
+		<div class="container-custom">
+			<header class="scroll-reveal fade-up reading-width text-center mb-7 md:mb-10">
+				{category && <a class="text-burgundy underline underline-offset-4 inline-flex mb-3" href={`/articles/category/${category.slug}/`}>{category.name}</a>}
+				{article.data.draft && <div class="inline-block rounded-full bg-white/70 px-4 py-1 text-sm text-burgundy mb-4">טיוטה מקומית — אינה מפורסמת</div>}
+				<h1 class="text-balance mb-5">{article.data.title}</h1>
+				<p class="text-base md:text-lg leading-relaxed">{article.data.excerpt}</p>
+			</header>
+
+			{article.data.image && (
+				<figure class="scroll-reveal fade-up reading-width mb-7 md:mb-9">
+					<img src={article.data.image} alt={article.data.imageAlt || ''} width="1600" height="704" class="w-full aspect-[1600/704] object-cover rounded-2xl border border-charcoal/10 shadow-sm" />
+				</figure>
+			)}
+
+			<div class="article-content reading-width bg-[#fffaf3] rounded-2xl border border-charcoal/10 shadow-sm p-6 md:p-10">
+				<Content />
+			</div>
+
+			<div class="scroll-reveal fade-up cta-width text-center mt-8 md:mt-10">
+				<p class="text-base md:text-lg leading-relaxed mb-5">אם עולה שאלה לגבי התאמה לטיפול, אפשר לפנות לשיחת היכרות קצרה וללא התחייבות.</p>
+				<a class="btn-primary inline-flex" href="/contact/">לפרטים על שיחת ההיכרות</a>
+				<div class="mt-5"><a class="text-burgundy underline underline-offset-4" href="/articles/">חזרה למאמרים</a></div>
+			</div>
+		</div>
+	</article>
+</Layout>
+
+<style>
+	.article-content :global(p) {
+		font-size: 1.0625rem;
+		line-height: 1.9;
+		margin-block: 0 1.25rem;
+	}
+
+	.article-content :global(h2) {
+		color: var(--burgundy);
+		margin-block: 2.25rem 0.9rem;
+	}
+
+	.article-content :global(h2:first-child) {
+		margin-top: 0;
+	}
+
+	.article-content :global(blockquote) {
+		border-inline-start: 4px solid var(--burgundy);
+		background: var(--sage);
+		border-radius: 0.75rem;
+		padding: 1rem 1.25rem;
+		margin-block: 2rem 0;
+	}
+
+	.article-content :global(blockquote p) {
+		margin: 0;
+	}
+
+	@media (min-width: 768px) {
+		.article-content :global(p) { font-size: 1.125rem; }
+	}
+</style>
