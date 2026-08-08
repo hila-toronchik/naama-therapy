@@ -5,6 +5,7 @@ export const siteData = {
 	whatsapp: '972547300780',
 	email: 'naatiran@gmail.com',
 	instagram: 'https://www.instagram.com/naama_tiran/',
+	facebook: 'https://www.facebook.com/profile.php?id=61590955055488&locale=he_IL',
 	address: 'מושב רמות השבים, ליד רעננה',
 	location: {
 		name: 'טיפול באמנות ו-EMDR במושב רמות השבים (ליד רעננה)',

@@ -9,13 +9,14 @@ const isArticlesActive = currentPath === '/articles' || currentPath.startsWith('
 const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transition-colors font-medium ${active ? 'text-burgundy underline decoration-burgundy/40 underline-offset-8' : ''}`;
 ---
 
-<nav class="bg-white shadow-md sticky top-0 z-50">
+<nav class="fixed bottom-4 right-4 left-4 z-50 rounded-2xl border border-burgundy/10 bg-white/95 shadow-xl backdrop-blur-sm md:sticky md:top-0 md:right-auto md:left-auto md:bottom-auto md:rounded-none md:border-0 md:bg-white md:shadow-md md:backdrop-blur-none">
 	<div class="container-custom">
 		<div class="flex items-center justify-between h-16">
 		<!-- Logo/Brand -->
-		<a href="/" class="flex items-center gap-2 md:gap-3 text-xl md:text-2xl font-display text-sage hover:text-burgundy transition-colors">
-			<img src="/logo.png" alt="לוגו נעמה טירן" width="48" height="48" decoding="async" class="h-11 md:h-12 w-auto" />
-			<span>נעמה טירן - מטפלת רגשית</span>
+		<a href="/" class="flex min-w-0 items-center gap-2 md:gap-3 text-xl md:text-2xl font-display text-sage hover:text-burgundy transition-colors">
+			<img src="/logo.png" alt="לוגו נעמה טירן" width="48" height="48" decoding="async" class="order-2 h-11 w-auto md:order-none md:h-12" />
+			<span class="order-1 md:hidden">נעמה טירן</span>
+			<span class="hidden md:inline">נעמה טירן - מטפלת רגשית</span>
 		</a>
 
 			<!-- Desktop Navigation -->
@@ -77,7 +78,7 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 			<!-- Mobile Menu Button -->
 			<button
 				id="mobile-menu-button"
-				class="md:hidden p-2 text-charcoal hover:text-burgundy transition-colors"
+				class="order-[-1] p-2 text-charcoal hover:text-burgundy transition-colors md:hidden"
 				aria-label="תפריט"
 			>
 				<svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -87,7 +88,7 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 		</div>
 
 			<!-- Mobile Menu -->
-			<div id="mobile-menu" class="hidden md:hidden pb-4">
+			<div id="mobile-menu" class="hidden max-h-[65vh] overflow-y-auto border-t border-burgundy/10 px-1 pb-4 md:hidden">
 				<div class="flex flex-col gap-4 mt-4">
 					<a href="/" class={`${linkClass(isActive('/'))} py-2`} aria-current={isActive('/') ? 'page' : undefined}>
 						{siteData.nav.home}
@@ -133,6 +134,7 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 <script>
 	const menuButton = document.getElementById('mobile-menu-button');
 	const mobileMenu = document.getElementById('mobile-menu');
+	const floatingWhatsappButton = document.querySelector('.mobile-floating-whatsapp');
 
 	if (menuButton && mobileMenu) {
 		menuButton.setAttribute('aria-expanded', 'false');
@@ -140,6 +142,8 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 			mobileMenu.classList.toggle('hidden');
 			const isOpen = !mobileMenu.classList.contains('hidden');
 			menuButton.setAttribute('aria-expanded', String(isOpen));
+			document.body.classList.toggle('mobile-menu-open', isOpen);
+			floatingWhatsappButton?.classList.toggle('hidden', isOpen);
 			if (!isOpen) {
 				mobileMenu.querySelectorAll('details').forEach((detail) => detail.removeAttribute('open'));
 			}
@@ -160,4 +164,8 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 
 <style>
 	summary::-webkit-details-marker { display: none; }
+	@media (max-width: 767px) {
+		:global(body) { padding-bottom: 5.75rem; }
+		:global(body.mobile-menu-open .mobile-floating-whatsapp) { visibility: hidden; pointer-events: none; }
+	}
 </style>

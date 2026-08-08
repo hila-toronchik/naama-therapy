@@ -5,7 +5,6 @@ import sitemap from '@astrojs/sitemap';
 
 const emptyArticleCategories = [
 	'addictions-and-compulsive-patterns',
-	'anxiety-and-emotional-regulation',
 	'life-crises-and-change',
 	'relationships-attachment-and-self-worth',
 	'online-emotional-therapy',
