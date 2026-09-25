@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../../components/Layout.astro';
+import ArticleCard from '../../../components/ArticleCard.astro';
 import { articleCategories } from '../../../content/article-categories';
 
 export function getStaticPaths() {
@@ -32,13 +33,7 @@ const hasPublishedArticles = entries.some((article) => article.data.category ===
 			{articles.length > 0 ? (
 				<div class="max-w-5xl mx-auto grid gap-5 md:grid-cols-2 md:gap-7">
 					{articles.map((article) => (
-						<a class="scroll-reveal fade-up card-sage group block overflow-hidden transition-all duration-300" href={`/articles/${article.id}/`}>
-							{article.data.image && <img src={article.data.image} alt={article.data.imageAlt || ''} width="1600" height="529" loading="lazy" class="w-full h-auto rounded-lg mb-5" />}
-							{article.data.draft && <span class="inline-block rounded-full bg-white/70 px-3 py-1 text-sm text-burgundy mb-3">טיוטה מקומית</span>}
-							<h2 class="text-burgundy mb-3 group-hover:opacity-80">{article.data.title}</h2>
-							<p class="leading-relaxed mb-5">{article.data.excerpt}</p>
-							<span class="inline-flex items-center gap-2 text-burgundy font-medium">לקריאת המאמר <span aria-hidden="true">←</span></span>
-						</a>
+						<ArticleCard article={article} showCategory={false} />
 					))}
 				</div>
 			) : (

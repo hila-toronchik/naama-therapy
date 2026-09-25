@@ -6,6 +6,7 @@ const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const isActive = (path: string) => currentPath === path;
 const isServicesActive = ['/services', '/emdr', '/art-therapy'].includes(currentPath);
 const isArticlesActive = currentPath === '/articles' || currentPath.startsWith('/articles/');
+const isWorkshopsActive = currentPath === '/workshops' || currentPath.startsWith('/workshops/');
 const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transition-colors font-medium ${active ? 'text-burgundy underline decoration-burgundy/40 underline-offset-8' : ''}`;
 ---
 
@@ -67,6 +68,9 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 						</div>
 					</div>
 				</details>
+				<a href="/workshops" class={linkClass(isWorkshopsActive)} aria-current={isWorkshopsActive ? 'page' : undefined}>
+					{siteData.nav.workshops}
+				</a>
 				<a href="/faq" class={linkClass(isActive('/faq'))} aria-current={isActive('/faq') ? 'page' : undefined}>
 					{siteData.nav.faq}
 				</a>
@@ -120,6 +124,9 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 							})}
 						</div>
 					</details>
+					<a href="/workshops" class={`${linkClass(isWorkshopsActive)} py-2`} aria-current={isWorkshopsActive ? 'page' : undefined}>
+						{siteData.nav.workshops}
+					</a>
 					<a href="/faq" class={`${linkClass(isActive('/faq'))} py-2`} aria-current={isActive('/faq') ? 'page' : undefined}>
 						{siteData.nav.faq}
 					</a>

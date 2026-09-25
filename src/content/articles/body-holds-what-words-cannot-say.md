@@ -4,6 +4,8 @@ description: "על הפער בין מה שנראה מבחוץ לבין מה שק
 excerpt: "לפעמים הגוף מגיב עוד לפני שיש מילים. מאמר על תחושות גופניות, חוויה פנימית, טיפול באמנות ו־EMDR."
 publishedAt: 2026-08-05
 category: "anxiety-and-emotional-regulation"
+image: "/images/articles/body-memory-illustration.webp"
+imageAlt: "איור קולאז׳ של דמות עטופה בשכבות צבע וחומר המבטאות תחושות גוף וחוויה פנימית"
 draft: false
 featured: false
 ---

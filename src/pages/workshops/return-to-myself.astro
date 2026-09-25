@@ -1,0 +1,69 @@
+---
+import Layout from '../../components/Layout.astro';
+import { siteData } from '../../content/site-data';
+
+const whatsappUrl = `https://wa.me/${siteData.whatsapp}`;
+---
+
+<Layout
+	title="לחזור אליי — סדנת קולאז׳ לחיבור עצמי | נעמה טירן"
+	description="סדנת קולאז׳ חווייתית לנשים ברמות השבים, המשלבת יצירה והתבוננות סביב חיבור לעצמי, בחירה וכיוון."
+	noindex={true}
+>
+	<section class="bg-cream-warm py-10 md:py-14">
+		<div class="container-custom max-w-5xl">
+			<header class="scroll-reveal fade-up reading-width text-center mb-8 md:mb-10">
+				<a class="text-burgundy underline underline-offset-4 inline-flex mb-4" href="/workshops/">סדנאות</a>
+				<div><span class="inline-flex rounded-full bg-white/70 px-4 py-1 text-sm text-burgundy mb-4">טיוטה מקומית — אינה מפורסמת</span></div>
+				<h1 class="mb-3">לחזור אליי</h1>
+				<p class="text-xl md:text-2xl font-medium text-burgundy mb-5">סדנת קולאז׳ לחיבור עצמי</p>
+				<p class="text-base md:text-lg leading-relaxed">סדנת קולאז׳ חווייתית לנשים, המשלבת יצירה והתבוננות באווירה נעימה ואינטימית.</p>
+			</header>
+
+			<figure class="scroll-reveal fade-up hero-photo mb-7 md:mb-9">
+				<img src="/images/workshops/collage-works.jpg" alt="עבודות קולאז׳ צבעוניות שנוצרו בתהליך יצירה" width="1200" height="1600" />
+			</figure>
+
+			<div class="grid gap-6 md:grid-cols-[1.35fr_0.65fr] items-start">
+				<article class="scroll-reveal fade-up article-panel">
+					<h2>מה נעשה בסדנה?</h2>
+					<p>נבחר דימויים, מילים וצבעים וניצור קולאז׳ אישי סביב החיבור לעצמנו: מה מחזיק אותנו בתקופה הזו, מה חשוב לנו ולאיזה כיוון אנחנו רוצות לנוע.</p>
+					<p>המפגש כולל פתיחה והשראה קצרה, זמן ליצירה אישית, התבוננות ושיתוף לבחירה. אין צורך בניסיון קודם באמנות ואין חובה לשתף מעבר למה שנעים.</p>
+					<p>כל החומרים מסופקים, ואת הקולאז׳ שיצרת ניתן לקחת איתך בסיום.</p>
+					<h2>למי זה מתאים?</h2>
+					<p>לנשים מגיל 18 שרוצות לעצור לזמן קצר, ליצור, להתבונן במה שחשוב להן ולפגוש את עצמן דרך דימויים וחומר.</p>
+				</article>
+
+				<aside class="scroll-reveal fade-up delay-100 details-panel">
+					<h2>פרטים מעשיים</h2>
+					<dl>
+						<div><dt>מועד ראשון</dt><dd>יום חמישי, 8.10.2026 · 19:00–21:00</dd></div>
+						<div><dt>מועד שני</dt><dd>יום שישי, 23.10.2026 · 10:00–12:00</dd></div>
+						<div><dt>מיקום</dt><dd>רמות השבים, ליד רעננה</dd></div>
+						<div><dt>משך</dt><dd>שעתיים</dd></div>
+						<div><dt>קהל יעד</dt><dd>נשים מגיל 18</dd></div>
+					</dl>
+					<p class="small-note"><strong>לזכאיות תוכנית עמית:</strong> ההרשמה דרך אפליקציית Move או Shikum.me. אפשר להצטרף גם באופן פרטי — לפרטים נוספים אפשר לכתוב לי.</p>
+					<a class="btn-primary inline-flex w-full justify-center" href={whatsappUrl} target="_blank" rel="noopener noreferrer">לפרטים ולהרשמה</a>
+				</aside>
+			</div>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.hero-photo { height: clamp(18rem, 48vw, 32rem); overflow: hidden; border-radius: 1.25rem; border: 1px solid rgb(73 48 0 / 0.1); box-shadow: 0 8px 22px rgb(73 48 0 / 0.08); }
+	.hero-photo img { width: 100%; height: 100%; object-fit: cover; object-position: center 45%; }
+	.article-panel, .details-panel { border: 1px solid rgb(73 48 0 / 0.1); border-radius: 1rem; background: #fffaf3; padding: 1.5rem; box-shadow: 0 8px 22px rgb(73 48 0 / 0.06); }
+	.article-panel h2, .details-panel h2 { margin-bottom: 0.8rem; color: var(--burgundy); }
+	.article-panel h2:not(:first-child) { margin-top: 2rem; }
+	.article-panel p { margin-bottom: 1rem; font-size: 1.075rem; line-height: 1.85; }
+	.details-panel { position: sticky; top: 6rem; background: var(--sage); }
+	.details-panel dl { display: grid; gap: 0; margin-bottom: 1.25rem; }
+	.details-panel dl div { border-bottom: 1px solid rgb(109 46 70 / 0.12); padding-block: 0.85rem; }
+	.details-panel dt { color: var(--burgundy); font-weight: 700; }
+	.details-panel dd { margin-top: 0.2rem; }
+	.small-note { margin-bottom: 1.25rem; line-height: 1.65; }
+	@media (min-width: 768px) { .article-panel, .details-panel { padding: 2rem; } }
+	@media (max-width: 767px) { .details-panel { position: static; } }
+</style>

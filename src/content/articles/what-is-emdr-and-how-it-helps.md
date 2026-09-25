@@ -4,6 +4,8 @@ description: "הסבר נגיש על טיפול EMDR, עיבוד זיכרונו�
 excerpt: "EMDR הוא טיפול רגשי מובנה שמסייע לעבד זיכרונות וחוויות שממשיכים להשפיע על ההווה דרך מחשבות, רגשות ותחושות גוף."
 publishedAt: 2026-08-05
 category: "trauma-and-ptsd"
+image: "/images/articles/emdr-memory-processing-illustration.webp"
+imageAlt: "איור קולאז׳ שבו שברי זיכרון וחוויה מתחברים בהדרגה לרצף מאורגן יותר"
 draft: false
 featured: false
 ---

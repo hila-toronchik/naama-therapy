@@ -1,0 +1,167 @@
+---
+import Layout from '../../components/Layout.astro';
+import { siteData } from '../../content/site-data';
+
+const whatsappUrl = `https://wa.me/${siteData.whatsapp}`;
+---
+
+<Layout
+	title="סדנאות, מעגלים ומפגשי יצירה | נעמה טירן"
+	description="סדנאות קולאז׳, מעגלי נשים ומפגשי יצירה ברמות השבים לנשים, לקבוצות, לצוותים ולימי הולדת."
+	noindex={true}
+>
+	<section class="bg-cream-warm py-10 md:py-14">
+		<div class="container-custom max-w-6xl">
+			<header class="scroll-reveal fade-up reading-width text-center mb-8 md:mb-10">
+				<span class="inline-flex rounded-full bg-white/70 px-4 py-1 text-sm text-burgundy mb-4">טיוטה מקומית — אינה מפורסמת</span>
+				<h1 class="text-balance mb-4">סדנאות, מעגלים ומפגשי יצירה</h1>
+				<p class="text-base md:text-lg leading-relaxed">
+					מרחבים נעימים של יצירה, התבוננות וחיבור — לעצמנו ולאנשים שסביבנו. האמנות משמשת דרך לפגוש דימויים, מחשבות ושיחה, ולא מבחן בכישרון. אין צורך בניסיון קודם וכל משתתפת בוחרת כמה ליצור וכמה לשתף.
+				</p>
+				<div class="w-16 md:w-24 h-1 bg-burgundy mx-auto mt-5 rounded-full"></div>
+			</header>
+
+			<section class="workshop-gallery scroll-reveal fade-up mb-12 md:mb-16" aria-labelledby="gallery-title">
+				<h2 id="gallery-title" class="sr-only">תמונות מסדנאות יצירה</h2>
+				<figure class="gallery-main">
+					<img src="/images/workshops/collage-process.jpg" alt="שולחן עבודה עם מגזינים, דימויים וחומרי קולאז׳ במהלך סדנה" width="1152" height="1536" loading="eager" />
+				</figure>
+				<figure>
+					<img src="/images/workshops/collage-works.jpg" alt="עבודות קולאז׳ צבעוניות שנוצרו בסדנה" width="1200" height="1600" loading="lazy" />
+				</figure>
+				<figure>
+					<img src="/images/workshops/framed-collages.jpg" alt="עבודות קולאז׳ אישיות מוצגות במסגרות" width="1152" height="1536" loading="lazy" />
+				</figure>
+			</section>
+
+			<section class="mb-12 md:mb-16" aria-labelledby="upcoming-title">
+				<div class="scroll-reveal fade-up text-center mb-7 md:mb-9">
+					<h2 id="upcoming-title" class="text-burgundy mb-2">פעילויות קרובות</h2>
+					<p class="leading-relaxed">פעילויות שיש להן מועדים או הרשמה פעילה.</p>
+				</div>
+
+				<div class="grid gap-6 lg:grid-cols-2">
+					<article class="scroll-reveal fade-up workshop-card">
+						<div class="workshop-card-accent" aria-hidden="true"></div>
+						<p class="workshop-kicker">מעגל נשים · שישה מפגשים</p>
+						<h3>יוצרות קשר</h3>
+						<p class="workshop-subtitle">קבוצת יצירה והיכרות לנשים</p>
+						<p>קבוצה קטנה וקבועה של שש נשים, שנפגשות לשישה ערבים של יצירה, שיחה והיכרות בדרך טבעית ונעימה.</p>
+						<ul class="workshop-details">
+							<li><strong>מועדים:</strong> ערבי רביעי, 21.10–25.11</li>
+							<li><strong>מיקום:</strong> רמות השבים</li>
+							<li><strong>ניסיון קודם:</strong> לא נדרש</li>
+						</ul>
+						<div class="workshop-actions">
+							<a class="btn-primary" href="/workshops/yotzrot-kesher/">לפרטים על יוצרות קשר</a>
+							<a class="text-burgundy underline underline-offset-4" href={whatsappUrl} target="_blank" rel="noopener noreferrer">להרשמה ב־WhatsApp</a>
+						</div>
+					</article>
+
+					<article class="scroll-reveal fade-up delay-100 workshop-card">
+						<div class="workshop-card-accent workshop-card-accent-mustard" aria-hidden="true"></div>
+						<p class="workshop-kicker">סדנת קולאז׳ לנשים</p>
+						<h3>לחזור אליי</h3>
+						<p class="workshop-subtitle">סדנת קולאז׳ לחיבור עצמי</p>
+						<p>מפגש חווייתי המשלב יצירה והתבוננות סביב מה שמחזיק אותנו בתקופה הזו, מה חשוב לנו ולאיזה כיוון אנחנו רוצות לנוע.</p>
+						<ul class="workshop-details">
+							<li><strong>חמישי, 8.10.2026:</strong> 19:00–21:00</li>
+							<li><strong>שישי, 23.10.2026:</strong> 10:00–12:00</li>
+							<li><strong>מיקום:</strong> רמות השבים, ליד רעננה</li>
+							<li><strong>קהל יעד:</strong> נשים מגיל 18</li>
+						</ul>
+						<p class="program-note"><strong>לזכאיות תוכנית עמית:</strong> ההרשמה דרך Move או Shikum.me. אפשר להצטרף גם באופן פרטי.</p>
+						<div class="workshop-actions">
+							<a class="btn-primary" href="/workshops/return-to-myself/">לפרטים על הסדנה</a>
+							<a class="text-burgundy underline underline-offset-4" href={whatsappUrl} target="_blank" rel="noopener noreferrer">לפרטים ולהרשמה</a>
+						</div>
+					</article>
+				</div>
+			</section>
+
+			<section class="scroll-reveal fade-up custom-workshops mb-12 md:mb-16" aria-labelledby="book-title">
+				<div>
+					<p class="workshop-kicker">סדנה לקבוצה שלך</p>
+					<h2 id="book-title" class="text-burgundy mb-4">אפשר גם להזמין סדנת קולאז׳</h2>
+					<p class="text-base md:text-lg leading-relaxed mb-5">אפשר לבנות יחד מפגש סביב נושא, מטרה או אירוע, תוך התאמה לגיל, לאופי הקבוצה ולזמן העומד לרשותנו.</p>
+					<div class="grid gap-3 sm:grid-cols-2">
+						<div class="mini-card"><strong>ימי הולדת</strong><span>סדנת יצירה החל מגיל 10</span></div>
+						<div class="mini-card"><strong>צוותים ומקומות עבודה</strong><span>חיבור, פתיחת שנה או גיבוש</span></div>
+						<div class="mini-card"><strong>קבוצות וקהילות</strong><span>מפגש חד־פעמי מותאם לקבוצה</span></div>
+						<div class="mini-card"><strong>אירועים פרטיים</strong><span>תוכן יצירתי שנבנה יחד</span></div>
+					</div>
+				</div>
+				<div class="custom-workshops-cta">
+					<p>אין צורך להגיע עם רעיון סגור. אפשר להתחיל מהקבוצה ומהאירוע ולחשוב יחד על הסדנה המתאימה.</p>
+					<a class="btn-primary inline-flex" href={whatsappUrl} target="_blank" rel="noopener noreferrer">לבדיקת אפשרות לסדנה</a>
+				</div>
+			</section>
+
+			<section class="scroll-reveal fade-up text-center reading-width">
+				<h2 class="text-burgundy mb-3">רוצה לשמוע פרטים?</h2>
+				<p class="text-base md:text-lg leading-relaxed mb-5">אפשר לכתוב לי איזו פעילות מעניינת אותך, או לספר בקצרה על הקבוצה והאירוע.</p>
+				<a class="btn-primary inline-flex" href={whatsappUrl} target="_blank" rel="noopener noreferrer">לפנייה ב־WhatsApp</a>
+			</section>
+		</div>
+	</section>
+</Layout>
+
+<style>
+	.workshop-gallery {
+		display: grid;
+		grid-template-columns: 1.15fr 0.85fr;
+		grid-template-rows: repeat(2, minmax(0, 14rem));
+		gap: 0.75rem;
+	}
+
+	.workshop-gallery figure { overflow: hidden; border-radius: 1rem; border: 1px solid rgb(73 48 0 / 0.1); box-shadow: 0 8px 20px rgb(73 48 0 / 0.08); }
+	.workshop-gallery .gallery-main { grid-row: 1 / 3; }
+	.workshop-gallery img { width: 100%; height: 100%; object-fit: cover; }
+
+	.workshop-card {
+		position: relative;
+		overflow: hidden;
+		border: 1px solid rgb(73 48 0 / 0.1);
+		border-radius: 1rem;
+		background: #fffaf3;
+		padding: 1.5rem;
+		box-shadow: 0 8px 22px rgb(73 48 0 / 0.07);
+	}
+
+	.workshop-card-accent { position: absolute; inset-block: 0; inset-inline-start: 0; width: 0.45rem; background: var(--burgundy); }
+	.workshop-card-accent-mustard { background: #c99a49; }
+	.workshop-kicker { margin-bottom: 0.45rem; color: var(--burgundy); font-size: 0.9rem; font-weight: 700; }
+	.workshop-card h3 { margin-bottom: 0.25rem; color: var(--burgundy); font-size: 1.65rem !important; }
+	.workshop-subtitle { margin-bottom: 1rem; font-weight: 600; }
+	.workshop-card > p:not(.workshop-kicker):not(.workshop-subtitle):not(.program-note) { margin-bottom: 1rem; line-height: 1.75; }
+	.workshop-details { margin-block: 1rem; display: grid; gap: 0.55rem; }
+	.program-note { margin-top: 1rem; border-radius: 0.75rem; background: var(--sage); padding: 0.9rem; line-height: 1.7; }
+	.workshop-actions { display: flex; flex-wrap: wrap; align-items: center; gap: 1rem; margin-top: 1.35rem; }
+
+	.custom-workshops {
+		display: grid;
+		gap: 1.5rem;
+		border-radius: 1.25rem;
+		background: var(--sage);
+		padding: 1.5rem;
+		box-shadow: 0 8px 22px rgb(73 48 0 / 0.07);
+	}
+	.mini-card { display: flex; flex-direction: column; gap: 0.25rem; border-radius: 0.75rem; background: rgb(255 250 243 / 0.82); padding: 1rem; }
+	.mini-card strong { color: var(--burgundy); }
+	.custom-workshops-cta { display: flex; flex-direction: column; justify-content: center; align-items: flex-start; gap: 1.25rem; border-top: 1px solid rgb(109 46 70 / 0.16); padding-top: 1.5rem; line-height: 1.75; }
+
+	@media (max-width: 640px) {
+		.workshop-gallery { grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: 17rem 10rem; }
+		.workshop-gallery .gallery-main { grid-column: 1 / 3; grid-row: auto; }
+	}
+
+	@media (min-width: 768px) {
+		.workshop-gallery { grid-template-rows: repeat(2, minmax(0, 17rem)); gap: 1rem; }
+		.workshop-card, .custom-workshops { padding: 2rem; }
+	}
+
+	@media (min-width: 900px) {
+		.custom-workshops { grid-template-columns: 1.45fr 0.75fr; align-items: stretch; }
+		.custom-workshops-cta { border-top: 0; border-inline-start: 1px solid rgb(109 46 70 / 0.16); padding-top: 0; padding-inline-start: 2rem; }
+	}
+</style>

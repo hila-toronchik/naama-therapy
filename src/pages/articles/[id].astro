@@ -1,6 +1,7 @@
 ---
 import { getCollection, render } from 'astro:content';
 import Layout from '../../components/Layout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
 import { getArticleCategory } from '../../content/article-categories';
 
 export async function getStaticPaths() {
@@ -13,6 +14,10 @@ export async function getStaticPaths() {
 const { article } = Astro.props;
 const { Content } = await render(article);
 const category = getArticleCategory(article.data.category);
+const relatedArticles = (await getCollection('articles'))
+	.filter((entry) => entry.id !== article.id && entry.data.category === article.data.category && (import.meta.env.DEV || !entry.data.draft))
+	.sort((a, b) => b.data.publishedAt.valueOf() - a.data.publishedAt.valueOf())
+	.slice(0, 2);
 const articleURL = Astro.site ? new URL(Astro.url.pathname, Astro.site).href : Astro.url.href;
 const articleSchema = {
 	'@context': 'https://schema.org',
@@ -54,6 +59,15 @@ const articleSchema = {
 				<Content />
 			</div>
 
+			{relatedArticles.length > 0 && (
+				<section class="max-w-5xl mx-auto mt-9 md:mt-12" aria-labelledby="related-articles-title">
+					<h2 id="related-articles-title" class="scroll-reveal fade-up text-burgundy text-center mb-6">להמשך הקריאה</h2>
+					<div class="grid gap-5 md:grid-cols-2 md:gap-7">
+						{relatedArticles.map((relatedArticle) => <ArticleCard article={relatedArticle} />)}
+					</div>
+				</section>
+			)}
+
 			<div class="scroll-reveal fade-up cta-width text-center mt-8 md:mt-10">
 				<p class="text-base md:text-lg leading-relaxed mb-5">אם עולה שאלה לגבי התאמה לטיפול, אפשר לפנות לשיחת היכרות קצרה וללא התחייבות.</p>
 				<a class="btn-primary inline-flex" href="/contact/">לפרטים על שיחת ההיכרות</a>
@@ -89,6 +103,17 @@ const articleSchema = {
 
 	.article-content :global(blockquote p) {
 		margin: 0;
+	}
+
+	.article-content :global(ul) {
+		margin-block: 0 1.5rem;
+		padding-inline-start: 1.4rem;
+	}
+
+	.article-content :global(li) {
+		margin-block: 0.55rem;
+		font-size: 1.075rem;
+		line-height: 1.75;
 	}
 
 	@media (min-width: 768px) {

@@ -1,6 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
 import Layout from '../../components/Layout.astro';
+import ArticleCard from '../../components/ArticleCard.astro';
 import { articleCategories } from '../../content/article-categories';
 
 const entries = await getCollection('articles');
@@ -42,6 +43,18 @@ const categories = articleCategories.map((category) => ({
 					</a>
 				))}
 			</div>
+
+			{articles.length > 0 && (
+				<section class="max-w-5xl mx-auto mt-12 md:mt-16" aria-labelledby="recent-articles-title">
+					<div class="scroll-reveal fade-up text-center mb-7 md:mb-9">
+						<h2 id="recent-articles-title" class="text-burgundy mb-2">מאמרים לקריאה</h2>
+						<p class="leading-relaxed">אפשר להתחיל בנושא שמעסיק אותך עכשיו.</p>
+					</div>
+					<div class="grid gap-5 md:grid-cols-2 md:gap-7">
+						{articles.map((article) => <ArticleCard article={article} />)}
+					</div>
+				</section>
+			)}
 		</div>
 	</section>
 </Layout>

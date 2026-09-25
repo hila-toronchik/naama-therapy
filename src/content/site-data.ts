@@ -20,6 +20,7 @@ export const siteData = {
 		services: 'תחומי טיפול',
 		emdr: 'EMDR',
 		artTherapy: 'טיפול באמנות',
+		workshops: 'סדנאות',
 		articles: 'מאמרים',
 		faq: 'שאלות נפוצות',
 		contact: 'צור קשר',

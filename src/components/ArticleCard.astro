@@ -1,0 +1,150 @@
+---
+import { getArticleCategory } from '../content/article-categories';
+
+const { article, showCategory = true } = Astro.props;
+const category = getArticleCategory(article.data.category);
+---
+
+<a class="article-card scroll-reveal fade-up group" href={`/articles/${article.id}/`}>
+	<div class:list={['article-card-media', !article.data.image && 'article-card-fallback']}>
+		{article.data.image ? (
+			<img src={article.data.image} alt={article.data.imageAlt || ''} width="1600" height="529" loading="lazy" />
+		) : (
+			<>
+				<span class="article-card-mark" aria-hidden="true"></span>
+				<span class="article-card-fallback-label">{category?.name || 'מאמר מקצועי'}</span>
+			</>
+		)}
+		{article.data.draft && <span class="article-card-draft">טיוטה מקומית</span>}
+	</div>
+	<div class="article-card-body">
+		{showCategory && category && <span class="article-card-category">{category.name}</span>}
+		<h2>{article.data.title}</h2>
+		<p>{article.data.excerpt}</p>
+		<span class="article-card-cta">לקריאת המאמר <span aria-hidden="true">←</span></span>
+	</div>
+</a>
+
+<style>
+	.article-card {
+		display: flex;
+		min-width: 0;
+		height: 100%;
+		flex-direction: column;
+		overflow: hidden;
+		border: 1px solid rgb(45 42 38 / 0.1);
+		border-radius: 1rem;
+		background: var(--sage);
+		box-shadow: 0 8px 22px rgb(45 42 38 / 0.06);
+		transition: transform 180ms ease, box-shadow 180ms ease;
+	}
+
+	.article-card:hover,
+	.article-card:focus-visible {
+		transform: translateY(-3px);
+		box-shadow: 0 12px 28px rgb(45 42 38 / 0.1);
+	}
+
+	.article-card-media {
+		position: relative;
+		aspect-ratio: 16 / 7;
+		overflow: hidden;
+		background: #f5ead9;
+	}
+
+	.article-card-media img {
+		width: 100%;
+		height: 100%;
+		object-fit: cover;
+		transition: transform 350ms ease;
+	}
+
+	.article-card:hover .article-card-media img { transform: scale(1.025); }
+
+	.article-card-fallback {
+		display: grid;
+		place-items: center;
+		isolation: isolate;
+		padding: 1.25rem;
+		background:
+			radial-gradient(circle at 18% 75%, rgb(108 45 54 / 0.13) 0 10%, transparent 10.5%),
+			radial-gradient(circle at 84% 18%, rgb(201 154 73 / 0.2) 0 13%, transparent 13.5%),
+			linear-gradient(135deg, #fffaf3, #eadfce);
+	}
+
+	.article-card-mark {
+		position: absolute;
+		inset-inline-start: 12%;
+		width: 5.5rem;
+		height: 5.5rem;
+		border: 1px solid rgb(108 45 54 / 0.22);
+		border-radius: 44% 56% 60% 40%;
+		transform: rotate(12deg);
+	}
+
+	.article-card-fallback-label {
+		z-index: 1;
+		max-width: 18rem;
+		color: var(--burgundy);
+		font-family: var(--font-heading);
+		font-size: 1rem;
+		font-weight: 600;
+		text-align: center;
+	}
+
+	.article-card-draft {
+		position: absolute;
+		inset-block-start: 0.75rem;
+		inset-inline-end: 0.75rem;
+		z-index: 2;
+		border-radius: 999px;
+		background: rgb(255 250 243 / 0.94);
+		padding: 0.3rem 0.7rem;
+		color: var(--burgundy);
+		font-size: 0.8rem;
+	}
+
+	.article-card-body {
+		display: flex;
+		flex: 1;
+		flex-direction: column;
+		padding: 1.25rem;
+	}
+
+	.article-card-category {
+		margin-bottom: 0.55rem;
+		color: var(--burgundy);
+		font-size: 0.85rem;
+		font-weight: 600;
+	}
+
+	.article-card h2 {
+		margin-bottom: 0.7rem;
+		color: var(--burgundy);
+		font-size: clamp(1.28rem, 2vw, 1.55rem);
+		line-height: 1.35;
+	}
+
+	.article-card p {
+		display: -webkit-box;
+		overflow: hidden;
+		margin-bottom: 1.1rem;
+		line-height: 1.7;
+		-webkit-box-orient: vertical;
+		-webkit-line-clamp: 3;
+	}
+
+	.article-card-cta {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.45rem;
+		margin-top: auto;
+		color: var(--burgundy);
+		font-weight: 600;
+	}
+
+	@media (min-width: 768px) {
+		.article-card-body { padding: 1.5rem; }
+		.article-card p { -webkit-line-clamp: 2; }
+	}
+</style>
