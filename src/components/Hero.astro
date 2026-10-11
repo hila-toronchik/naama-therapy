@@ -8,8 +8,10 @@ import { siteData } from '../content/site-data';
 	<div class="container-custom w-full">
 		<div class="grid grid-cols-1 md:grid-cols-[46%_54%] items-center gap-7 md:gap-10">
 			<div class="relative z-10 px-2 md:px-4">
-				<h1 class="scroll-reveal fade-up text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-5 text-right">
-					{siteData.hero.title}
+				<h1 class="scroll-reveal fade-up font-display text-burgundy mb-5 text-right">
+					<span class="block text-4xl md:text-5xl lg:text-6xl leading-tight">{siteData.hero.title}</span>
+					<span class="block mt-1 text-2xl md:text-3xl lg:text-4xl leading-tight">{siteData.hero.method}</span>
+					<span class="block mt-2 text-lg md:text-xl lg:text-2xl font-medium text-burgundy/85 leading-snug">{siteData.hero.audience}</span>
 				</h1>
 
 				<div class="text-base md:text-lg text-charcoal leading-relaxed text-right">

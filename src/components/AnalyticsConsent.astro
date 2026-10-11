@@ -1,0 +1,142 @@
+---
+const measurementId = 'G-JGRKVF4FWG';
+---
+
+<aside
+	id="analytics-consent"
+	class="analytics-consent hidden"
+	role="dialog"
+	aria-labelledby="analytics-consent-title"
+	aria-describedby="analytics-consent-description"
+>
+	<div class="analytics-consent__content">
+		<p id="analytics-consent-title" class="font-semibold text-burgundy">מדידה שמכבדת את הפרטיות</p>
+		<p id="analytics-consent-description" class="text-sm leading-relaxed text-charcoal">
+			אפשר לאשר מדידה בסיסית שעוזרת להבין אילו עמודים מועילים ואם הגיעו פניות מפרסום. לא נאסף תוכן של הודעות או מידע שנמסר בטיפול.
+		</p>
+	</div>
+	<div class="analytics-consent__actions">
+		<button id="analytics-consent-accept" type="button" class="btn-primary whitespace-nowrap">לאשר</button>
+		<button id="analytics-consent-decline" type="button" class="text-sm text-burgundy underline underline-offset-4 whitespace-nowrap">
+			להמשיך ללא מדידה
+		</button>
+		<a href="/privacy/" class="text-xs text-charcoal/75 underline underline-offset-4 whitespace-nowrap">מידע נוסף</a>
+	</div>
+</aside>
+
+<script define:vars={{ measurementId }}>
+	const consentKey = 'naama-analytics-consent';
+	const banner = document.getElementById('analytics-consent');
+	const acceptButton = document.getElementById('analytics-consent-accept');
+	const declineButton = document.getElementById('analytics-consent-decline');
+	const settingsButton = document.getElementById('analytics-settings-button');
+
+	const loadAnalytics = () => {
+		if (document.getElementById('google-analytics-script')) return;
+
+		window.dataLayer = window.dataLayer || [];
+		window.gtag = function gtag(){ window.dataLayer.push(arguments); };
+		window.gtag('js', new Date());
+		window.gtag('config', measurementId, { anonymize_ip: true });
+
+		const script = document.createElement('script');
+		script.id = 'google-analytics-script';
+		script.async = true;
+		script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+		document.head.appendChild(script);
+	};
+
+	const saveChoice = (choice) => {
+		try { localStorage.setItem(consentKey, choice); } catch {}
+		banner?.classList.add('hidden');
+	};
+
+	let savedChoice = null;
+	try { savedChoice = localStorage.getItem(consentKey); } catch {}
+
+	if (savedChoice === 'granted') {
+		loadAnalytics();
+	} else if (savedChoice !== 'denied') {
+		banner?.classList.remove('hidden');
+	}
+
+	acceptButton?.addEventListener('click', () => {
+		saveChoice('granted');
+		loadAnalytics();
+	});
+
+	declineButton?.addEventListener('click', () => saveChoice('denied'));
+	settingsButton?.addEventListener('click', () => banner?.classList.remove('hidden'));
+
+	const reportedScrollDepths = new Set();
+	const reportScrollDepth = () => {
+		if (!window.gtag) return;
+		const available = document.documentElement.scrollHeight - window.innerHeight;
+		if (available <= 0) return;
+		const depth = Math.round((window.scrollY / available) * 100);
+		[50, 90].forEach((threshold) => {
+			if (depth >= threshold && !reportedScrollDepths.has(threshold)) {
+				reportedScrollDepths.add(threshold);
+				window.gtag('event', 'scroll_depth', { percent_scrolled: threshold, page_path: window.location.pathname });
+			}
+		});
+	};
+	window.addEventListener('scroll', reportScrollDepth, { passive: true });
+
+	document.addEventListener('click', (event) => {
+		if (!window.gtag) return;
+		const link = event.target instanceof Element ? event.target.closest('a') : null;
+		if (!link) return;
+		const href = link.getAttribute('href') || '';
+		let eventName = '';
+		if (href.includes('wa.me/')) eventName = 'contact_whatsapp';
+		else if (href.startsWith('tel:')) eventName = 'contact_phone';
+		else if (href.startsWith('mailto:')) eventName = 'contact_email';
+		else if (href.includes('instagram.com/')) eventName = 'social_instagram';
+		else if (href.includes('facebook.com/')) eventName = 'social_facebook';
+		if (eventName) window.gtag('event', eventName, { page_path: window.location.pathname });
+	});
+</script>
+
+<style>
+	.analytics-consent {
+		position: fixed;
+		right: 1rem;
+		left: 1rem;
+		bottom: 10.5rem;
+		z-index: 70;
+		max-width: 42rem;
+		margin-inline: auto;
+		padding: 0.9rem 1rem;
+		border: 1px solid rgba(109, 46, 70, 0.16);
+		border-radius: 1rem;
+		background: rgba(255, 250, 243, 0.98);
+		box-shadow: 0 12px 32px rgba(73, 48, 0, 0.16);
+		backdrop-filter: blur(10px);
+	}
+	.analytics-consent.hidden { display: none; }
+
+	.analytics-consent__content { display: grid; gap: 0.2rem; }
+	.analytics-consent__actions {
+		display: flex;
+		align-items: center;
+		justify-content: flex-start;
+		gap: 0.9rem;
+		margin-top: 0.75rem;
+		flex-wrap: wrap;
+	}
+
+	@media (min-width: 768px) {
+		.analytics-consent {
+			right: 1.5rem;
+			left: auto;
+			bottom: 1.5rem;
+			width: min(42rem, calc(100vw - 3rem));
+			display: grid;
+			grid-template-columns: 1fr auto;
+			align-items: center;
+			gap: 1rem;
+		}
+		.analytics-consent__actions { margin-top: 0; justify-content: flex-end; }
+	}
+</style>

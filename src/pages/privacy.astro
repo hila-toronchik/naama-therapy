@@ -18,7 +18,11 @@ import Layout from '../components/Layout.astro';
 					</section>
 					<section>
 						<h2 class="text-burgundy mb-2">מדידת השימוש באתר</h2>
-						<p>האתר אינו מפעיל כרגע מערכת למדידת קהל כגון Google Analytics ואינו מציב עוגיות מדידה מטעמו.</p>
+						<p>Google Analytics מופעל רק לאחר אישור מפורש. המדידה נועדה להבין שימוש כללי באתר ולמדוד פעולות כגון צפייה בעמודים ולחיצה על קישורי WhatsApp, טלפון, אימייל ורשתות חברתיות. תוכן הודעות, סיבת הפנייה ומידע שנמסר במסגרת טיפול אינם נשלחים למערכת המדידה. אפשר להמשיך להשתמש באתר גם ללא אישור מדידה.</p>
+						<button id="withdraw-analytics-consent" type="button" class="mt-4 text-burgundy underline underline-offset-4">
+							ביטול הסכמה למדידה
+						</button>
+						<p id="withdraw-analytics-status" class="mt-2 text-sm text-charcoal/75" aria-live="polite"></p>
 					</section>
 					<section>
 						<h2 class="text-burgundy mb-2">יצירת קשר בנושא פרטיות</h2>
@@ -29,3 +33,17 @@ import Layout from '../components/Layout.astro';
 		</div>
 	</section>
 </Layout>
+
+<script>
+	const withdrawButton = document.getElementById('withdraw-analytics-consent');
+	const status = document.getElementById('withdraw-analytics-status');
+	withdrawButton?.addEventListener('click', () => {
+		try { localStorage.setItem('naama-analytics-consent', 'denied'); } catch {}
+		window['ga-disable-G-JGRKVF4FWG'] = true;
+		document.cookie.split(';').forEach((cookie) => {
+			const name = cookie.split('=')[0]?.trim();
+			if (name?.startsWith('_ga')) document.cookie = `${name}=; Max-Age=0; path=/; SameSite=Lax`;
+		});
+		if (status) status.textContent = 'ההסכמה בוטלה. המדידה הופסקה במכשיר ובדפדפן הזה.';
+	});
+</script>

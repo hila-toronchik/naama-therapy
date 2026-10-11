@@ -4,6 +4,7 @@ import Navigation from './Navigation.astro';
 import Footer from './Footer.astro';
 import WhatsAppButton from './WhatsAppButton.astro';
 import ScrollHint from './ScrollHint.astro';
+import AnalyticsConsent from './AnalyticsConsent.astro';
 
 interface Props {
 	title: string;
@@ -12,7 +13,7 @@ interface Props {
 	noindex?: boolean;
 }
 
-const { title, description = 'טיפול רגשי למבוגרים אצל נעמה טירן', ogImage, noindex = false } = Astro.props;
+const { title, description = 'טיפול רגשי למבוגרים ולמתבגרים אצל נעמה טירן', ogImage, noindex = false } = Astro.props;
 const siteName = 'נעמה טירן';
 const fullTitle = title;
 const canonicalURL = Astro.site ? new URL(Astro.url.pathname, Astro.site) : Astro.url;
@@ -28,7 +29,7 @@ const structuredData = {
 	'@graph': [
 		{
 			'@type': 'WebSite', '@id': websiteId, url: siteURL, name: siteName,
-			alternateName: 'נעמה טירן – טיפול רגשי למבוגרים', inLanguage: 'he-IL',
+			alternateName: 'נעמה טירן – טיפול רגשי למבוגרים ולמתבגרים', inLanguage: 'he-IL',
 			publisher: { '@id': practiceId }
 		},
 		{
@@ -38,15 +39,15 @@ const structuredData = {
 		},
 		{
 			'@type': 'ProfessionalService', '@id': practiceId,
-			name: 'נעמה טירן – טיפול רגשי למבוגרים', url: siteURL,
-			description: 'טיפול רגשי למבוגרים בגישה אינטגרטיבית בקליניקה ברמות השבים, ליד רעננה.',
+			name: 'נעמה טירן – טיפול רגשי למבוגרים ולמתבגרים', url: siteURL,
+			description: 'טיפול רגשי למבוגרים ולמתבגרים בגישה אינטגרטיבית בקליניקה ברמות השבים, ליד רעננה.',
 			logo: logoURL, image: ogImageURL, telephone: '+972-54-730-0780', email: 'naatiran@gmail.com',
 			founder: { '@id': personId },
 			address: { '@type': 'PostalAddress', addressLocality: 'רמות השבים', addressRegion: 'השרון', addressCountry: 'IL' },
 			areaServed: ['רמות השבים', 'רעננה', 'כפר סבא', 'הוד השרון', 'הרצליה', 'נתניה', 'השרון'].map(name => ({ '@type': 'Place', name })),
 			hasOfferCatalog: {
-				'@type': 'OfferCatalog', name: 'שירותי טיפול רגשי למבוגרים',
-				itemListElement: ['טיפול רגשי למבוגרים', 'טיפול EMDR', 'טיפול באמנות'].map(name => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } }))
+				'@type': 'OfferCatalog', name: 'שירותי טיפול רגשי למבוגרים ולמתבגרים',
+				itemListElement: ['טיפול רגשי למבוגרים ולמתבגרים', 'טיפול EMDR', 'טיפול באמנות'].map(name => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } }))
 			},
 			sameAs: ['https://www.instagram.com/naama_tiran', 'https://www.facebook.com/profile.php?id=61590955055488&locale=he_IL']
 		}
@@ -106,6 +107,7 @@ const structuredData = {
 		<Footer />
 		<WhatsAppButton />
 		<ScrollHint />
+		<AnalyticsConsent />
 		
 		<!-- Scroll Reveal Animation Script -->
 		<script src="../scripts/scroll-reveal.js"></script>

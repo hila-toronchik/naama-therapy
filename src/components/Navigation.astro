@@ -4,7 +4,7 @@ import { articleCategories } from '../content/article-categories';
 
 const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const isActive = (path: string) => currentPath === path;
-const isServicesActive = ['/services', '/emdr', '/art-therapy'].includes(currentPath);
+const isServicesActive = ['/services', '/emdr', '/art-therapy', '/therapy-from-age-16'].includes(currentPath);
 const isArticlesActive = currentPath === '/articles' || currentPath.startsWith('/articles/');
 const isWorkshopsActive = currentPath === '/workshops' || currentPath.startsWith('/workshops/');
 const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transition-colors font-medium ${active ? 'text-burgundy underline decoration-burgundy/40 underline-offset-8' : ''}`;
@@ -45,6 +45,9 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 							</a>
 							<a href="/art-therapy" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/art-therapy') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/art-therapy') ? 'page' : undefined}>
 								{siteData.nav.artTherapy}
+							</a>
+							<a href="/therapy-from-age-16" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/therapy-from-age-16') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/therapy-from-age-16') ? 'page' : undefined}>
+								{siteData.nav.age16}
 							</a>
 						</div>
 					</div>
@@ -109,6 +112,7 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 							<a href="/services" class={`${linkClass(isActive('/services'))} py-1 pr-4`} aria-current={isActive('/services') ? 'page' : undefined}>→ כל תחומי הטיפול</a>
 							<a href="/emdr" class={`${linkClass(isActive('/emdr'))} py-1 pr-4`} aria-current={isActive('/emdr') ? 'page' : undefined}>→ {siteData.nav.emdr}</a>
 							<a href="/art-therapy" class={`${linkClass(isActive('/art-therapy'))} py-1 pr-4`} aria-current={isActive('/art-therapy') ? 'page' : undefined}>→ {siteData.nav.artTherapy}</a>
+							<a href="/therapy-from-age-16" class={`${linkClass(isActive('/therapy-from-age-16'))} py-1 pr-4`} aria-current={isActive('/therapy-from-age-16') ? 'page' : undefined}>→ {siteData.nav.age16}</a>
 						</div>
 					</details>
 					<details class="group">

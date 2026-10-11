@@ -3,16 +3,32 @@ import Layout from '../components/Layout.astro';
 import { siteData } from '../content/site-data';
 ---
 
-<Layout title="טיפול EMDR למבוגרים | רמות השבים ליד רעננה" description="מידע על טיפול EMDR למבוגרים: למי השיטה עשויה להתאים, כיצד מתבצעת העבודה ומה קורה בתהליך. טיפול ברמות השבים, ליד רעננה.">
+<Layout title="טיפול EMDR למבוגרים ולמתבגרים | רמות השבים" description="מידע על טיפול EMDR למבוגרים ולמתבגרים: למי השיטה עשויה להתאים, כיצד מתבצעת העבודה ומה קורה בתהליך. טיפול ברמות השבים, ליד רעננה.">
 	<section class="py-10 md:py-14 bg-cream-warm">
 		<div class="container-custom w-full">
 			<div class="max-w-5xl mx-auto">
 				<!-- Header -->
-				<div class="scroll-reveal fade-up text-center mb-8 md:mb-12">
+				<div class="scroll-reveal fade-up text-center max-w-3xl mx-auto mb-8 md:mb-12">
 					<h1 class="text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-3 md:mb-4">
-						מהו טיפול EMDR?
+						טיפול EMDR
 					</h1>
-					<div class="w-16 md:w-24 h-1 bg-burgundy mx-auto rounded-full"></div>
+					<p class="text-xl md:text-2xl font-display text-burgundy mb-4">
+						למבוגרים ולמתבגרים ברמות השבים, ליד רעננה
+					</p>
+					<p class="text-base md:text-lg text-charcoal leading-relaxed max-w-2xl mx-auto mb-3">
+						טיפול המותאם באופן אישי להתמודדות עם חוויות עבר, טראומה וזיכרונות שממשיכים לעורר מצוקה ולהשפיע על ההווה.
+					</p>
+					<p class="text-sm md:text-base text-charcoal/80 mb-5">
+						לא צריך לדעת מראש אם EMDR מתאים לך — נבדוק זאת יחד בהדרגה.
+					</p>
+					<a
+						href={`https://wa.me/${siteData.whatsapp}`}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="btn-primary inline-flex items-center justify-center"
+					>
+						לתיאום שיחת היכרות ב־WhatsApp
+					</a>
 				</div>
 
 			<!-- פתיחה: הסבר ותמונה בגובה אחיד -->

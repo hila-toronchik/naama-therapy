@@ -1,0 +1,49 @@
+---
+import Layout from '../components/Layout.astro';
+import { siteData } from '../content/site-data';
+---
+
+<Layout
+	title="טיפול רגשי במתבגרים | נעמה טירן, רמות השבים"
+	description="טיפול רגשי במתבגרים ברמות השבים, ליד רעננה. אפשרות לשלב שיחה, EMDR, התייחסות לגוף וחומרי אמנות לפי הצורך וההתאמה."
+>
+	<section class="py-10 md:py-14 bg-gradient-warm">
+		<div class="container-custom">
+			<header class="scroll-reveal fade-up max-w-3xl mx-auto text-center mb-8 md:mb-10">
+				<p class="text-sm md:text-base font-semibold text-burgundy/75 mb-2">טיפול המותאם לגיל ולצרכים</p>
+				<h1 class="text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-5">טיפול רגשי במתבגרים</h1>
+				<p class="text-lg md:text-xl text-charcoal leading-relaxed">מרחב טיפולי בוגר ומותאם אישית להתמודדות עם חרדה, הצפה, קשיים חברתיים, שאלות של זהות וערך עצמי וחוויות שקשה לבטא במילים.</p>
+			</header>
+
+			<div class="max-w-5xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-8 mb-7 md:mb-9">
+				<article class="scroll-reveal fade-up card-sage p-6 md:p-8">
+					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4">איך אפשר לעבוד בטיפול?</h2>
+					<p class="text-base md:text-lg leading-relaxed mb-4">אפשר לעבוד באמצעות שיחה בלבד, ולפי הצורך וההתאמה לשלב גם EMDR, תשומת לב לגוף, דימויים או חומרי אמנות.</p>
+					<p class="text-base md:text-lg leading-relaxed">אין צורך בניסיון או בכישרון באמנות. היצירה היא אפשרות נוספת לביטוי ולהעמקה, ולעולם אינה חובה.</p>
+				</article>
+
+				<article class="scroll-reveal fade-up delay-100 card p-6 md:p-8">
+					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4">פרטיות ומעורבות הורים</h2>
+					<p class="text-base md:text-lg leading-relaxed mb-4">בגיל 16–17 הפנייה הראשונית יכולה להיעשות על ידי ההורה או על ידי הנער או הנערה.</p>
+					<p class="text-base md:text-lg leading-relaxed">בשיחת ההיכרות נבדוק התאמה, ובהתאם לגיל ולנסיבות נסכם יחד את אופן מעורבות ההורים, תוך התייחסות לפרטיות התהליך.</p>
+				</article>
+			</div>
+
+			<div class="scroll-reveal fade-up max-w-5xl mx-auto bg-[#fffaf3] rounded-xl border border-charcoal/10 p-6 md:p-8 mb-8 md:grid md:grid-cols-[220px_1fr] md:gap-8 md:items-center">
+				<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4 md:mb-0">מתי אפשר לפנות?</h2>
+				<ul class="grid grid-cols-1 sm:grid-cols-2 gap-3 text-base md:text-lg leading-relaxed">
+					<li>חרדה או הצפה רגשית</li>
+					<li>קשיים חברתיים או ביחסים</li>
+					<li>שאלות של זהות וערך עצמי</li>
+					<li>חוויות עבר שממשיכות להשפיע</li>
+				</ul>
+			</div>
+
+			<div class="scroll-reveal fade-up text-center max-w-3xl mx-auto">
+				<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4">איך מתחילים?</h2>
+				<p class="text-base md:text-lg leading-relaxed mb-5">אפשר לפנות בהודעה קצרה. לאחר הפנייה נקיים שיחת טלפון של כ־10–15 דקות, ללא עלות וללא התחייבות, כדי להכיר ולבדוק התאמה ראשונית.</p>
+				<a href={`https://wa.me/${siteData.whatsapp}`} target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center justify-center">לשיחת היכרות ב־WhatsApp</a>
+			</div>
+		</div>
+	</section>
+</Layout>
