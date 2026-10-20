@@ -34,20 +34,20 @@ const structuredData = {
 		},
 		{
 			'@type': 'Person', '@id': personId, name: 'נעמה טירן',
-			jobTitle: 'מטפלת באמנות וב־EMDR', url: siteURL, image: portraitURL,
+			jobTitle: 'מטפלת רגשית, בעלת תואר שני בטיפול באמנות והכשרה ב־EMDR', url: siteURL, image: portraitURL,
 			worksFor: { '@id': practiceId }, sameAs: ['https://www.instagram.com/naama_tiran', 'https://www.facebook.com/profile.php?id=61590955055488&locale=he_IL']
 		},
 		{
 			'@type': 'ProfessionalService', '@id': practiceId,
 			name: 'נעמה טירן – טיפול רגשי למבוגרים ולמתבגרים', url: siteURL,
-			description: 'טיפול רגשי למבוגרים ולמתבגרים בגישה אינטגרטיבית בקליניקה ברמות השבים, ליד רעננה.',
+				description: 'טיפול רגשי פרטני למבוגרים ולמתבגרים מגיל 14 בגישה אינטגרטיבית בקליניקה ברמות השבים, ליד רעננה.',
 			logo: logoURL, image: ogImageURL, telephone: '+972-54-730-0780', email: 'naatiran@gmail.com',
 			founder: { '@id': personId },
 			address: { '@type': 'PostalAddress', addressLocality: 'רמות השבים', addressRegion: 'השרון', addressCountry: 'IL' },
 			areaServed: ['רמות השבים', 'רעננה', 'כפר סבא', 'הוד השרון', 'הרצליה', 'נתניה', 'השרון'].map(name => ({ '@type': 'Place', name })),
 			hasOfferCatalog: {
 				'@type': 'OfferCatalog', name: 'שירותי טיפול רגשי למבוגרים ולמתבגרים',
-				itemListElement: ['טיפול רגשי למבוגרים ולמתבגרים', 'טיפול EMDR', 'טיפול באמנות'].map(name => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } }))
+				itemListElement: ['טיפול רגשי למבוגרים ולמתבגרים', 'טיפול EMDR', 'Somatic Experiencing (SE)', 'טיפול באמנות', 'טיפול באמנות בגישה סומטית'].map(name => ({ '@type': 'Offer', itemOffered: { '@type': 'Service', name } }))
 			},
 			sameAs: ['https://www.instagram.com/naama_tiran', 'https://www.facebook.com/profile.php?id=61590955055488&locale=he_IL']
 		}
@@ -78,7 +78,7 @@ const structuredData = {
 		<meta property="og:image" content={ogImageURL} />
 		<meta property="og:image:width" content="1200" />
 		<meta property="og:image:height" content="630" />
-		<meta property="og:image:alt" content="נעמה טירן - מטפלת באמנות ו-EMDR" />
+		<meta property="og:image:alt" content="נעמה טירן - טיפול רגשי למבוגרים ולמתבגרים" />
 		<meta property="og:locale" content="he_IL" />
 		<meta property="og:site_name" content={siteName} />
 		

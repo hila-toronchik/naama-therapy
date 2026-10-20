@@ -4,21 +4,16 @@ import Hero from '../components/Hero.astro';
 import { siteData } from '../content/site-data';
 ---
 
-<Layout title="נעמה טירן | טיפול רגשי למבוגרים ולמתבגרים ברמות השבים" description="טיפול רגשי למבוגרים ולמתבגרים ברמות השבים, ליד רעננה, המשלב לפי הצורך שיחה, EMDR, התייחסות לגוף וחומרי אמנות.">
+<Layout title="נעמה טירן | טיפול רגשי למבוגרים ולמתבגרים ברמות השבים" description="טיפול רגשי פרטני למבוגרים ולמתבגרים מגיל 14 ברמות השבים, ליד רעננה, בגישה אינטגרטיבית המותאמת לאדם ולקצב שלו.">
 	<Hero />
 
 	<section id="home-next-section" class="py-10 md:py-14 bg-cream-warm scroll-mt-20">
 		<div class="container-custom">
-			<div class="scroll-reveal fade-up max-w-3xl mx-auto text-center mb-8 md:mb-10 px-3">
-				<p class="text-lg md:text-xl text-charcoal leading-relaxed">
-					לא תמיד צריך לדעת מראש איך לקרוא למה שקורה. לפעמים מספיק להרגיש שמשהו <strong>חוזר, מציף או מצמצם את החיים</strong> — ולרצות לפגוש אותו אחרת.
-				</p>
-			</div>
-			<div class="scroll-reveal fade-up delay-100 max-w-5xl mx-auto card-sage p-6 md:p-8 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-8 items-center">
+			<div class="scroll-reveal fade-up max-w-5xl mx-auto card-sage p-6 md:p-8 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-8 items-center">
 				<img src="/images/naama.jpg" alt="נעמה טירן" width="320" height="320" loading="lazy" decoding="async" class="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover shadow-lg mx-auto" />
 				<div>
 					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4">נעים להכיר</h2>
-					<p class="text-base md:text-lg text-charcoal leading-relaxed text-justify mb-5">אני מציעה טיפול רגשי למבוגרים ולמתבגרים, המשלב שיחה עם EMDR, התמקדות בגוף ואפשרות לעבודה באמנות — בהתאם לצרכים, לגיל ולקצב של כל מטופל ומטופלת.</p>
+					<p class="text-base md:text-lg text-charcoal leading-relaxed text-justify mb-5">אני עובדת עם אנשים שרוצים להבין את עצמם לעומק ולשנות דפוסים שמכבידים עליהם בחיים ובקשרים. אני משלבת EMDR, ‏SE, עבודה עם התקשרות, תשומת לב לגוף ולמערכת העצבים, הבנה של קולות וצרכים שונים בתוכנו וכלים יצירתיים — בתוך תהליך סקרני, קשוב ומותאם לאדם.</p>
 					<a href="/about" class="text-burgundy font-medium text-base md:text-lg hover:text-burgundy/80 transition-colors">עוד על ההכשרה והגישה שלי ←</a>
 				</div>
 			</div>
@@ -50,9 +45,6 @@ import { siteData } from '../content/site-data';
 					'קשיים ביחסים, התקשרות וערך עצמי',
 				].map((area) => <div class="card px-4 py-3 md:p-5 flex items-center gap-3 w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] md:min-h-24"><span class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-burgundy/55" aria-hidden="true"></span><p class="text-base md:text-lg leading-relaxed">{area}</p></div>)}
 			</div>
-			<p class="scroll-reveal fade-up delay-200 mt-6 max-w-3xl mx-auto text-center text-base md:text-lg text-charcoal leading-relaxed">
-				הטיפול מתאים למבוגרים ולמתבגרים שרוצים להבין את עצמם לעומק ולעשות שינוי, גם אם קיימת עדיין אמביוולנטיות או תחושה של תקיעות.
-			</p>
 			<div class="scroll-reveal fade-up delay-300 mt-5 text-center">
 				<a href="/services" class="text-burgundy font-medium text-base md:text-lg hover:text-burgundy/80 transition-colors">לכל תחומי הטיפול ←</a>
 			</div>
@@ -93,18 +85,26 @@ import { siteData } from '../content/site-data';
 				<h2 class="scroll-reveal fade-up text-2xl md:text-3xl font-display text-burgundy mb-6 text-center">דרכי עבודה אפשריות</h2>
 				<div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8 items-start">
 					<div class="scroll-reveal fade-up delay-100 space-y-5 text-base md:text-lg text-charcoal leading-relaxed text-justify">
-						<p>כמטפלת רגשית בגישה אינטגרטיבית, המתבססת על EMDR ומשלבת טיפול באמנות, אני מאמינה ש<strong>אין דרך אחת שנכונה לכולם</strong>. <strong>אופן הטיפול מותאם לאדם ולמה שעולה בתהליך</strong>. אפשר לעבוד באמצעות שיחה בלבד, ולפי הצורך וההתאמה לשלב גם EMDR, התמקדות בגוף, דימויים או חומרי אמנות.</p>
-						<p>באמצעות EMDR, יצירה ודימויים אפשר לעיתים להתקרב לזיכרונות ולחוויות שקשה לבטא במילים ולעבד אותם בדרך שאינה נשענת רק על שיחה. <strong>השימוש בכלים אלה אינו חובה</strong>, והוא מותאם לצרכים, לקצב ולמוכנות של כל אדם. מטרת התהליך היא לחזק בהדרגה את היכולת להבין את עצמך, לווסת מצוקה ולקבל החלטות מתוך יותר בחירה.</p>
+						<p>השיחה והקשר הטיפולי נמצאים בבסיס העבודה. לפי הצורך אפשר לשלב EMDR, ‏SE, עבודה עם התקשרות, תשומת לב לגוף ולמערכת העצבים, דימויים וחומרי אמנות.</p>
+						<p><strong>אין צורך לבחור שיטה מראש.</strong> דרכי העבודה הן אפשרויות בתוך הטיפול, והשימוש בהן מותאם לצרכים, לקצב ולמוכנות של כל אדם.</p>
 					</div>
 					<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
 					<div class="scroll-reveal fade-up card p-5"><h3 class="text-xl font-display text-burgundy mb-3">שיחה וקשר טיפולי</h3><p class="leading-relaxed">אפשר להגיע לטיפול המבוסס על שיחה בלבד.</p></div>
 					<a href="/emdr" class="scroll-reveal fade-up delay-100 card p-5 block hover:shadow-2xl transition-shadow"><h3 class="text-xl font-display text-burgundy mb-3">EMDR</h3><p class="leading-relaxed">ניתן לשלב בהדרגה, לאחר היכרות, הכנה ובדיקת התאמה.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
-					<a href="/art-therapy" class="scroll-reveal fade-up delay-200 card p-5 block hover:shadow-2xl transition-shadow"><h3 class="text-xl font-display text-burgundy mb-3">גוף, דימויים וחומרי אמנות</h3><p class="leading-relaxed">כלים אפשריים שאינם דורשים ניסיון או כישרון.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
-					<div class="scroll-reveal fade-up delay-300 card p-5"><h3 class="text-xl font-display text-burgundy mb-3">התאמה אישית</h3><p class="leading-relaxed">אין צורך לדעת מראש איזו דרך מתאימה.</p></div>
+					<a href="/se" class="scroll-reveal fade-up delay-200 card p-5 block hover:shadow-2xl transition-shadow"><h3 class="text-xl font-display text-burgundy mb-3">SE וגוף</h3><p class="leading-relaxed">תשומת לב לתחושות הגוף ולתגובות מערכת העצבים.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
+					<a href="/art-therapy" class="scroll-reveal fade-up delay-300 card p-5 block hover:shadow-2xl transition-shadow"><h3 class="text-xl font-display text-burgundy mb-3">טיפול באמנות</h3><p class="leading-relaxed">חומר, צבע ודימוי כערוצים אפשריים לביטוי ולהתבוננות.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
+					<a href="/somatic-art-therapy" class="scroll-reveal fade-up card p-5 block hover:shadow-2xl transition-shadow sm:col-span-2"><h3 class="text-xl font-display text-burgundy mb-3">טיפול באמנות בגישה סומטית</h3><p class="leading-relaxed">חיבור בין יצירה לבין תשומת לב לגוף ולמערכת העצבים.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
 					</div>
 				</div>
 			</div>
 		</div>
+	</section>
+
+	<section class="py-9 md:py-12 bg-sage/20 border-y border-sage/20">
+		<div class="container-custom"><div class="scroll-reveal fade-up max-w-4xl mx-auto card p-6 md:p-8 grid md:grid-cols-[1fr_auto] gap-5 items-center">
+			<div><p class="text-sm font-semibold text-burgundy/75 mb-2">הזרוע הקבוצתית</p><h2 class="text-2xl md:text-3xl text-burgundy mb-3">סדנאות יצירה וחיבור לקבוצות</h2><p class="text-base md:text-lg leading-relaxed">מפגשים מותאמים לצוותים, קהילות, מרכזי נוער, ימי הולדת ואירועים פרטיים. הסדנה נבנית יחד לפי הקבוצה, המטרה והאירוע.</p></div>
+			<a href="/workshops" class="btn-secondary whitespace-nowrap">לסדנאות</a>
+		</div></div>
 	</section>
 
 	<section class="py-8 md:py-12 bg-gradient-warm">

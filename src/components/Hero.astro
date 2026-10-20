@@ -10,15 +10,14 @@ import { siteData } from '../content/site-data';
 			<div class="relative z-10 px-2 md:px-4">
 				<h1 class="scroll-reveal fade-up font-display text-burgundy mb-5 text-right">
 					<span class="block text-4xl md:text-5xl lg:text-6xl leading-tight">{siteData.hero.title}</span>
-					<span class="block mt-1 text-2xl md:text-3xl lg:text-4xl leading-tight">{siteData.hero.method}</span>
+					{siteData.hero.method && <span class="block mt-1 text-2xl md:text-3xl lg:text-4xl leading-tight">{siteData.hero.method}</span>}
 					<span class="block mt-2 text-lg md:text-xl lg:text-2xl font-medium text-burgundy/85 leading-snug">{siteData.hero.audience}</span>
 				</h1>
 
 				<div class="text-base md:text-lg text-charcoal leading-relaxed text-right">
 					<p class="scroll-reveal fade-up delay-100 hero-hook">
-						כש־<strong class="brush-highlight brush-rose">חוויות מהעבר</strong>, <strong class="brush-highlight brush-sage">דפוסים חוזרים</strong><br class="hidden lg:block" />
-						או תחושות של <strong class="brush-highlight brush-gold">חרדה והצפה</strong> ממשיכים להשפיע על ההווה,<br class="hidden lg:block" />
-						לפעמים קשה להבין מדוע זה קורה ואיך אפשר לנוע אחרת.
+						לפעמים אנחנו מרגישים ש<strong class="brush-highlight brush-rose">משהו בחיים ממשיך לחזור</strong>,<br class="hidden lg:block" />
+						ולא תמיד ברור <strong class="brush-highlight brush-gold">מה עומד מאחוריו</strong>.
 					</p>
 					<p class="scroll-reveal fade-up delay-200 mt-5 hero-response">
 						טיפול יכול להציע מקום <strong class="response-highlight">לעצור, להבין מה קורה בפנים</strong><br class="hidden lg:block" /> וליצור בהדרגה
@@ -50,7 +49,7 @@ import { siteData } from '../content/site-data';
 					<source media="(max-width: 767px)" srcset="/images/emdr-illustration-reversed-720.webp" />
 					<img
 						src="/images/emdr-illustration-reversed-1200.webp"
-						alt="EMDR - מעבר ממחשבות שליליות לחיוביות, טיפול ב-EMDR"
+						alt="איור המבטא מעבר הדרגתי מתוך עומס רגשי אל אפשרויות חדשות"
 						width="1200"
 						height="1200"
 						fetchpriority="high"

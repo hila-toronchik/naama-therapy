@@ -4,10 +4,14 @@ import tailwind from '@astrojs/tailwind';
 import sitemap from '@astrojs/sitemap';
 
 const emptyArticleCategories = [
-	'addictions-and-compulsive-patterns',
 	'life-crises-and-change',
-	'relationships-attachment-and-self-worth',
 	'online-emotional-therapy',
+];
+
+const legacyRedirects = [
+	'/therapy-from-age-16/',
+	'/workshops/yotzrot-kesher/',
+	'/workshops/return-to-myself/',
 ];
 
 // https://astro.build/config
@@ -16,7 +20,9 @@ export default defineConfig({
 	integrations: [
 		tailwind(),
 		sitemap({
-			filter: (page) => !emptyArticleCategories.some((slug) => page.includes(`/articles/category/${slug}/`)),
+			filter: (page) =>
+				!emptyArticleCategories.some((slug) => page.includes(`/articles/category/${slug}/`)) &&
+				!legacyRedirects.some((path) => page.endsWith(path)),
 			i18n: {
 				defaultLocale: 'he',
 				locales: {

@@ -4,7 +4,7 @@ import { articleCategories } from '../content/article-categories';
 
 const currentPath = Astro.url.pathname.replace(/\/+$/, '') || '/';
 const isActive = (path: string) => currentPath === path;
-const isServicesActive = ['/services', '/emdr', '/art-therapy', '/therapy-from-age-16'].includes(currentPath);
+const isServicesActive = ['/services', '/emdr', '/se', '/art-therapy', '/somatic-art-therapy', '/teen-therapy'].includes(currentPath);
 const isArticlesActive = currentPath === '/articles' || currentPath.startsWith('/articles/');
 const isWorkshopsActive = currentPath === '/workshops' || currentPath.startsWith('/workshops/');
 const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transition-colors font-medium ${active ? 'text-burgundy underline decoration-burgundy/40 underline-offset-8' : ''}`;
@@ -35,7 +35,7 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
 					</svg>
 				</summary>
-				<div class="absolute top-full right-0 mt-2 w-48 bg-white shadow-lg rounded-lg z-50">
+				<div class="absolute top-full right-0 mt-2 w-64 bg-white shadow-lg rounded-lg z-50">
 					<div class="py-2">
 							<a href="/services" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/services') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/services') ? 'page' : undefined}>
 								{siteData.nav.services}
@@ -43,10 +43,12 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 							<a href="/emdr" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/emdr') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/emdr') ? 'page' : undefined}>
 								{siteData.nav.emdr}
 							</a>
+							<a href="/se" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/se') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']}>SE וגוף</a>
 							<a href="/art-therapy" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/art-therapy') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/art-therapy') ? 'page' : undefined}>
 								{siteData.nav.artTherapy}
 							</a>
-							<a href="/therapy-from-age-16" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/therapy-from-age-16') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/therapy-from-age-16') ? 'page' : undefined}>
+							<a href="/somatic-art-therapy" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/somatic-art-therapy') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']}>טיפול באמנות בגישה סומטית</a>
+							<a href="/teen-therapy" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/teen-therapy') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/teen-therapy') ? 'page' : undefined}>
 								{siteData.nav.age16}
 							</a>
 						</div>
@@ -111,8 +113,10 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 						<div class="flex flex-col gap-2 mt-1">
 							<a href="/services" class={`${linkClass(isActive('/services'))} py-1 pr-4`} aria-current={isActive('/services') ? 'page' : undefined}>→ כל תחומי הטיפול</a>
 							<a href="/emdr" class={`${linkClass(isActive('/emdr'))} py-1 pr-4`} aria-current={isActive('/emdr') ? 'page' : undefined}>→ {siteData.nav.emdr}</a>
+							<a href="/se" class={`${linkClass(isActive('/se'))} py-1 pr-4`}>→ SE וגוף</a>
 							<a href="/art-therapy" class={`${linkClass(isActive('/art-therapy'))} py-1 pr-4`} aria-current={isActive('/art-therapy') ? 'page' : undefined}>→ {siteData.nav.artTherapy}</a>
-							<a href="/therapy-from-age-16" class={`${linkClass(isActive('/therapy-from-age-16'))} py-1 pr-4`} aria-current={isActive('/therapy-from-age-16') ? 'page' : undefined}>→ {siteData.nav.age16}</a>
+							<a href="/somatic-art-therapy" class={`${linkClass(isActive('/somatic-art-therapy'))} py-1 pr-4`}>→ טיפול באמנות בגישה סומטית</a>
+							<a href="/teen-therapy" class={`${linkClass(isActive('/teen-therapy'))} py-1 pr-4`} aria-current={isActive('/teen-therapy') ? 'page' : undefined}>→ {siteData.nav.age16}</a>
 						</div>
 					</details>
 					<details class="group">

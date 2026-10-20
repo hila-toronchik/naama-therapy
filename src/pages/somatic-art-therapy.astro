@@ -1,0 +1,16 @@
+---
+import Layout from '../components/Layout.astro';
+import { siteData } from '../content/site-data';
+---
+
+<Layout title="טיפול באמנות בגישה סומטית | נעמה טירן" description="טיפול המשלב חומרי אמנות, דימויים ותשומת לב לגוף ולמערכת העצבים, כחלק מטיפול רגשי מותאם אישית.">
+	<section class="py-10 md:py-14 bg-cream-warm"><div class="container-custom"><div class="max-w-5xl mx-auto">
+		<header class="scroll-reveal fade-up text-center max-w-3xl mx-auto mb-10"><p class="text-sm md:text-base font-semibold text-burgundy/75 mb-2">מפגש בין יצירה, גוף ונפש</p><h1 class="text-3xl md:text-4xl lg:text-5xl font-display text-burgundy mb-5">טיפול באמנות בגישה סומטית</h1><p class="text-lg md:text-xl leading-relaxed">דרך עבודה המשלבת את השפה של חומר, צבע ודימוי עם תשומת לב לתחושות הגוף ולתגובות מערכת העצבים.</p></header>
+		<div class="grid md:grid-cols-2 gap-5 md:gap-7 mb-10">
+			<section class="scroll-reveal fade-up card-sage p-6 md:p-8"><h2 class="text-2xl md:text-3xl text-burgundy mb-4">מה מאפשר השילוב?</h2><p class="text-base md:text-lg leading-relaxed">יצירה יכולה לתת צורה למה שקשה לומר, והקשבה לגוף יכולה לעזור לזהות כיצד החוויה מורגשת ברגע הזה. החיבור ביניהן מאפשר להתקרב לחוויה מכמה כיוונים, בלי להסתמך רק על מילים.</p></section>
+			<section class="scroll-reveal fade-up delay-100 card p-6 md:p-8"><h2 class="text-2xl md:text-3xl text-burgundy mb-4">איך זה שונה מטיפול באמנות?</h2><p class="text-base md:text-lg leading-relaxed">בטיפול באמנות המדיום היצירתי הוא ערוץ לביטוי ולהתבוננות. בגישה הסומטית מוסיפים תשומת לב מכוונת גם לתחושות, לתנועה, לדריכות, לקיפאון ולמשאבים של מערכת העצבים.</p></section>
+		</div>
+		<section class="scroll-reveal fade-up card p-6 md:p-8 mb-10"><h2 class="text-2xl md:text-3xl text-burgundy mb-4">תמיד אפשרות, אף פעם לא חובה</h2><p class="text-base md:text-lg leading-relaxed mb-4">אין צורך בניסיון באמנות, ואין ציפייה ליצור בדרך מסוימת. אפשר לעבוד באמצעות שיחה בלבד, להשתמש בחומרים לפרק זמן קצר, או לשלב יצירה ותשומת לב לגוף כאשר הדבר מרגיש מתאים ותומך.</p><p class="text-base md:text-lg leading-relaxed">אין צורך לבחור מראש בין טיפול באמנות, SE או דרך אחרת. ההתאמה נעשית יחד בתוך התהליך.</p></section>
+		<div class="flex flex-col sm:flex-row justify-center gap-3"><a href="/art-therapy" class="btn-secondary">על טיפול באמנות</a><a href="/se" class="btn-secondary">על SE</a><a href={`https://wa.me/${siteData.whatsapp}`} class="btn-primary" target="_blank" rel="noopener noreferrer">לשיחת היכרות</a></div>
+	</div></div></section>
+</Layout>

@@ -94,6 +94,7 @@
 		@apply rounded-xl shadow-sm p-5 md:p-7;
 	}
 
+
 	/* Shared visual hierarchy */
 	main h1 {
 		font-size: 1.875rem !important;
