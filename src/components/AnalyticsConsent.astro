@@ -6,21 +6,16 @@ const measurementId = 'G-JGRKVF4FWG';
 	id="analytics-consent"
 	class="analytics-consent hidden"
 	role="dialog"
-	aria-labelledby="analytics-consent-title"
 	aria-describedby="analytics-consent-description"
+	aria-label="בחירת העדפות מדידה"
 >
-	<div class="analytics-consent__content">
-		<p id="analytics-consent-title" class="font-semibold text-burgundy">מדידה שמכבדת את הפרטיות</p>
-		<p id="analytics-consent-description" class="text-sm leading-relaxed text-charcoal">
-			אפשר לאשר מדידה בסיסית שעוזרת להבין אילו עמודים מועילים ואם הגיעו פניות מפרסום. לא נאסף תוכן של הודעות או מידע שנמסר בטיפול.
-		</p>
-	</div>
+	<p id="analytics-consent-description" class="analytics-consent__text">
+		אנחנו משתמשים בעוגיות למדידה בסיסית, כדי להבין את השימוש באתר ולשפר אותו.
+		<a href="/privacy/">מדיניות הפרטיות</a>
+	</p>
 	<div class="analytics-consent__actions">
-		<button id="analytics-consent-accept" type="button" class="btn-primary whitespace-nowrap">לאשר</button>
-		<button id="analytics-consent-decline" type="button" class="text-sm text-burgundy underline underline-offset-4 whitespace-nowrap">
-			להמשיך ללא מדידה
-		</button>
-		<a href="/privacy/" class="text-xs text-charcoal/75 underline underline-offset-4 whitespace-nowrap">מידע נוסף</a>
+		<button id="analytics-consent-accept" type="button" class="analytics-consent__accept">לאשר</button>
+		<button id="analytics-consent-decline" type="button" class="analytics-consent__decline">לא תודה</button>
 	</div>
 </aside>
 
@@ -101,42 +96,80 @@ const measurementId = 'G-JGRKVF4FWG';
 <style>
 	.analytics-consent {
 		position: fixed;
-		right: 1rem;
-		left: 1rem;
-		bottom: 10.5rem;
+		right: 0.75rem;
+		left: 0.75rem;
+		bottom: 9.25rem;
 		z-index: 70;
-		max-width: 42rem;
+		max-width: 35rem;
 		margin-inline: auto;
-		padding: 0.9rem 1rem;
-		border: 1px solid rgba(109, 46, 70, 0.16);
-		border-radius: 1rem;
-		background: rgba(255, 250, 243, 0.98);
-		box-shadow: 0 12px 32px rgba(73, 48, 0, 0.16);
+		padding: 0.85rem 1rem;
+		border: 1px solid rgba(109, 46, 70, 0.12);
+		border-radius: 1.1rem;
+		background: rgba(255, 253, 248, 0.98);
+		box-shadow: 0 10px 30px rgba(73, 48, 58, 0.14);
 		backdrop-filter: blur(10px);
 	}
 	.analytics-consent.hidden { display: none; }
 
-	.analytics-consent__content { display: grid; gap: 0.2rem; }
+	.analytics-consent__text {
+		margin: 0;
+		font-size: 0.9rem;
+		line-height: 1.55;
+		color: var(--charcoal);
+		text-align: center;
+	}
+
+	.analytics-consent__text a {
+		color: var(--burgundy);
+		font-weight: 600;
+		text-decoration: underline;
+		text-underline-offset: 0.2rem;
+		white-space: nowrap;
+	}
+
 	.analytics-consent__actions {
 		display: flex;
 		align-items: center;
-		justify-content: flex-start;
-		gap: 0.9rem;
-		margin-top: 0.75rem;
-		flex-wrap: wrap;
+		justify-content: center;
+		gap: 1rem;
+		margin-top: 0.65rem;
+	}
+
+	.analytics-consent__accept {
+		min-width: 7.25rem;
+		padding: 0.65rem 1.15rem;
+		border-radius: 999px;
+		background: var(--burgundy);
+		color: white;
+		font-weight: 700;
+		box-shadow: 0 5px 14px rgba(109, 46, 70, 0.2);
+		transition: opacity 180ms ease, transform 180ms ease;
+	}
+
+	.analytics-consent__accept:hover { opacity: 0.92; transform: translateY(-1px); }
+
+	.analytics-consent__decline {
+		padding: 0.55rem 0.2rem;
+		color: var(--charcoal);
+		font-size: 0.9rem;
+		text-decoration: underline;
+		text-underline-offset: 0.2rem;
 	}
 
 	@media (min-width: 768px) {
 		.analytics-consent {
-			right: 1.5rem;
-			left: auto;
+			right: 1rem;
+			left: 1rem;
 			bottom: 1.5rem;
-			width: min(42rem, calc(100vw - 3rem));
-			display: grid;
-			grid-template-columns: 1fr auto;
+			width: min(52rem, calc(100vw - 2rem));
+			max-width: 52rem;
+			display: flex;
 			align-items: center;
-			gap: 1rem;
+			justify-content: center;
+			gap: 1.25rem;
+			padding: 0.85rem 1.15rem;
 		}
-		.analytics-consent__actions { margin-top: 0; justify-content: flex-end; }
+		.analytics-consent__text { text-align: right; }
+		.analytics-consent__actions { margin-top: 0; flex-shrink: 0; }
 	}
 </style>
