@@ -2,13 +2,13 @@
 import { siteData } from '../content/site-data';
 ---
 
-<footer class="bg-gray-900 text-white section-padding">
+<footer class="site-footer section-padding">
 	<div class="container-custom">
 		<div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8 mb-6 md:mb-8">
 			<div>
 				<h3 class="text-2xl font-display mb-4 text-white">נעמה טירן</h3>
 				<p class="text-white">
-					טיפול רגשי למבוגרים ולמתבגרים מגיל 14
+					טיפול רגשי למבוגרים ולמתבגרים
 				</p>
 			</div>
 			<div>
@@ -82,3 +82,24 @@ import { siteData } from '../content/site-data';
 		</div>
 	</div>
 </footer>
+
+<style>
+	.site-footer {
+		background: #f7f1ed;
+		color: #5c504d;
+		border-top: 1px solid rgba(92, 80, 77, 0.14);
+	}
+
+	.site-footer :global(.text-white) {
+		color: #5c504d !important;
+	}
+
+	.site-footer :global(.border-white) {
+		border-color: rgba(92, 80, 77, 0.18) !important;
+	}
+
+	.site-footer a:hover,
+	.site-footer button:hover {
+		color: #a86467 !important;
+	}
+</style>

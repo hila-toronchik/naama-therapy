@@ -10,11 +10,11 @@ const isWorkshopsActive = currentPath === '/workshops' || currentPath.startsWith
 const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transition-colors font-medium ${active ? 'text-burgundy underline decoration-burgundy/40 underline-offset-8' : ''}`;
 ---
 
-<nav class="fixed bottom-4 right-4 left-4 z-50 rounded-2xl border border-burgundy/10 bg-white/95 shadow-xl backdrop-blur-sm md:sticky md:top-0 md:right-auto md:left-auto md:bottom-auto md:rounded-none md:border-0 md:bg-white md:shadow-md md:backdrop-blur-none">
+<nav class="fixed bottom-4 right-4 left-4 z-50 rounded-2xl border border-burgundy/10 bg-white/95 shadow-lg backdrop-blur-sm md:sticky md:top-0 md:right-auto md:left-auto md:bottom-auto md:rounded-none md:border-0 md:bg-white/95 md:shadow-sm md:backdrop-blur-sm">
 	<div class="container-custom">
 		<div class="flex items-center justify-between h-16">
 		<!-- Logo/Brand -->
-		<a href="/" class="flex min-w-0 items-center gap-2 md:gap-3 text-xl md:text-2xl font-display text-sage hover:text-burgundy transition-colors">
+		<a href="/" class="flex min-w-0 items-center gap-2 md:gap-3 text-xl md:text-2xl font-display text-burgundy hover:opacity-80 transition-opacity">
 			<img src="/logo.png" alt="לוגו נעמה טירן" width="48" height="48" decoding="async" class="order-2 h-11 w-auto md:order-none md:h-12" />
 			<span class="order-1 md:hidden">נעמה טירן</span>
 			<span class="hidden md:inline">נעמה טירן - מטפלת רגשית</span>
@@ -35,7 +35,7 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
 					</svg>
 				</summary>
-				<div class="absolute top-full right-0 mt-2 w-64 bg-white shadow-lg rounded-lg z-50">
+				<div class="absolute top-full right-0 mt-2 w-64 bg-white shadow-lg border border-burgundy/10 rounded-2xl z-50 overflow-hidden">
 					<div class="py-2">
 							<a href="/services" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/services') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/services') ? 'page' : undefined}>
 								{siteData.nav.services}
@@ -61,7 +61,7 @@ const linkClass = (active: boolean) => `text-charcoal hover:text-burgundy transi
 							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/>
 						</svg>
 					</summary>
-					<div class="absolute top-full right-0 mt-2 w-80 bg-white shadow-lg rounded-lg z-50">
+					<div class="absolute top-full right-0 mt-2 w-80 bg-white shadow-lg border border-burgundy/10 rounded-2xl z-50 overflow-hidden">
 						<div class="py-2">
 							<a href="/articles" class:list={['block px-4 py-2 hover:bg-cream-warm hover:text-burgundy transition-colors', isActive('/articles') ? 'text-burgundy bg-cream-warm/60' : 'text-charcoal']} aria-current={isActive('/articles') ? 'page' : undefined}>
 								כל המאמרים

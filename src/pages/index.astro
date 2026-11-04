@@ -4,36 +4,24 @@ import Hero from '../components/Hero.astro';
 import { siteData } from '../content/site-data';
 ---
 
-<Layout title="נעמה טירן | טיפול רגשי למבוגרים ולמתבגרים ברמות השבים" description="טיפול רגשי פרטני למבוגרים ולמתבגרים מגיל 14 ברמות השבים, ליד רעננה, בגישה אינטגרטיבית המותאמת לאדם ולקצב שלו.">
+<Layout title="נעמה טירן | טיפול רגשי למבוגרים ולמתבגרים ברמות השבים" description="טיפול רגשי פרטני למבוגרים ולמתבגרים ברמות השבים, ליד רעננה, בגישה אינטגרטיבית המותאמת לאדם ולקצב שלו.">
+	<div class="home-minimal">
 	<Hero />
 
-	<section id="home-next-section" class="py-10 md:py-14 bg-cream-warm scroll-mt-20">
+	<section id="home-next-section" class="home-clean py-14 md:py-24 bg-cream-warm scroll-mt-20">
 		<div class="container-custom">
-			<div class="scroll-reveal fade-up max-w-5xl mx-auto card-sage p-6 md:p-8 grid grid-cols-1 md:grid-cols-[220px_1fr] gap-6 md:gap-8 items-center">
-				<img src="/images/naama.jpg" alt="נעמה טירן" width="320" height="320" loading="lazy" decoding="async" class="w-40 h-40 md:w-52 md:h-52 rounded-full object-cover shadow-lg mx-auto" />
-				<div>
+			<div class="home-intro scroll-reveal fade-up max-w-5xl mx-auto p-0 grid grid-cols-1 md:grid-cols-[minmax(240px,0.8fr)_minmax(0,1.2fr)] gap-8 md:gap-16 items-center">
+				<img src="/images/naama.jpg" alt="נעמה טירן" width="480" height="620" loading="lazy" decoding="async" class="home-portrait order-2 md:order-1 w-full max-w-xs md:max-w-sm h-[360px] md:h-[460px] rounded-[2rem] object-cover mx-auto" style="object-position:center 28%;" />
+				<div class="order-1 md:order-2">
 					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4">נעים להכיר</h2>
-					<p class="text-base md:text-lg text-charcoal leading-relaxed text-justify mb-5">אני עובדת עם אנשים שרוצים להבין את עצמם לעומק ולשנות דפוסים שמכבידים עליהם בחיים ובקשרים. אני משלבת EMDR, ‏SE, עבודה עם התקשרות, תשומת לב לגוף ולמערכת העצבים, הבנה של קולות וצרכים שונים בתוכנו וכלים יצירתיים — בתוך תהליך סקרני, קשוב ומותאם לאדם.</p>
+					<p class="text-base md:text-lg text-charcoal leading-relaxed text-justify mb-5">נעים להכיר, אני נעמה. אני עובדת עם אנשים שרוצים להבין את עצמם לעומק ולשנות דפוסים שמכבידים עליהם בחיים ובקשרים. חשוב לי ליצור מרחב קשוב ובטוח, שבו אפשר להתבונן במה שקורה בפנים בסקרנות, להתקדם בקצב שמתאים לכם ולמצוא בהדרגה דרך אחרת לפגוש את עצמכם ואת הקשרים בחייכם.</p>
 					<a href="/about" class="text-burgundy font-medium text-base md:text-lg hover:text-burgundy/80 transition-colors">עוד על ההכשרה והגישה שלי ←</a>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="py-10 md:py-14 bg-sage/20 border-y border-sage/20">
-		<div class="container-custom">
-			<div class="scroll-reveal fade-up max-w-3xl mx-auto text-center relative px-4 md:px-8">
-				<span class="absolute -top-5 left-2 md:left-4 text-7xl md:text-8xl font-display text-burgundy/12 leading-none" aria-hidden="true">״</span>
-				<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-5">אני מאמינה</h2>
-				<p class="text-base md:text-lg text-charcoal leading-relaxed relative z-10">
-					אני מאמינה בכוחות וב<strong>יכולת לשינוי</strong> שקיימים בך, גם כשקשה להרגיש אותם. יחד נוכל להתבונן בקושי בסקרנות ובחמלה, <strong>להבין את מה שמנהל אותך</strong> וליצור בהדרגה אפשרויות חדשות.
-				</p>
-				<div class="w-16 h-0.5 bg-burgundy/35 mx-auto mt-6" aria-hidden="true"></div>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-10 md:py-14 bg-gradient-warm border-y border-burgundy/10">
+	<section class="home-soft py-14 md:py-24">
 		<div class="container-custom">
 			<div class="max-w-5xl mx-auto">
 				<div class="scroll-reveal fade-up max-w-3xl mx-auto text-center mb-7 md:mb-9">
@@ -44,28 +32,28 @@ import { siteData } from '../content/site-data';
 					</p>
 				</div>
 
-				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 md:gap-5">
-					<div class="scroll-reveal fade-up card p-5 md:p-6">
+				<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-8 gap-y-2 md:gap-x-12">
+					<div class="home-principle scroll-reveal fade-up py-6 md:py-8">
 						<h3 class="text-xl font-display text-burgundy mb-3">קשר, אמון וביטחון</h3>
 						<p class="leading-relaxed">בניית קשר שבו אפשר להרגיש שרואים אתכם, להתקדם בקצב שלכם ולהקשיב גם למה שהגוף מבקש.</p>
 					</div>
-					<div class="scroll-reveal fade-up delay-100 card p-5 md:p-6">
+					<div class="home-principle scroll-reveal fade-up delay-100 py-6 md:py-8">
 						<h3 class="text-xl font-display text-burgundy mb-3">מקום לרגש ולצרכים</h3>
 						<p class="leading-relaxed">מתן תוקף לחוויה, זיהוי הצורך שנמצא בבסיס הרגש ופיתוח יחס חומל יותר כלפי עצמכם.</p>
 					</div>
-					<div class="scroll-reveal fade-up delay-200 card p-5 md:p-6">
+					<div class="home-principle scroll-reveal fade-up delay-200 py-6 md:py-8">
 						<h3 class="text-xl font-display text-burgundy mb-3">החלקים השונים בתוכנו</h3>
 						<p class="leading-relaxed">היכרות עם קולות, צרכים וחלקים שונים — בלי שאחד מהם יגדיר את כל מי שאנחנו.</p>
 					</div>
-					<div class="scroll-reveal fade-up card p-5 md:p-6">
+					<div class="home-principle scroll-reveal fade-up py-6 md:py-8">
 						<h3 class="text-xl font-display text-burgundy mb-3">כוחות ומשאבים</h3>
-						<p class="leading-relaxed">זיהוי יכולות, ערכים, קשרים וחוויות שמחזקים תחושת יציבות, אנרגיה ומסוגלות.</p>
+						<p class="leading-relaxed">זיהוי הכוחות, היכולות, הערכים והקשרים שכבר קיימים בכם — גם כשקשה להרגיש אותם — וחיזוק חוויות שמביאות יציבות, אנרגיה ותחושת מסוגלות.</p>
 					</div>
-					<div class="scroll-reveal fade-up delay-100 card p-5 md:p-6">
+					<div class="home-principle scroll-reveal fade-up delay-100 py-6 md:py-8">
 						<h3 class="text-xl font-display text-burgundy mb-3">הבנה ועיבוד</h3>
-						<p class="leading-relaxed">התבוננות במקורות של דפוסים ותגובות, ועיבוד הדרגתי של חוויות מן העבר בקצב שאפשר לשאת.</p>
+						<p class="leading-relaxed">התבוננות באופן שבו חוויות מן העבר ממשיכות להשפיע על ההווה, והיכרות עם הצרכים, הרגשות והדפוסים שנוצרו סביבן.</p>
 					</div>
-					<div class="scroll-reveal fade-up delay-200 card p-5 md:p-6">
+					<div class="home-principle scroll-reveal fade-up delay-200 py-6 md:py-8">
 						<h3 class="text-xl font-display text-burgundy mb-3">בחירה ותנועה קדימה</h3>
 						<p class="leading-relaxed">בחינה מחודשת של מחשבות ודפוסים, חיזוק גבולות ותקשורת ותרגום התובנות לצעדים בחיים.</p>
 					</div>
@@ -77,58 +65,7 @@ import { siteData } from '../content/site-data';
 		</div>
 	</section>
 
-	<section class="py-10 md:py-14 bg-cream-warm">
-		<div class="container-custom">
-			<div class="scroll-reveal fade-up max-w-3xl mx-auto text-center mb-7">
-				<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-4">איך אפשר לדעת אם הטיפול יכול להתאים?</h2>
-				<p class="text-base md:text-lg text-charcoal leading-relaxed">
-					טיפול יכול להתאים כשיש קושי שממשיך לחזור, כשהעבר משפיע על ההווה, כשהרגשות מציפים או כשהדרכים שעזרו בעבר כבר אינן מספיקות. אפשר לפנות גם כשעדיין לא ברור בדיוק מה קורה או איזו דרך טיפולית עשויה להתאים.
-				</p>
-			</div>
-			<div class="scroll-reveal fade-up delay-100 max-w-5xl mx-auto flex flex-wrap justify-center gap-3 md:gap-4">
-				{[
-					'טראומה ופוסט־טראומה',
-					'התמכרויות ודפוסים כפייתיים',
-					'חרדה, הצפה וקושי בוויסות רגשי',
-					'משברי חיים, פרידות ושינויים',
-					'קשיים ביחסים, התקשרות וערך עצמי',
-				].map((area) => <div class="card px-4 py-3 md:p-5 flex items-center gap-3 w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)] md:min-h-24"><span class="flex-shrink-0 w-2.5 h-2.5 rounded-full bg-burgundy/55" aria-hidden="true"></span><p class="text-base md:text-lg leading-relaxed">{area}</p></div>)}
-			</div>
-			<div class="scroll-reveal fade-up delay-300 mt-5 text-center">
-				<a href="/services" class="text-burgundy font-medium text-base md:text-lg hover:text-burgundy/80 transition-colors">לכל תחומי הטיפול ←</a>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-10 md:py-14 bg-sage/20 border-y border-sage/20">
-		<div class="container-custom">
-			<div class="max-w-5xl mx-auto">
-				<div class="scroll-reveal fade-up text-center mb-7 md:mb-9">
-					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-3">איך מתחילים?</h2>
-					<p class="max-w-2xl mx-auto text-base md:text-lg text-charcoal leading-relaxed">לא צריך להגיע עם החלטה סופית או לדעת מראש איזו דרך טיפולית מתאימה.</p>
-				</div>
-				<ol class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
-					<li class="scroll-reveal fade-up card p-5 md:p-6 text-center">
-						<span class="inline-flex w-9 h-9 items-center justify-center rounded-full bg-burgundy text-white font-semibold mb-4" aria-hidden="true">1</span>
-						<h3 class="text-xl font-display text-burgundy mb-3">פנייה ראשונית</h3>
-						<p class="leading-relaxed">אפשר לפנות ב־<a href={`https://wa.me/${siteData.whatsapp}`} target="_blank" rel="noopener noreferrer" class="text-burgundy font-medium underline underline-offset-4 hover:text-burgundy/80 transition-colors">WhatsApp</a> או בטלפון. אין צורך לפרט הכול בהודעה הראשונה.</p>
-					</li>
-					<li class="scroll-reveal fade-up delay-100 card p-5 md:p-6 text-center">
-						<span class="inline-flex w-9 h-9 items-center justify-center rounded-full bg-burgundy text-white font-semibold mb-4" aria-hidden="true">2</span>
-						<h3 class="text-xl font-display text-burgundy mb-3">שיחת היכרות קצרה</h3>
-						<p class="leading-relaxed">נקיים שיחה טלפונית של כ־10–15 דקות, ללא עלות וללא התחייבות, כדי להכיר ולבדוק התאמה ראשונית.</p>
-					</li>
-					<li class="scroll-reveal fade-up delay-200 card p-5 md:p-6 text-center">
-						<span class="inline-flex w-9 h-9 items-center justify-center rounded-full bg-burgundy text-white font-semibold mb-4" aria-hidden="true">3</span>
-						<h3 class="text-xl font-display text-burgundy mb-3">תחילת התהליך</h3>
-						<p class="leading-relaxed">אם נחליט להמשיך, נקבע פגישה ונבחן יחד את המטרות, הקצב ודרך העבודה המתאימה.</p>
-					</li>
-				</ol>
-			</div>
-		</div>
-	</section>
-
-	<section class="py-10 md:py-14 bg-gradient-warm">
+	<section class="home-clean py-14 md:py-24">
 		<div class="container-custom">
 			<div class="max-w-5xl mx-auto">
 				<h2 class="scroll-reveal fade-up text-2xl md:text-3xl font-display text-burgundy mb-6 text-center">דרכי עבודה אפשריות</h2>
@@ -138,57 +75,202 @@ import { siteData } from '../content/site-data';
 						<p><strong>אין צורך לבחור שיטה מראש.</strong> דרכי העבודה הן אפשרויות בתוך הטיפול, והשימוש בהן מותאם לצרכים, לקצב ולמוכנות של כל אדם.</p>
 					</div>
 					<div class="grid grid-cols-1 sm:grid-cols-2 gap-3 md:gap-4">
-					<div class="scroll-reveal fade-up card p-5"><h3 class="text-xl font-display text-burgundy mb-3">שיחה וקשר טיפולי</h3><p class="leading-relaxed">אפשר להגיע לטיפול המבוסס על שיחה בלבד.</p></div>
-					<a href="/emdr" class="scroll-reveal fade-up delay-100 card p-5 block hover:shadow-2xl transition-shadow"><h3 class="text-xl font-display text-burgundy mb-3">EMDR</h3><p class="leading-relaxed">ניתן לשלב בהדרגה, לאחר היכרות, הכנה ובדיקת התאמה.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
-					<a href="/se" class="scroll-reveal fade-up delay-200 card p-5 block hover:shadow-2xl transition-shadow"><h3 class="text-xl font-display text-burgundy mb-3">SE וגוף</h3><p class="leading-relaxed">תשומת לב לתחושות הגוף ולתגובות מערכת העצבים.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
-					<a href="/art-therapy" class="scroll-reveal fade-up delay-300 card p-5 block hover:shadow-2xl transition-shadow"><h3 class="text-xl font-display text-burgundy mb-3">טיפול באמנות</h3><p class="leading-relaxed">חומר, צבע ודימוי כערוצים אפשריים לביטוי ולהתבוננות.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
-					<a href="/somatic-art-therapy" class="scroll-reveal fade-up card p-5 block hover:shadow-2xl transition-shadow sm:col-span-2"><h3 class="text-xl font-display text-burgundy mb-3">טיפול באמנות בגישה סומטית</h3><p class="leading-relaxed">חיבור בין יצירה לבין תשומת לב לגוף ולמערכת העצבים.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
+					<div class="home-method scroll-reveal fade-up py-5"><h3 class="text-xl font-display text-burgundy mb-3">שיחה וקשר טיפולי</h3><p class="leading-relaxed">אפשר להגיע לטיפול המבוסס על שיחה בלבד.</p></div>
+					<a href="/emdr" class="home-method scroll-reveal fade-up delay-100 py-5 block"><h3 class="text-xl font-display text-burgundy mb-3">EMDR</h3><p class="leading-relaxed">ניתן לשלב בהדרגה, לאחר היכרות, הכנה ובדיקת התאמה.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
+					<a href="/se" class="home-method scroll-reveal fade-up delay-200 py-5 block"><h3 class="text-xl font-display text-burgundy mb-3">SE וגוף</h3><p class="leading-relaxed">תשומת לב לתחושות הגוף ולתגובות מערכת העצבים.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
+					<a href="/art-therapy" class="home-method scroll-reveal fade-up delay-300 py-5 block"><h3 class="text-xl font-display text-burgundy mb-3">טיפול באמנות</h3><p class="leading-relaxed">חומר, צבע ודימוי כערוצים אפשריים לביטוי ולהתבוננות.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
+					<a href="/somatic-art-therapy" class="home-method scroll-reveal fade-up py-5 block sm:col-span-2"><h3 class="text-xl font-display text-burgundy mb-3">טיפול באמנות בגישה סומטית</h3><p class="leading-relaxed">חיבור בין יצירה לבין תשומת לב לגוף ולמערכת העצבים.</p><span class="mt-3 inline-block text-burgundy font-medium">לקריאה נוספת ←</span></a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
 
-	<section class="py-9 md:py-12 bg-sage/20 border-y border-sage/20">
-		<div class="container-custom"><div class="scroll-reveal fade-up max-w-4xl mx-auto card p-6 md:p-8 grid md:grid-cols-[1fr_auto] gap-5 items-center">
+	<section class="home-soft py-14 md:py-20">
+		<div class="container-custom">
+			<div class="scroll-reveal fade-up max-w-3xl mx-auto text-center mb-7">
+				<h2 class="text-2xl md:text-3xl font-display text-burgundy">איך אפשר לדעת אם הטיפול יכול להתאים?</h2>
+			</div>
+			<div class="scroll-reveal fade-up delay-100 max-w-5xl mx-auto flex flex-wrap justify-center gap-3 md:gap-4">
+				{[
+					'טראומה ופוסט־טראומה',
+					'התמכרויות ודפוסים כפייתיים',
+					'חרדה, הצפה וקושי בוויסות רגשי',
+					'משברי חיים, פרידות ושינויים',
+					'קשיים ביחסים, התקשרות וערך עצמי',
+				].map((area) => <div class="home-fit-item px-2 py-4 md:py-5 flex items-center gap-3 w-full sm:w-[calc(50%-0.5rem)] lg:w-[calc(33.333%-0.75rem)]"><span class="flex-shrink-0 w-2 h-2 rounded-full" aria-hidden="true"></span><p class="text-base md:text-lg leading-relaxed">{area}</p></div>)}
+			</div>
+			<div class="scroll-reveal fade-up delay-300 mt-5 text-center">
+				<a href="/services" class="text-burgundy font-medium text-base md:text-lg hover:text-burgundy/80 transition-colors">לכל תחומי הטיפול ←</a>
+			</div>
+		</div>
+	</section>
+
+	<section class="home-clean py-14 md:py-24">
+		<div class="container-custom">
+			<div class="max-w-5xl mx-auto">
+				<div class="scroll-reveal fade-up text-center mb-7 md:mb-9">
+					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-3">איך מתחילים?</h2>
+					<p class="max-w-2xl mx-auto text-base md:text-lg text-charcoal leading-relaxed">לא צריך להגיע עם החלטה סופית או לדעת מראש איזו דרך טיפולית מתאימה.</p>
+				</div>
+				<ol class="grid grid-cols-1 md:grid-cols-3 gap-4 md:gap-6">
+					<li class="home-step scroll-reveal fade-up p-5 md:p-6 text-center">
+						<span class="inline-flex w-9 h-9 items-center justify-center rounded-full bg-burgundy text-white font-semibold mb-4" aria-hidden="true">1</span>
+						<h3 class="text-xl font-display text-burgundy mb-3">פנייה ראשונית</h3>
+						<p class="leading-relaxed">אפשר לפנות ב־<a href={`https://wa.me/${siteData.whatsapp}`} target="_blank" rel="noopener noreferrer" class="text-burgundy font-medium underline underline-offset-4 hover:text-burgundy/80 transition-colors">WhatsApp</a> או בטלפון. אין צורך לפרט הכול בהודעה הראשונה.</p>
+					</li>
+					<li class="home-step scroll-reveal fade-up delay-100 p-5 md:p-6 text-center">
+						<span class="inline-flex w-9 h-9 items-center justify-center rounded-full bg-burgundy text-white font-semibold mb-4" aria-hidden="true">2</span>
+						<h3 class="text-xl font-display text-burgundy mb-3">שיחת היכרות קצרה</h3>
+						<p class="leading-relaxed">נקיים שיחה טלפונית של כ־10–15 דקות, ללא עלות וללא התחייבות, כדי להכיר ולבדוק התאמה ראשונית.</p>
+					</li>
+					<li class="home-step scroll-reveal fade-up delay-200 p-5 md:p-6 text-center">
+						<span class="inline-flex w-9 h-9 items-center justify-center rounded-full bg-burgundy text-white font-semibold mb-4" aria-hidden="true">3</span>
+						<h3 class="text-xl font-display text-burgundy mb-3">תחילת התהליך</h3>
+						<p class="leading-relaxed">אם נחליט להמשיך, נקבע פגישה ונבחן יחד את המטרות, הקצב ודרך העבודה המתאימה.</p>
+					</li>
+				</ol>
+			</div>
+		</div>
+	</section>
+
+	<section class="home-clean py-12 md:py-18">
+		<div class="container-custom"><div class="home-workshops scroll-reveal fade-up max-w-4xl mx-auto p-7 md:p-10 grid md:grid-cols-[1fr_auto] gap-5 items-center">
 			<div><p class="text-sm font-semibold text-burgundy/75 mb-2">הזרוע הקבוצתית</p><h2 class="text-2xl md:text-3xl text-burgundy mb-3">סדנאות יצירה וחיבור לקבוצות</h2><p class="text-base md:text-lg leading-relaxed">מפגשים מותאמים לצוותים, קהילות, מרכזי נוער, ימי הולדת ואירועים פרטיים. הסדנה נבנית יחד לפי הקבוצה, המטרה והאירוע.</p></div>
 			<a href="/workshops" class="btn-secondary whitespace-nowrap">לסדנאות</a>
 		</div></div>
 	</section>
 
-	<section class="py-8 md:py-12 bg-gradient-warm">
-		<div class="container-custom w-full">
-			<div class="max-w-3xl mx-auto">
-				<div class="scroll-reveal fade-up card-sage p-5 md:p-7 text-center">
-					<div class="w-12 h-12 md:w-14 md:h-14 bg-burgundy rounded-full flex items-center justify-center mx-auto mb-3">
-						<svg class="w-6 h-6 md:w-7 md:h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/></svg>
-					</div>
-					<h2 class="text-2xl md:text-3xl font-display text-burgundy mb-3">מיקום הטיפול</h2>
-					<p class="text-base md:text-lg text-charcoal mb-4">{siteData.location.name}</p>
-					<ul class="flex flex-wrap justify-center gap-x-5 gap-y-2 text-base md:text-lg text-charcoal mb-6">
-						<li>טיפול מקוון לאחר בדיקת התאמה</li><li aria-hidden="true">•</li><li>יש חניה</li><li aria-hidden="true">•</li><li>הקליניקה נגישה</li>
+	<section class="home-contact py-14 md:py-20">
+		<div class="container-custom">
+			<div class="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-16 items-center max-w-5xl mx-auto">
+				<div class="scroll-reveal fade-up text-center md:text-right">
+					<h2 class="text-2xl md:text-3xl font-display mb-3">מיקום הטיפול</h2>
+					<p class="text-base md:text-lg mb-4">{siteData.location.name}</p>
+					<ul class="space-y-2 text-base md:text-lg mb-6">
+						<li>טיפול מקוון לאחר בדיקת התאמה</li>
+						<li>יש חניה והקליניקה נגישה</li>
 					</ul>
-					<div class="flex flex-col sm:flex-row gap-3 justify-center items-center">
-						<a href={siteData.location.googleMapsUrl} target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center gap-2 text-sm md:text-base">פתח ב־Google Maps</a>
-						<a href={siteData.location.wazeUrl} target="_blank" rel="noopener noreferrer" class="btn-primary inline-flex items-center gap-2 text-sm md:text-base">נווט ב־Waze</a>
+					<div class="flex flex-wrap gap-3 justify-center md:justify-start">
+						<a href={siteData.location.googleMapsUrl} target="_blank" rel="noopener noreferrer" class="home-contact-link">Google Maps</a>
+						<a href={siteData.location.wazeUrl} target="_blank" rel="noopener noreferrer" class="home-contact-link">Waze</a>
+					</div>
+				</div>
+				<div class="scroll-reveal fade-up delay-100 text-center md:text-right">
+					<h2 class="text-2xl md:text-3xl font-display mb-4">מוכנים להתחיל?</h2>
+					<p class="text-base md:text-lg mb-3">אפשר לפנות בדרך שנוחה לכם.</p>
+					<p class="text-sm md:text-base leading-relaxed mb-6">
+						לאחר הפנייה נקיים שיחת טלפון קצרה של 10–15 דקות, ללא עלות וללא התחייבות.<br />
+						אני משתדלת לחזור בתוך יום–יומיים עסקים.
+					</p>
+					<div class="flex flex-col sm:flex-row md:flex-col lg:flex-row gap-3 justify-center md:justify-start">
+						<a href={`https://wa.me/${siteData.whatsapp}`} target="_blank" rel="noopener noreferrer" class="home-contact-cta">צור קשר ב־WhatsApp</a>
+						<a href={siteData.instagram} target="_blank" rel="noopener noreferrer" class="home-contact-link">לתכנים באינסטגרם</a>
 					</div>
 				</div>
 			</div>
 		</div>
 	</section>
-
-	<section class="py-4 md:py-6 bg-burgundy text-white">
-		<div class="container-custom text-center">
-			<h2 class="scroll-reveal fade-up text-2xl md:text-3xl font-display mb-4">מוכנים להתחיל?</h2>
-			<p class="scroll-reveal fade-up delay-100 text-base md:text-lg mb-3 max-w-2xl mx-auto">אני כאן כדי לעזור. צרו קשר בכל דרך שנוחה לכם.</p>
-			<p class="scroll-reveal fade-up delay-100 text-sm md:text-base leading-relaxed mb-6 max-w-2xl mx-auto text-white/90">
-				לאחר הפנייה נקיים שיחת טלפון קצרה של 10–15 דקות, ללא עלות וללא התחייבות.<br />
-				אני משתדלת לחזור בתוך יום–יומיים עסקים.
-			</p>
-			<div class="scroll-reveal fade-up delay-200 flex flex-col items-center gap-3">
-				<a href={`https://wa.me/${siteData.whatsapp}`} target="_blank" rel="noopener noreferrer" class="btn-secondary bg-cream-warm text-burgundy hover:opacity-90 inline-flex items-center gap-2 text-base md:text-lg px-6 py-3">צור קשר ב־WhatsApp</a>
-				<a href={siteData.instagram} target="_blank" rel="noopener noreferrer" class="btn-secondary bg-cream-warm text-burgundy hover:opacity-90 inline-flex items-center gap-2 text-base md:text-lg px-6 py-3">לתכנים נוספים באינסטגרם</a>
-			</div>
-		</div>
-	</section>
+	</div>
 </Layout>
+
+<style is:global>
+	.home-minimal {
+		--home-bg: #fdfbf9;
+		--home-soft: #f6e8e4;
+		--home-rose: #d7a09d;
+		--home-rose-deep: #a86467;
+		--home-mustard: #c8a25d;
+		--home-ink: #5c504d;
+		background: var(--home-bg);
+		color: var(--home-ink);
+	}
+
+	.home-minimal .home-clean,
+	.home-minimal .home-hero { background: var(--home-bg) !important; }
+	.home-minimal .home-soft,
+	.home-minimal .home-belief { background: var(--home-soft) !important; }
+	.home-minimal .home-belief { border: 0; }
+	.home-minimal .home-contact { background: var(--home-rose-deep) !important; }
+	.home-minimal .home-contact h2,
+	.home-minimal .home-contact p,
+	.home-minimal .home-contact li { color: #fff !important; }
+
+	.home-minimal h1,
+	.home-minimal h2,
+	.home-minimal h3,
+	.home-minimal .text-burgundy { color: var(--home-ink) !important; }
+	.home-minimal p,
+	.home-minimal li,
+	.home-minimal .text-charcoal { color: var(--home-ink); }
+	.home-minimal strong { color: var(--home-rose-deep); }
+	.home-minimal .bg-burgundy { background: var(--home-rose-deep) !important; }
+
+	.home-minimal .btn-primary {
+		background: var(--home-rose-deep) !important;
+		color: #fff !important;
+		border: 1px solid var(--home-rose-deep) !important;
+		border-radius: 999px !important;
+		box-shadow: none !important;
+	}
+	.home-minimal .btn-secondary {
+		background: transparent !important;
+		color: var(--home-rose-deep) !important;
+		border: 1px solid var(--home-rose) !important;
+		border-radius: 999px !important;
+		box-shadow: none !important;
+	}
+	.home-minimal .home-contact .btn-secondary {
+		background: #fff !important;
+		color: var(--home-rose-deep) !important;
+		border-color: #fff !important;
+	}
+	.home-minimal a:not(.btn-primary):not(.btn-secondary) { color: var(--home-rose-deep); }
+	.home-minimal .home-contact-link,
+	.home-minimal .home-contact-cta {
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		padding: 0.7rem 1.25rem;
+		border-radius: 999px;
+		font-weight: 600;
+		transition: opacity 180ms ease, background-color 180ms ease;
+	}
+	.home-minimal .home-contact-link {
+		color: #fff !important;
+		border: 1px solid rgba(255, 255, 255, 0.7);
+	}
+	.home-minimal .home-contact-cta {
+		background: #fff;
+		color: var(--home-rose-deep) !important;
+		border: 1px solid #fff;
+	}
+	.home-minimal .home-contact-link:hover,
+	.home-minimal .home-contact-cta:hover { opacity: 0.84; }
+
+	.home-minimal .hero-text-glow,
+	.home-minimal .hero-image-glow { display: none; }
+	.home-minimal .home-hero-image { box-shadow: 0 18px 60px rgba(92, 80, 77, 0.08); border-radius: 2rem; }
+	.home-minimal .brush-rose::before,
+	.home-minimal .brush-gold::before { background: rgba(200, 162, 93, 0.28); }
+	.home-minimal .response-highlight { color: var(--home-rose-deep); }
+
+	.home-minimal .home-principle,
+	.home-minimal .home-fit-item,
+	.home-minimal .home-method { border-top: 1px solid rgba(168, 100, 103, 0.22); }
+	.home-minimal .home-fit-item span { background: var(--home-mustard); }
+	.home-minimal .home-step { border: 0; background: transparent; box-shadow: none; }
+	.home-minimal .home-step > span { background: var(--home-mustard) !important; color: #fff !important; }
+	.home-minimal .home-workshops { background: var(--home-soft); border-radius: 2rem; }
+	.home-minimal .home-intro { background: transparent; border: 0; box-shadow: none; }
+	.home-minimal .home-portrait {
+		border: 2px solid rgba(200, 162, 93, 0.68);
+		padding: 5px;
+		background: var(--home-bg);
+	}
+
+	@media (max-width: 767px) {
+		.home-minimal .home-hero { padding-top: 3rem; }
+		.home-minimal .home-intro { text-align: center; }
+	}
+</style>

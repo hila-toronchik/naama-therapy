@@ -4,10 +4,11 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				'cream-warm': '#F0D7B8',
-				'sage': '#aaa6a0',
-				'burgundy': '#6D2E46',
-				'charcoal': '#493000',
+				'cream-warm': '#FDFBF9',
+				'sage': '#F6E8E4',
+				'burgundy': '#A86467',
+				'charcoal': '#5C504D',
+				'mustard': '#C8A25D',
 			},
 			fontFamily: {
 				display: ['"Secular One"', 'sans-serif'],

@@ -22,7 +22,7 @@ export const siteData = {
 		artTherapy: 'טיפול באמנות',
 		se: 'SE',
 		somaticArt: 'טיפול באמנות בגישה סומטית',
-		age16: 'טיפול במתבגרים מגיל 14',
+		age16: 'טיפול במתבגרים',
 		workshops: 'סדנאות',
 		articles: 'מאמרים',
 		faq: 'שאלות נפוצות',

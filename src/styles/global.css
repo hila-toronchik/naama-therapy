@@ -7,10 +7,12 @@
 
 @layer base {
 	:root {
-		--cream-warm: #F0D7B8;
-		--sage: #f6e7d4;
-		--burgundy: #6D2E46;
-		--charcoal: #493000;
+		--cream-warm: #FDFBF9;
+		--sage: #F6E8E4;
+		--burgundy: #A86467;
+		--charcoal: #5C504D;
+		--mustard: #C8A25D;
+		--white-warm: #F7F1ED;
 		--reading-width: 48rem;
 		--cta-width: 42rem;
 	}
@@ -28,6 +30,7 @@
 
 	body {
 		@apply antialiased;
+		background: var(--cream-warm);
 		position: relative;
 		overflow-x: hidden;
 	}
@@ -40,7 +43,7 @@
 		width: 100%;
 		height: 100%;
 		background-image: url('https://www.transparenttextures.com/patterns/paper-fibers.png');
-		opacity: 0.3;
+		opacity: 0.11;
 		pointer-events: none;
 		z-index: -1;
 	}
@@ -64,12 +67,14 @@
 
 	.btn-primary {
 		background-color: var(--burgundy);
-		@apply text-white px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg;
+		@apply text-white px-6 py-3 rounded-full font-medium transition-all duration-300 hover:opacity-90;
 	}
 
 	.btn-secondary {
-		background-color: var(--sage);
-		@apply text-charcoal px-6 py-3 rounded-lg font-medium transition-all duration-300 hover:opacity-90 hover:shadow-lg;
+		background-color: transparent;
+		border: 1px solid rgba(168, 100, 103, 0.48);
+		color: var(--burgundy);
+		@apply px-6 py-3 rounded-full font-medium transition-all duration-300 hover:opacity-80;
 	}
 
 	.section-padding {
@@ -77,21 +82,22 @@
 	}
 
 	.card {
-		background-color: var(--sage);
-		border: 1px solid rgba(73, 48, 0, 0.1);
-		@apply rounded-xl shadow-sm p-5 md:p-7;
+		background-color: rgba(255, 255, 255, 0.78);
+		border: 1px solid rgba(168, 100, 103, 0.16);
+		@apply rounded-2xl p-5 md:p-7;
 	}
 
 	.card-warm {
-		background-color: var(--cream-warm);
-		border: 1px solid rgba(170, 166, 160, 0.2);
-		@apply rounded-xl shadow-sm p-5 md:p-7;
+		background-color: var(--white-warm);
+		border: 1px solid rgba(168, 100, 103, 0.14);
+		@apply rounded-2xl p-5 md:p-7;
 	}
 
 	.card-sage {
 		background-color: var(--sage);
-		border: 1px solid rgba(73, 48, 0, 0.08);
-		@apply rounded-xl shadow-sm p-5 md:p-7;
+		border: 1px solid rgba(168, 100, 103, 0.12);
+		border-top-color: rgba(200, 162, 93, 0.52);
+		@apply rounded-2xl p-5 md:p-7;
 	}
 
 
@@ -162,7 +168,7 @@
 	a.card-sage:hover,
 	a.card-sage:focus-visible {
 		transform: translateY(-2px);
-		box-shadow: 0 10px 20px rgba(73, 48, 0, 0.12);
+		box-shadow: 0 12px 28px rgba(92, 80, 77, 0.09);
 	}
 
 	@media (max-width: 767px) {
